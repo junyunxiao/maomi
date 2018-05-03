@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    
+    <dubbo:application name="easycode-customer"/>
+    <dubbo:registry protocol="zookeeper" address="111.231.104.100:2181,111.231.104.100:2182,111.231.104.100:2183" />
+     <dubbo:reference id="userService" interface="com.easycode.rest.server.UserService"  loadbalance="roundrobin"  retries="2" />
+     <dubbo:reference id="fileService" interface="com.easycode.rest.server.FileService" loadbalance="roundrobin"  retries="2" /> 
+      <dubbo:reference id="schoolInfoService" interface="com.easycode.rest.server.SchoolInfoServer" loadbalance="roundrobin" retries="2" /> 
+      <dubbo:reference id="worksServer" interface="com.easycode.rest.server.WorksServer" loadbalance="roundrobin" retries="2" /> 
+      <dubbo:reference id="categoryServer" interface="com.easycode.rest.server.CategoryServer" loadbalance="roundrobin" retries="2" /> 
+      <dubbo:reference id="commentServer" interface="com.easycode.rest.server.CommentServer" loadbalance="roundrobin" retries="2" /> 
+</beans>

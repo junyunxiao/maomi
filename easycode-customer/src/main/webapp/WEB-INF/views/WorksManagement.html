@@ -1,0 +1,290 @@
+	<style type="text/css">
+		.thumbnail {
+			margin-top: 10px;
+			padding-left: 0!important;
+		}
+		.my_all{
+
+			padding: 0;
+				height: 148px;
+			padding: 10px;
+			
+			box-sizing: border-box;
+			border-bottom: 1px solid #E4E2E2
+		}
+		.my_pic{
+			width: 150px;
+			object-fit: cover;
+			height: 100%;
+			cursor: pointer;
+		}
+		.my_tit{
+
+
+		}
+		.ones{
+			height: 120px;
+			padding-left: 0;
+		}
+		.my_three-con{
+			height: 148px;
+			line-height: 148px;
+		}
+		.my_tit h4{
+			font-size: 18px;
+		}
+		.my_tit span{
+			color: gray;
+		}
+		.my_three li{
+			font-size: 18px;
+			text-align: center;
+			padding-right: 0;
+		}
+		.my_three-con span {
+			cursor: pointer;
+			color: #666;
+		}
+		.published {
+			margin-left: 10px;
+			height: 40px;
+			line-height: 40px;
+			font-size: 20px;
+		}
+		.publishedform {
+			position: relative;
+			text-align: right;
+		}
+		.publishedform i {
+			position: absolute;
+			top: 66px;
+			left: 17px;
+		}
+		.publishedform input {
+			
+				background-color:inherit;
+				border: 0;
+				font-weight: bold;
+		}
+		.unpublished {
+			color: #00BDEF!important;
+
+		}
+		.list-unstyled li a {
+			/* font-weight: bold; */
+			font-size: 14px!important;
+		}
+	</style>
+		<div class="container-fluid Administration">
+			<div class="container" id="apps">
+				<div class="row">
+					<!-----------------tab导航栏------------------------------->
+					<div class="col-xs-4 col-sm-3 col-md-2 Administration-nav">
+						<ul class="nav-tabs list-unstyled">
+							<li @click="Unpublished">
+								<span class="Administration-bj"></span>
+								<a href="javascript:" class="unpublished" data-toggle="tab" >未发布的作品</a>
+							</li>
+							<li @click="already">
+								<span class="Administration-bj"></span>
+								<a href="javascript:" data-toggle="tab">已发布的作品</a>
+							</li>
+						
+						</ul>
+					</div>
+					<!------------------tan内容---------------------------------------->
+					<div class="col-xs-8 col-sm-9 col-md-10">
+						<div class="tab-content Administration-content" >
+							<!--头部-->
+							 <div class="Administration-content-header">
+							 	<font class="pull-right">
+							 		<a href="editor.html" class="newzt1">新增作品</a>
+									<!--<a href="javascript:" class="newzt">新增专题</a>-->
+									<script type="text/javascript">
+											$('.newzt1').click(function () {
+												$('header').slideUp(500);
+												$('footer').slideUp(500);
+											})
+									</script>
+							 	</font>
+							 </div>
+							<div class="tab-pane active" id="UnpublishedWorks">
+								<div class="row" id="feature_row">				
+									<div v-if="isPublish==1" class="published">已发布的作品:</div>
+									<div v-else-if="isPublish==0" class="published">未发布的作品:</div>
+									<div class="col-md-12 my_all" v-for="val in resultData">
+											<div class="col-md-2 ones">
+												<img @click="urls(val.projectId)" :src="'http://www.maomi.xn--fiqs8s/'+val.resourcesUrl" class="my_pic"/>
+											</div>
+											<div class="col-md-6 text-left my_tit">
+												<h4>{{val.projectName}}</h4>
+												<span>{{val.createUserName}}</span>
+											</div>
+											<div class="col-md-4 my_three">
+												<ul class="my_three-con">
+													<li class="col-md-4">
+													<!--发布提交-->
+														<form v-if="isPublish!=1" class="publishedform" action="unReleasedIssue" method="post">
+															<i class="fa fa-rocket"></i> 
+															<input type="hidden" name="projectId" :value="val.projectId" />
+															<input type="hidden" name="projectName"  :value="val.projectName" />
+															<input type="hidden" name="resourcesUrl"  :value="val.resourcesUrl" />
+															<input type="hidden" name="projectUrl"  :value="val.projectUrl" />
+															<input type="hidden" name="createUserId"  :value="val.createUserId" />
+															<input type="hidden" name="createUserName"  :value="val.createUserName" />
+															<input type="submit" value="发布"/>
+														</form>
+													</li>
+														
+													<li class="col-md-4">
+														<!--已经发布的编辑-->
+														<form v-if="isPublish==1" class="publishedform" action="publishedEditor" method="post">
+															<i class="fa fa-pencil-square-o"></i> 
+															<input type="hidden" name="projectId" :value="val.projectId" />
+															<input type="hidden" name="resourcesUrl"  :value="val.resourcesUrl" />
+															<input type="hidden" name="projectUrl"  :value="val.projectUrl" />
+															<input type="hidden" name="isPublish"  value="1" />
+															<input type="submit" value="编辑"/>
+														</form>
+														<!--未发布的编辑-->
+														<form v-else-if="isPublish==0" class="publishedform" action="projectCompiler" method="post">
+															<i class="fa fa-pencil-square-o"></i> 
+															<input type="hidden" name="projectId" :value="val.projectId" />
+															<input type="hidden" name="resourcesUrl"  :value="val.resourcesUrl" />
+															<input type="hidden" name="projectUrl"  :value="val.projectUrl" />
+															<input type="hidden" name="projectUrl"  :value="val.projectUrl" />
+															<input type="hidden" name="isPublish"  value="0" />
+															<input type="submit" value="编辑"/>
+														</form>
+													</li>
+													<!--删除-->
+													<li class="col-md-4" style="text-align: right;">
+														<form class="publishedform" @click="dele(val)">
+															<i class="fa fa-trash"></i> 
+															<input type="button" value="删除"/>
+														</form>
+													</li>
+												</ul>
+											</div>
+										</div>	
+								</div>	
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--LODING-->
+			<!--<div class="loading" v-show="isLoding">
+				<div class="loading-content">
+					<div class="sk-three-bounce">
+				        <div class="sk-child sk-bounce1"></div>
+				        <div class="sk-child sk-bounce2"></div>
+				        <div class="sk-child sk-bounce3"></div>
+				      </div>
+				</div>-->
+			</div>
+			</div>
+		</div>
+
+		
+<script type="text/javascript">
+	new Vue({
+	  el: '#apps',
+	  data:function(){
+			return {
+				isPublish:0,//1为已发布 0为还未发布
+		  		pageCurrent:1,// 当前页
+		  		pageRows:8,	//每页显示多少条
+		  		rowSum:0,	// 总数据, 条数
+		  		resultData:[],
+		  		isLoding:false,
+			}
+	  },
+	  methods:{
+	  	// 作品删除
+	  	dele:function(val) {
+	  		var that = this;
+	  		$.ajax({
+	  			type:"post",
+	  			url:"delProject",
+	  			async:true,
+	  			data:{
+	  				projectId:val.projectId,
+	  				resourcesUrl:val.resourcesUrl,
+	  				projectUrl:val.projectUrl,
+	  			},success:function (res) {
+					 	if (res.resultCode == 1) {
+					 		window.location.reload();
+					 	}
+					 }
+	  		});
+	  	},
+	  	//点击图片跳转页面
+	  	urls:function(id){
+	  		window.location.href = 'http://www.maomi.xn--fiqs8s/getDetails/'+id
+	  	},
+	  	//查询发布和未发布
+	  	query:function(flag) {
+	  		var _this = this;
+	  		_this.isLoding = true	//显示loding
+					$.ajax({
+						type:"post",
+						url: "queryAnnounce",
+						async:true,
+						data: {
+					    isPublish:_this.isPublish,
+						pageCurrent:_this.pageCurrent,
+						pageRows:_this.pageRows
+					 },
+					 success:function (res) {
+					 	if (res.resultCode == 1) {
+					 		_this.isLoding = false	//隐藏loding
+						 	_this.rowSum = res.data.rowSum	//总条数
+						 	if (flag) {		//为true就实现累加
+								_this.resultData = _this.resultData.concat(res.data.rows)
+							} else {
+								_this.resultData = res.data.rows
+							}
+					 	}
+					 }
+					});
+	  	},
+	  	//已经发布
+	  	already:function () {
+	  		this.isPublish = 1
+	  		this.query()
+	  	},
+	  	Unpublished:function () {
+	  		this.isPublish = 0
+	  		this.query()
+	  	},
+	  	//分页
+	  	page:function() {
+	  		var _this = this;
+	  		$(window).scroll(function(){
+				var scrollPos = $(this).scrollTop();
+				var dbHiht = $(document).height();
+				if(dbHiht - scrollPos - $(this).height() < 1){
+					setTimeout( function () {
+						_this.pageCurrent++;
+						if (_this.resultData.length == _this.rowSum) {
+								return
+							}
+						_this.query(true)
+					},500)
+				}
+			})
+	  	},
+	  
+	  },
+	  created:function (){
+	  	this.query()
+	  	this.page()
+	  }
+
+	})
+</script>
+<script type="text/javascript">
+	$('.list-unstyled li a').click( function () {
+		$(this).addClass('unpublished').parent().siblings('li').find('a').removeClass('unpublished')
+	})
+</script>

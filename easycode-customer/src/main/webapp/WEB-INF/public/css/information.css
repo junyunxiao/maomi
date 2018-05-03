@@ -1,0 +1,41 @@
+.mycontent .set {
+	padding: 10px 0;
+	font-size: 18px;
+	border-bottom: 1px solid #ccc;
+}
+.mycontent .set2 {
+		padding: 10px 0;
+	font-size: 18px;
+}
+body {
+	/*background: #f1f1f1;*/
+}
+.mycontent  {
+	padding-top: 100px;
+}
+.mycontent #form1 .col-sm-3 {
+	width: 20%;
+
+}
+.mycontent .col-sm-3, .col-sm-10{
+	padding: 0 7px;
+	
+}
+.mycontent .form-control{
+	padding: 0 5px;
+}
+.mycontent .content .container{
+	padding: 0 30px 0 30px;
+	background: #fff;
+}
+.mycontent .form-group {
+	margin-top: 25px;
+}
+.mycontent .itp {
+	color: #aaa;
+	display: inline-block;
+	margin-left: 20px;
+}
+.mycontent .bto {
+	margin-top: 45px;
+}

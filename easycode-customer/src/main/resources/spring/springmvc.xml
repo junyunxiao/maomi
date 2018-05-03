@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       	 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<!-- 组件扫描 -->
+	<context:component-scan base-package="com.easycode.customer.controller"></context:component-scan>
+	
+	<!-- 注解驱动 -->
+	<mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+	
+		<!-- 视图解析器 解析jsp,默认使用jstl，注意classpath下得有jstl的包 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+			<!-- 配置前缀 -->
+			<property name="prefix" value="/WEB-INF/"/>
+			<!-- 配置后缀 -->
+			<property name="suffix"  value=".jsp" />
+	</bean>
+	
+	
+	
+	<!-- 设置freeMarker的配置文件路径 -->
+  <!--   <bean id="freemarkerConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="location" value="classpath:properties/freemarker.properties" />
+    </bean> -->
+    <!-- html视图解析器 必须先配置freemarkerConfig,注意html是没有prefix前缀属性的 -->
+<!--     <bean id="freemarkerConfig"
+        class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="freemarkerSettings" ref="freemarkerConfiguration" />
+        <property name="templateLoaderPath">
+            <value>/WEB-INF/</value>
+        </property>
+    </bean>
+    <bean id="htmlviewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="suffix" value=".html" />
+        <property name="order" value="0"></property>
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
+    </bean> -->
+	<!-- 静态资源映射 -->
+	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/fonts/" mapping="/fonts/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/locale/" mapping="/locale/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/medialibraries/" mapping="/medialibraries/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/medialibrarythumbnails/" mapping="/medialibrarythumbnails/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/public/" mapping="/public/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/scratch/" mapping="/scratch/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/script/" mapping="/script/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/views/" mapping="/views/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/views/" mapping="/views/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/phosphorus/" mapping="/phosphorus/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/images/" mapping="/images/**"></mvc:resources>
+	
+	
+	<!-- 定义文件上传解析器 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设定默认编码 -->
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<!-- 设定文件上传的最大值5MB，5*1024*1024 -->
+		<property name="maxUploadSize" value="5242880"></property>
+	</bean>
+	
+</beans>

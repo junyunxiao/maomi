@@ -1,0 +1,366 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+	
+}
+body,html{
+	background: #F8F8F8;
+}
+#loadmore {
+	margin-top: 60px;
+}
+.find-tab{
+	/*background: url(../img/87223be7-9edd-4095-a527-0ae1452643ac.png);*/
+	height: 100px;
+ background: #78bdff;
+
+}
+
+.nav-tabs{
+	border-bottom: none !important;
+	position: relative;
+}
+.find-tab ul li{
+	height: 100px;
+	line-height: 120px;
+	position: relative;
+}
+.find-tab ul li .xhx{
+	position: absolute;
+	width: 80%;
+	height: 4px;
+	bottom: 0;
+	left: 10%;
+	background: #FBCD4B;
+	display: none;
+}
+.find-tab ul .active .xhx{
+	display: block;
+}
+.find-tab ul li a{
+	/*color: white !important;*/
+	background: none !important;
+	border: none !important;
+	text-decoration: none;
+	font-size: 23px;
+}
+.list:hover {
+	 transform: translateY(-6px);
+	    -webkit-transform: translateY(-6px);
+	    -moz-transform: translateY(-6px);
+	    box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+	    -webkit-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+	    -moz-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+	    -webkit-transition: all 0.3s ease;
+	    -moz-transition: all 0.3s ease;
+	    -o-transition: all 0.3s ease;
+	    transition: all 0.3s ease;
+}
+#works{
+	position: relative;
+}
+.list{
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    padding-left: 0;
+}
+.act {
+	color: #34C9DB!important;
+}
+@media only screen and (min-width: 100px) and (max-width: 750px) {
+	.find-tab ul li{
+		text-align: left;
+	}
+}
+.works-tab{
+	margin: 0 !important;
+}
+
+.works-tab a:hover{
+	color: #34C9DB;
+}
+
+.works-tab li{
+	margin-right: 20px;
+	margin-top: 8px;
+}
+.works-tab li a{
+	color: #333333;
+	font-size: 18px;
+	background: none !important;
+	border: none !important;
+	padding-left: 0;
+}
+.find-tab-li-last{
+	/*float: right !important;*/
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.find-tab-li-last li{
+	margin-top: 0;
+}
+.find-tab-li-last  li a{
+	color: #333333;
+    font-size: 18px;
+    background: none !important;
+    border: none !important;
+}
+.find-tab-li-last .active a{
+	color: #34c9db !important;
+}
+.thumbnail{
+	padding: 10px !important;
+	border: none !important;
+	margin-top: 25px;
+	margin-bottom: 0!important;
+}
+.thumbnail p{
+	margin-top: 35px;
+	color: gray;
+	font-size: 13px;
+	
+}
+.thumbnail p a{
+	color: gray;
+}
+.thumbnail a{
+	color: #333333;
+	text-decoration: none !important;
+}
+.thumbnail h5{
+	font-size: 17px;
+}
+.thumbnail a:hover{
+	color: #81D3F0;
+}
+.thumbnail p font{
+	float: right;
+}
+#special .thumbnail p{
+	margin-top: 15px;
+}
+.thumbnail .caption{
+	position: relative;
+
+}
+.item {
+	margin-top: 20px;
+}
+.locate font{
+		margin-left: 5px;
+	}
+	.names {
+		color: #AAA!important;
+	}
+	.glyphicon-thumbs-up, .glyphicon-eye-open{
+		color: #aaa;
+	}
+	.mobile {
+		display: none;
+	}
+	.find-tab2 {
+		display: none;
+	}
+	#myTab li a {
+		color: #fff!important;
+	}
+	/******************作品/专题管理*******************/
+.Administration {
+	padding-top: 100px;
+}
+.Administration-nav , .Administration-content{
+	background: white;
+	padding: 25px 15px;
+}
+.Administration-nav ul li{
+	position: relative;
+	margin: 15px 0;
+	font-size: 18px;
+}
+.Administration-nav ul li a{
+	border: none !important;
+	text-decoration: none;
+	color: #333333;
+	font-size: 14px;
+}
+.Administration-nav ul li a span{
+	margin-left: 3px;
+}
+.Administration-content-header{
+	height: 60px;
+	border-bottom: 1px solid #E4E2E2;
+	position: relative;
+}
+.my_three {
+
+}
+.Administration-content-header a{
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #34C9DB;
+	color: white !important;
+	border-radius: 22px;
+	margin-left: 15px;
+	outline: none !important;
+	border: none !important;
+	padding: 10px 25px;
+}
+.newzt {
+	cursor: not-allowed;
+	background: #ccc!important;
+
+}
+.Administration-content-title{
+	position: absolute;
+	top: -52px;
+	font-size: 18px;
+}
+.Administration-bj{
+	position: absolute;
+	left: -15px;
+	display: inline-block;
+	height: 100%;
+	width: 3px;
+	background: #34C9DB;
+	display: none;
+}
+.Administration-nav ul .active .Administration-bj{
+	display: block;
+}
+/*这里只是一个模板样式，具体要用js实现内容是否为空控制背景的显示和隐藏*/
+.Administration-content .tab-pane{
+  position: relative;
+  background: url(../img/ABE4EA36908CF718213A167534792952.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: auto;	
+
+}
+.col-md-6.col-xs-12.locate{
+	padding-left: 0;
+}
+@media only screen and (max-width: 768px) {
+	.list .thumbnail .g_detail {
+		height: 110px;
+		width: 100%;
+		object-fit: cover;
+		border-radius: 3px 3px 0 0;
+	}
+	.thumbnail .col-md-5, .thumbnail .col-md-6 {
+		padding-right: 0;
+	}
+	#loadmore {
+		margin-top: 20px;
+	}
+	.item .col-md-5{
+		padding-left: 0!important;
+	}
+	#content {
+		padding: 0;
+	}
+	#content .container {
+		/*padding: 0 5px;*/
+	}
+	#works .col-xs-6,#special .col-xs-6 {
+		padding: 0 5px;
+		margin-top: 15px;
+	}
+	.Administration {
+		margin-top: 51px;
+	}
+	.thumbnail{
+		padding: 0!important;
+	}
+	.locate {
+		    padding-left: 5px!important;
+    position: absolute!important;
+    top: -17px;
+    left: 0px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+	}
+	.caption .col-md-6 {
+		text-align: left;
+		padding: 0;
+	}
+	
+	.locate font,.glyphicon-thumbs-up, .glyphicon-eye-open {
+		color: white;
+	}
+	.caption h5 {
+		margin-top: 5px;
+	}
+	.names {
+		color: #aaa!important;
+	}
+	.thumbnail{
+		margin-top: 0;
+		overflow: hidden;
+		border-radius: 3px;
+	}
+	.tab-content {
+		margin-top: 15px;
+	}
+	#special .item {
+		padding: 0 5px;
+		margin-top: 15px;
+	}
+	#mobile {
+		display: block;
+	}
+	.find-tab {
+		display: none;
+	}
+	.find-tab2 {
+		display: block;
+		background: none;
+		height: auto;
+		overflow: hidden;
+		border-bottom: 1px solid #eee;
+		border-top: 1px solid #eee;
+			height: 45px;
+			margin-top: 59px;
+	}
+	.find-tab2 .container {
+		padding: 0;
+	
+	}
+	.find-tab2 .col-xs-6 {
+		padding: 0;
+	}
+	.find-tab ul li {
+		height: 45px;
+		line-height: 40px;
+	}
+	.find-tab2  li a{
+		color: #666!important;
+		border-bottom: 1px solid #20B2AA!important;
+		font-size: 16px!important;
+	}
+	.item {
+		margin-top: 0;
+	}
+	.thumbnail h5 {
+		font-size: 15px;
+	}
+	.Administration-content {
+		padding: 0 5px;
+	}
+	.Administration {
+		padding: 0 5px;
+	}
+	.tan {
+		padding: 0 0 0 5px;
+	}
+	.Administration-content-header {
+		margin-bottom: 15px;
+		height: 50px;
+	}
+}

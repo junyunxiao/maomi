@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://scratch.bianchengying.com/editor -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>猫咪易编</title>
+		<style type="text/css">
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				overflow: hidden;
+				width: 100%;
+				height: 100%;
+
+			}
+			
+		</style>
+
+		<script type="text/javascript" src="js/swfobject.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/underscore-min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/bowser.js"></script>
+	</head>
+
+	<body>
+
+		<div id="player" class="player" style="height: 650px">
+		<div id="scratch-loader" style="display: none;"></div>
+			<object type="application/x-shockwave-flash" data="res/scratch/swf/Scratch.swf" width="100%" height="662px" id="scratch" style="visibility: visible;">
+		    	<param name="allowscriptaccess" value="always">
+		    	<param name="allowfullscreen" value="true">
+		    	<param name="wmode" value="opaque">
+		    	<param name="menu" value="false">
+		    	<param name="flashvars" value="editMode=false&amp;autostart=false&amp;cloudToken=&amp;cdnToken=&amp;urlOverrides=%7B%22sitePrefix%22%3A%22http%3A%2F%2Fscratch.bianchengying.com%2F%22%2C%22siteCdnPrefix%22%3A%22http%3A%2F%2F127.0.0.1:8020%2F%22%2C%22staticFiles%22%3A%22scratchweb/res/scratch/static%2F%22%7D&amp;allowscriptaccess=always&amp;allowfullscreen=true&amp;extensionDevMode=false&amp;wmode=opaque&amp;menu=false&amp;default_title=未命名&amp;default_project=http://39.108.113.98/group1/M00/00/00/rBIqZ1os1W2AA_O-AADV4Q3oRf0081.sb2&amp;swfSession=eyJpdiI6IjlvVldCVE9mWmhDSU5WWVlrams3U2c9PSIsInZhbHVlIjoiRlBlR3pKbmt3YmFvZGJudVlkcFFXV3BhNmo1ZklXcUNDMUtFM3hSSkEwV3QwUUxWb2hPXC9YTHlRXC9Yd3JnQXpXd3RlZFBpcmpGYXlrT2VKUVRnTDhQUT09IiwibWFjIjoiYWUwYjA0NDY0MTQzMWM3NTM2ZDVjZmVhMmQyYmEzMGUxYTdjZjQ3ZWU5NTdkZmJmZTRiODVmODg1MTg0OTFmMiJ9&amp;uuid=0&amp;username=&amp;upload_server=http://scratch.bianchengying.com/upload?_token=yhCJuI35TwYnG7TKYzWcgBlNQVdaiShIiA9MXQLP&amp;inIE=false&amp;project_title=Untitled&amp;project_isPrivate=true">
+		    </object>
+		    
+			
+		    
+			<script type="text/javascript">
+				
+				function document.onreadystatechange()   {   if(document.readyState=="complete")     alert(document.readyState); }
+				window.SWFready=$.Deferred(); // Deferred makes sure we don't call ASSetEditMode before SWF is ready.
+			function JSeditorReady() {
+				
+				try {
+					SWFready.resolve();
+					
+					return true;
+				} catch (error) {
+					console.error(error.message, "\n", error.stack);
+					throw error;
+				}
+				$("#listMenu").css('display','block');
+			}
+			$(function () {
+
+
+				function handleEmbedStatus(e) {
+
+					$('#scratch-loader').hide();
+					if(!e.success) {
+						$('#scratch').css('marginTop', '10');
+						$('#scratch IMG.proj_thumb').css('width', '179px');
+						$('#scratch DIV.scratch_unsupported').show();
+						$('#scratch DIV.scratch_loading').hide();
+
+					}else{
+
+					}
+				}
+
+					var uuid = "";
+					var default_title = "";
+
+					var mysb2 = "";
+					var defaltu_sb2 = (mysb2 ? mysb2 : "http://39.108.113.98/group1/M00/00/00/rBIqZ1os1W2AA_O-AADV4Q3oRf0081.sb2");
+					// The flashvars tell flash about the project data (and autostart=true)
+					var flashvars = {
+						editMode: 'false',
+						autostart: 'false',
+						cloudToken: '',
+						cdnToken: '',
+						urlOverrides: {
+							sitePrefix: window.location.protocol + '//' + window.location.host + '/',
+							siteCdnPrefix: 'http://127.0.0.1:8020/',
+							staticFiles: "scratchweb/res/scratch/static/"
+						},
+						allowscriptaccess: 'always',
+						allowfullscreen: 'true',
+						extensionDevMode: 'false',
+						wmode: 'opaque',
+						menu: 'false',
+						default_title: default_title ? default_title : "未命名",
+						default_project: defaltu_sb2,
+						uuid: uuid ? uuid : 0,
+						username: "",
+						upload_server: '',
+						inIE: (navigator.userAgent.indexOf('MSIE') > -1)
+					};
+
+					$.each(flashvars, function(prop, val) {
+						if($.isPlainObject(val))
+							flashvars[prop] = encodeURIComponent(JSON.stringify(val));
+					});
+
+					$.each(Scratch.INIT_DATA.PROJECT.model, function(i, val) {
+						if(val != null)
+							flashvars['project_' + i] = encodeURIComponent(val);
+					});
+
+					if(Scratch.INIT_DATA.PROJECT.is_new)
+						flashvars.project_isNew = true;
+
+					var params = {};
+					params.allowscriptaccess = 'always';
+					params.allowfullscreen = 'true';
+					params.wmode = 'opaque';
+					params.menu = 'false';
+					for(var i in flashvars) {
+						if(typeof params.flashvars !== 'undefined') {
+							params.flashvars += '&' + i + '=' + flashvars[i];
+						} else {
+							params.flashvars = i + '=' + flashvars[i];
+						}
+					}
+
+					var swfFile = (swfobject.hasFlashPlayerVersion('11.7.0') ? 'Scratch.swf' : 'Scratch.swf');
+
+					var swfAtt = {
+						data: "http://127.0.0.1:8020/scratchweb/res/scratch/swf/" + swfFile,
+						width: "100%",
+						height: $(window).height() + "px",
+					};
+
+					swfobject.addDomLoadEvent(function() {
+						if(bowser.mobile || (bowser.tablet && typeof bowser.msie === 'undefined')) {
+							handleEmbedStatus({
+								success: false
+							});
+						} else {
+							// if not on ie, let browser try to handle flash loading
+							var swf = swfobject.createSWF(swfAtt, params, "scratch");
+							handleEmbedStatus({
+								success: true,
+								ref: swf
+							});
+						}
+						document.getElementById('scratch').style.visibility = 'visible';
+					});
+
+					function JSthrowError(e) {
+						if(window.onerror) window.onerror(e, 'swf', 0);
+						else console.error(e);
+					}
+				});
+			</script>
+		</div>
+		
+		<!--
+		-->
+	</body>
+<!--<div id="listMenu" style="background: rgb(156, 158, 162); left: 136px; top: 0px; width: 100px; height: 28px; display: block; position: absolute; z-index: 1000;">
+</div>-->
+</html>

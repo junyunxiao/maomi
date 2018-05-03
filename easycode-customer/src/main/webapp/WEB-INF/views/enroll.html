@@ -1,0 +1,766 @@
+<style type="text/css">
+	.content {
+		padding: 20px;
+		width: 80%;
+		font-size: 1em;
+		margin: auto;
+		margin-top: 60px;
+	}
+	/*字体颜色*/
+	
+	.gray {
+		color: #8c8c8c;
+	}
+	
+	.blue {
+		color: rgb(95, 156, 239);
+	}
+	
+	.lightblue {
+		color: #607fa6;
+	}
+	
+	.red {
+		color: rgb(255, 36, 0);
+	}
+	
+	.orange {
+		color: rgb(255, 129, 36);
+	}
+	
+	.green {
+		color: rgb(71, 193, 168);
+	}
+	
+	.f8 {
+		font-size: 0.8em;
+	}
+	
+	.f16 {
+		font-size: 1em;
+	}
+	
+	.f20 {
+		font-size: 1.3em;
+	}
+	
+	.f32 {
+		font-size: 2em;
+	}
+	
+	.display {
+		height: 4em;
+	}
+	
+	.marginbottom {
+		margin-bottom: 20px;
+	}
+	
+	.padding {
+		padding: 20px;
+	}
+	
+	.clearfix:after {
+		visibility: hidden;
+		display: block;
+		font-size: 0;
+		content: ".";
+		clear: both;
+		height: 0;
+	}
+	
+	.left {
+		float: left;
+	}
+	
+	.right {
+		float: right;
+	}
+	
+	.center {
+		text-align: center;
+	}
+	
+	.border {
+		border: 1px dotted #DDDDDD;
+	}
+	
+	.img {
+		width: 100%;
+	}
+	/*半圆*/
+	
+	.halfcircle-up-white {
+		display: inline-block;
+		border-top-left-radius: 2em;
+		border-top-right-radius: 2em;
+		width: 4em;
+		height: 2em;
+		line-height: 2em;
+		border: 1px solid rgb(95, 156, 239);
+		margin-bottom: -2px;
+	}
+	
+	.halfcircle-up-orange {
+		border-top-left-radius: 2em;
+		border-top-right-radius: 2em;
+		height: 2em;
+		width: 4em;
+		line-height: 2em;
+		background-color: rgb(225, 236, 219);
+	}
+	
+	.halfcircle-down {
+		border-bottom-left-radius: 2em;
+		border-bottom-right-radius: 2em;
+		height: 2em;
+		width: 4em;
+		line-height: 2em;
+		background-color: rgb(173, 203, 245);
+	}
+	/*title*/
+	
+	.title {
+		margin-bottom: 20px;
+	}
+	
+	.title-one {
+		font-size: 2.5em;
+		font-weight: 400;
+		line-height: 1.4em;
+		border-bottom: 1px solid #e7e7eb;
+		padding-bottom: 10px;
+		margin-bottom: 15px;
+		font-family: "宋体";
+	}
+	
+	.title-two .itle-two-date {
+		margin-right: 8px;
+	}
+	/*programfirst*/
+	
+	.programfirst {
+		margin: 10px 0;
+		padding-top: 10px;
+		text-align: center;
+	}
+	
+	.programfirst-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: rgb(95, 156, 239);
+	}
+	
+	.programfirst-text {
+		height: 2.0em;
+		line-height: 2.5em;
+		color: #fff;
+		font-size: 1.5em;
+	}
+	/*programfirst-intro*/
+	
+	.programfirst-intro {
+		background-color: rgb(95, 156, 239);
+		border-radius: 0.8em;
+		padding: 10px;
+		margin-bottom: 0.5em;
+	}
+	
+	.programfirst-intro-content {
+		border: 2px dotted #fff;
+		padding: 10px 20px;
+	}
+	
+	.programfirst-content-item {
+		font-size: 1.5em;
+		line-height: 1.5em;
+		text-align: center;
+		margin-bottom: 1em;
+		color: #fff;
+	}
+	/*programfirst-content*/
+	
+	.programfirst-contents {
+		border: 1px solid rgb(204, 204, 204);
+		border-top: 8px solid rgb(95, 156, 239);
+		width: 48%;
+	}
+	
+	.contents-title {
+		text-align: center;
+		line-height: 2em;
+		font-size: 2em;
+		color: #3e3e3e;
+		border-bottom: 1px solid rgb(204, 204, 204);
+	}
+	
+	.contents-title-intro {
+		padding: 10px;
+		margin: 10px;
+		border: 1px solid #fff;
+		border-radius: 0.7em;
+		box-shadow: rgb(204, 204, 204) 3.53553px 3.53553px 4px;
+	}
+	
+	.title-intro-item {
+		font-size: 1.2em;
+		line-height: 1.5em;
+		text-align: center;
+		margin-bottom: 1em;
+		color: #3e3e3e;
+	}
+	
+	.contents-title-next {
+		color: #000;
+		font-size: 1.1em;
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	
+	.contents-title-common {
+		font-size: 1.1em;
+		text-align: center;
+	}
+	
+	.contents-last {
+		margin: 10px 10px 20px;
+		border: 1px solid rgb(204, 204, 204);
+	}
+	
+	.contents-last-content {
+		margin: 20px 0 0 10px;
+	}
+	
+	.last-content-title {
+		font-size: 1.5em;
+	}
+	
+	.last-content-box {
+		margin: 20px;
+	}
+	
+	.list-paddingleft {
+		padding-left: 2.2em;
+	}
+	
+	.last-content-item {
+		color: #3e3e3e;
+		text-align: left;
+		font-size: 1.3em;
+		margin-bottom: 20px;
+	}
+	/*课程*/
+	
+	.course {
+		margin-bottom: 10px;
+	}
+	
+	.course-title {
+		text-align: center;
+		font-size: 2em;
+		color: #3e3e3e;
+		line-height: 2em;
+	}
+	
+	.course-img {
+		width: 100%;
+	}
+	
+	.course-part {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.margin {
+		margin-bottom: 20px;
+	}
+	
+	.course-item,
+	.course-item span {
+		text-align: center;
+		font-size: 1.2em;
+		line-height: 2em;
+	}
+	
+	.smaller {
+		font-size: 1em;
+		margin-bottom: 20px;
+	}
+	/*上课须知*/
+	
+	.know-item {
+		line-height: 2em;
+		font-size: 1.3em;
+		color: #3e3e3e;
+	}
+	/*课程报名*/
+	
+	.course-signup {
+		padding: 20px;
+		/* background: url("../public/img/bottom.png") 0% 45% repeat; */
+		background-attachment: scroll;
+	}
+	
+	.signup-item {
+		text-align: center;
+		font-size: 1.5em;
+		line-height: 2em;
+	}
+	/*小猫班*/
+	
+	.div-title {
+		line-height: 4em;
+	}
+	
+	.lightgreen {
+		margin-top: 10px;
+		padding: 20px;
+		background-color: rgb(214, 240, 252);
+		line-height: 2em;
+	}
+	
+	.course-feature-item {
+		width: 48%;
+		text-align: center;
+	}
+	
+	.course-feature-item .item-title {
+		line-height: 2em;
+		margin: 10px 0;
+		border-bottom: 1px dotted #DDDDDD;
+	}
+	
+	.course-feature-item .item-text {
+		text-align: left;
+	}
+	
+	.skill-part {
+		padding: 20px;
+		/* background: url("public/img/bottom.png") repeat; */
+		background-attachment: scroll;
+	}
+	
+	.skill-item {
+		width: 48%;
+	}
+	
+	.skill-item-border {
+		border-right: 1px dotted #DDDDDD;
+	}
+	
+	.skill-divide {
+		margin: 10px 0;
+		height: 1px;
+		border-top: 1px dashed #DDDDDD;
+	}
+	
+	.skill-divide:last-child {
+		margin-bottom: 0;
+	}
+	
+	.course-type-title {
+		height: 2.5em;
+		background-color: rgb(71, 193, 168);
+	}
+	
+	.course-type-title div {
+		line-height: 2em;
+		color: #fff;
+		font-weight: bold;
+		width: 50%;
+	}
+	
+	.course-preview-item {
+		border: 1px dotted #DDDDDD;
+		padding: 20px;
+		margin: 10px;
+	}
+	
+	.course-preview-item p,
+	.course-arrange p,
+	.grade-stauts p,
+	.device-ready p,
+	.doclass-know p,
+	.doclass-know li {
+		line-height: 1.5em;
+	}
+	
+	.doclass-know ol {
+		padding-left: 20px;
+	}
+	
+	.doclass-know li {
+		font-size: 1.2em;
+	}
+</style>
+<div class="content">
+	<div class="title">
+		<h1 class="title-one" style align="center"><font color="#607FA6" style="italic">学科编程小猫班</h1>
+
+	</div>
+	<div class="lightgreen">
+		<p class="center green f20">学科编程</p>
+		<p class="center green marginbottom">创作有趣的游戏动画，分析、分解项目，从无到有独立创作，与学科完美结合</p>
+		<p class="center green f20">课程体系</p>
+		<p class="center green marginbottom">适用于6-15岁青少年</p>
+		<p class="center green f20">零基础</p>
+		<p class="center green ">程序设计入门,创作简单作品表达自我</p>
+	</div>
+	<p class="center f32 div-title">课程简介</p>
+	<div class="course">
+		<div class="course-part left">
+			<div class="course-item"><span class="green">0</span>基础</div>
+			<div class="course-item">入门学员专属</div>
+			<div class="display"></div>
+			<div class="course-item"><span class="green">14</span>周</div>
+			<div class="course-item">
+				<p class="green">Scratch</p>
+				<p class="green">入门</p>
+			</div>
+			<div class="display"></div>
+			<div class="course-item">学习方式</div>
+			<div class="course-item">
+				<p class="green">在线学习+</p>
+				<p class="green">微信群答疑</p>
+			</div>
+		</div>
+
+		<div class="course-part right">
+			<div class="course-item"><span class="green">28</span>节</div>
+			<div class="course-item">学科编程课</div>
+			<div class="display"></div>
+			<div class="course-item marginbottom">开课时间</div>
+			<div class="course-item">
+				<span class="green">4月-7月</span>
+			</div>
+			<div class="display marginbottom"></div>
+			<div class="course-item marginbottom">适合学员</div>
+			<div class="course-item">
+				6岁及以上
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<p class="center f32 div-title">课程特色</p>
+	<div>
+		<div class="course-feature-item left">
+			<img src="public/img/pcourse1.jpg"/>
+			<p class="green item-title">项目制学习</p>
+			<p class="item-text">通过多个小项目的跨学科学习，全方位提升综合能力</p>
+		</div>
+		<div class="course-feature-item right">
+			<img src="public/img/pcourse2.jpg" />
+			<p class="green item-title">专业陪学3+1</p>
+			<p class="item-text">班主任、专业老师、编程导师3师陪伴，答疑、点评、分享三位一体</p>
+		</div>
+		<div class="course-feature-item left">
+			<img src="public/img/pcourse3.jpg" />
+			<p class="green item-title">猫咪官网奖学金</p>
+			<p class="item-text">结课前完成并提交作业、作品即可获取100元等价课程券</p>
+		</div>
+		<div class="course-feature-item right">
+			<img src="public/img/pcourse4.jpg" />
+			<p class="green item-title">猫咪官方编程认证</p>
+			<p class="item-text">教学课与实验课相结合，独立动手，打破限制，发挥创造力</p>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<p class="center f32 div-title green">同时提升6大软技能</p>
+	<div class="skill-part">
+		<div class="skill-item center left skill-item-border">
+			<img src="public/img/pcourse5.jpg" />
+			<p class="center">创新能力</p>
+		</div>
+		<div class="skill-item center right">
+			<img src="public/img/pcourse6.jpg" />
+			<p class="center">创新能力</p>
+		</div>
+		<div class="clearfix"></div>
+		<div class="skill-divide"></div>
+		<div class="skill-item center left skill-item-border">
+			<img src="public/img/pcourse7.jpg" />
+			<p class="center">创新能力</p>
+		</div>
+		<div class="skill-item center right">
+			<img src="public/img/pcourse8.jpg" />
+			<p class="center">创新能力</p>
+		</div>
+		<div class="clearfix"></div>
+		<div class="skill-divide"></div>
+		<div class="skill-item center left skill-item-border">
+			<img src="public/img/pcourse9.jpg" />
+			<p class="center">创新能力</p>
+		</div>
+		<div class="skill-item center right">
+			<img src="public/img/pcourse10.jpg" />
+			<p class="center">创新能力</p>
+		</div>
+		<div class="clearfix"></div>
+		<div class="skill-divide"></div>
+	</div>
+	<p class="center f32 div-title green">四大项目</p>
+	<img class="img marginbottom" src="public/img/projectfour.jpg">
+
+	<div class="lightgreen">
+		<p class="center green marginbottom">通过直播课程的学习，编程水平达到Scratch入门级别</p>
+		<p class="center green marginbottom">能够参加一些基础的Scratch编程比赛</p>
+		<p class="center green ">孩子将通过每次40分钟课程+40分钟的作品创作时间做出4款属于自己的具有各学科融合性的项目作品。</p>
+	</div>
+	<p class="center f32 div-title">课程大纲</p>
+
+	<div class="course-type">
+		<div class="course-type-title">
+			<div class="center left f20">作品</div>
+			<div class="center left f20">知识点</div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="course-part left">
+			<div class="course-item"><span class="green">故事之窗</span></div>
+			<div class="course-item"><span class="green">(编程+语文)</span></div>
+			<div class="display"></div>
+			<div class="course-item"><span class="green">彩幻三维</span></div>
+			<div class="course-item"><span class="green">(编程+艺术)</span></div>
+			<div class="display"></div>
+			<div class="course-item"><span class="green">算数赛跑</span></div>
+			<div class="course-item"><span class="green">(编程+数学)</span></div>
+			<div class="display"></div>
+			<div class="course-item"><span class="green">足球小将</span></div>
+			<div class="course-item"><span class="green">(编程+体育)</span></div>
+		</div>
+
+		<div class="course-part right">
+			<div class="course-item marginbottom">熟悉Scratch编程环境，重复执行、创意表现、造型切换、广播</div>
+			<div class="display"></div>
+			<div class="course-item marginbottom">画图、画笔、颜色搭配、键盘事件、角度、坐标</div>
+			<div class="display"></div>
+			<div class="course-item marginbottom">判断、四则运算、侦测、移动、心算、变量、字符串拼接、随机数</div>
+			<div class="display"></div>
+			<div class="course-item marginbottom">视觉变化、点球规则、滑动、声音、特效、位置固定</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<p class="center f32 div-title">课程预览</p>
+	<div class="course-preview">
+		<div class="course-preview-item">
+			<p class="center green f20">简易画笔王（第2课）</p>
+			<p>1、项目引入，观看作品</p>
+			<p>引发兴趣与好奇心，轻松开启课堂。</p>
+		</div>
+		<div class="center">
+			<img src="public/img/display1.jpg">
+		</div>
+		<div class="course-preview-item">
+			<p>2、开始游戏制作，分步拆解编程任务</p>
+		</div>
+		<div class="center">
+			<img src="public/img/display2.jpg">
+		</div>
+		<div class="course-preview-item">
+			<p>3、根据老师建议，再次优化作品，更新迭代</p>
+		</div>
+	</div>
+
+	<p class="center f32 div-title">课时安排</p>
+
+	<div class="course-arrange padding border">
+		<p class="green center f20">开始时间：</p>
+		<p class="green center f20">4月—7月</p>
+		<p class="green center f20">一共28个课时，每周一次</p>
+		<p class="green center f20">每周六20:00编程导师直播进行作品分享、点评</p>
+	</div>
+
+	<p class="center f32 div-title">班级情况</p>
+
+	<div class="grade-stauts padding border">
+		<p class="center f20">采取<span class="green">1</span>对<span class="green">6</span>形式， 每个班级
+			<span class="green">6</span>个学生，全方位辅导学生。</p>
+	</div>
+	<!--
+		<p class="center f32 div-title">设备准备</p>
+
+		<div class="device-ready padding border">
+			<p class="center f20">准备一台电脑，</p>
+			<p class="center f20">推荐谷歌浏览器，能正常上网即可</p>
+		</div>
+		-->
+	<!--	<p class="center f32 div-title">上课须知</p>
+		<div class="doclass-know padding border">
+			<ol>
+				<li>该课程共28个课时，每周2课时，每课时为40分钟。课前需向上课老师进行约课上课。临时取消课程需提前2小时联系上课老师。</li>
+				<li>学习使用电脑需使用Win7及以上系统或Mac Osx系统，并安装有Chrome谷歌浏览器。</li>
+				<li>上课系统只在上课时间准时开放，超过上课时间段，自行联系上课老师解决。</li>
+			</ol>
+		</div>-->
+	<p class="center f32 div-title">课程报名</p>
+
+	<div class="course">
+		<div class="course-signup">
+			<div class="signup-item"><span class="red f20">28</span>节1V6</span>课程&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 原价1980&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现
+				<span class="red f32">&nbsp;¥1680</span></div>
+
+			<!--	<div class="signup-item"><span class="orange f8">扫描下方的二维码即可报名</span></div>
+				<div class="signup-item"><span class="orange f8">预知更多优惠，敬请咨询猫博士，</span></div>
+				<div class="signup-item"><span class="orange f8">猫博士就在您的身边......</span></div>
+				<div class="signup-item"><span class="orange f8">联系电话13996581686</span></div>
+				<div class="signup-item">
+					
+					<img src="https://mmbiz.qpic.cn/mmbiz_jpg/UBcAh310LwgKibiajnlQ2ibo26BdMBTJ88e7c3dAhCP8VFwIsKfr2HtLGZt63Nu5LupdsCytic21naUGNdEa7Zbl8Q/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1">
+				</div>-->
+		</div>
+	</div>
+</div>
+<div class="content">
+	<div class="title">
+		<h1 class="title-one" style align="center"><font color="#607FA6" style="italic">精品项目课</font></h1>
+	</div>
+
+	<div class="programfirst-intro">
+		<div class="programfirst-intro-content">
+			<div class="programfirst-content-item">相信你已经学了不少scratch编程知识，收获良多。</div>
+			<div class="programfirst-content-item">想做出更好玩更酷炫的作品吗？或是想进一步提高自身编程水平，</div>
+			<div class="programfirst-content-item">这里提供更多的优秀课程资源，以下项目任意挑选学习。</div>
+		</div>
+	</div>
+
+	<div calss="">
+		<div class="programfirst-contents left">
+			<div class="contents-title">项目一:雷霆战机</div>
+			<div class="contents-title-intro">
+				<div class="title-intro-item">还记得小时候玩过的雷霆战机吗？</div>
+				<div class="title-intro-item">在浩瀚的太空，你只身一人孤军奋战，前面涌来的除了陨石以外还有凶狠的敌机。</div>
+				<div class="title-intro-item">Scratch编程将完美复原这个游戏，让我们一起找回曾经的热血吧。</div>
+			</div>
+			<div class="contents-title-next">学该项目前你需要掌握以下知识：</div>
+			<div class="contents-title-common">Scratch角色导入、删除、控制</div>
+			<div class="contents-last">
+				<img width="100%" src="public/img/pro1.jpg">
+				<div class="contents-last-content">
+					<div class="last-content-title blue">
+						你将会学到以下知识：
+					</div>
+					<div class="last-content-box">
+						<ol class="list-paddingleft">
+							<li class="last-content-item">"克隆"的进阶使用</li>
+							<li class="last-content-item">"变量"的进阶使用</li>
+							<li class="last-content-item">函数式编程思想</li>
+							<li class="last-content-item">二进制与十进制的转换</li>
+							<li class="last-content-item">算法进阶“斐波那契数列”</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="programfirst-contents right">
+			<div class="contents-title">项目二:守株待兔</div>
+			<div class="contents-title-intro">
+				<div class="title-intro-item">丰富的动画背后</div>
+				<div class="title-intro-item">是利用编程诠释的成语故事</br>回到春秋战国，全新演绎</div>
+				<div class="title-intro-item">这是农夫与兔子的故事</div>
+				<div class="title-intro-item">相信你也能发挥自己的创造力，做出好玩的动画！</div>
+			</div>
+			<div class="contents-title-next">学该项目前你需要掌握以下知识：</div>
+			<div class="contents-title-common">零基础可学</div>
+			<div class="contents-last">
+				<img width="100%" height="160px" src="public/img/pro2.jpg">
+				<div class="contents-last-content">
+					<div class="last-content-title blue">
+						你将会学到以下知识：
+					</div>
+					<div class="last-content-box">
+						<ol class="list-paddingleft">
+							<li class="last-content-item">制作丰富的简易动画</li>
+							<li class="last-content-item">条件判断、循环、嵌套等语句的使用</li>
+							<li class="last-content-item">特殊的事件：广播</li>
+							<li class="last-content-item">成语故事的背景及含义</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div class="course">
+		<div class="course-title">课程特色</div>
+		<img class="course-img" src="public/img/course.jpg">
+		<div class="course-part left">
+			<div class="course-item"><span class="blue">8/4</span>节</div>
+			<div class="course-item">项目课</div>
+			<div class="course-item">开课时间</div>
+			<div class="course-item">
+				<p class="blue">每周四/每周五</p>
+				<p class="blue">20:00-21:30</p>
+			</div>
+		</div>
+		<div class="course-part right">
+			<div class="course-item"><span class="blue">1</span>个老师</div>
+			<div class="course-item"><span class="blue">6</span>个学生</div>
+			<div class="course-item">学习方式</div>
+			<div class="course-item">
+				<p class="blue">在线学习+</p>
+				<p class="blue">微信群答疑</p>
+			</div>
+		</div>
+
+	</div>
+	<div class="clearfix"></div>
+	<div class="course">
+		<div class="course-title">上课形式</div>
+		<img class="course-img" src="public/img/course.jpg">
+		<div class="course-part left">
+			<div class="course-item margin"><span class="blue">项目讨论</span></div>
+			<div class="course-item margin"><span class="blue">互动教学</span></div>
+			<div class="course-item margin"><span class="blue">实战演练</span></div>
+			<div class="course-item margin"><span class="blue">课后反馈</span></div>
+			<div class="course-item margin"><span class="blue">问题解决</span></div>
+		</div>
+		<div class="course-part right">
+			<div class="course-item smaller">分析作品中角色和对应功能，探讨实现方式</div>
+			<div class="course-item smaller">介绍本节课知识点，对重点难点进行讲解，对简单代码以提问方式做穿插讲解</div>
+			<div class="course-item smaller">打开网站进入编程创作平台，不需额外设备</div>
+			<div class="course-item smaller">与家长课后实时反馈学员课前准备、课堂表现，提出学习建议</div>
+			<div class="course-item smaller">有问题随时召唤老师,老师将会提供在线解答。</div>
+		</div>
+
+	</div>
+	<div class="clearfix"></div>
+	<div class="course">
+		<div class="course-title">上课须知</div>
+		<img class="course-img" src="public/img/course.jpg">
+		<ol>
+			<li class="know-item">项目课每周2课时，每课时为40分钟。课前需向上课教师进行约课上课。临时取消课程需提前2小时联系上课教师。</li>
+			<li class="know-item">学习使用电脑需使用Win7及以上系统或Mac Osx系统，并安装有Chrome谷歌浏览器。</li>
+			<li class="know-item">上课系统只在上课时间准时开放，超过上课时间段，自行联系上课老师解决。</li>
+		</ol>
+	</div>
+	<div class="course">
+		<div class="course-title">课程报名</div>
+		<img class="course-img" src="public/img/course.jpg">
+		<div class="course-signup">
+			<div style="padding: 40px;" class="left">
+				<div class="signup-item">项目一 </div>
+				<div class="signup-item"><span class="red f20">8节</span>课程</div>
+				<div class="signup-item">原价698</div>
+				<div class="signup-item">现</div>
+				<div class="signup-item"><span class="red f32">¥598</span></div>
+			</div>
+			<div style="padding: 40px;" class="right">
+				<div class="signup-item">项目二</div>
+				<div class="signup-item"><span class="red f20">4节</span>课程</div>
+				<div class="signup-item">原价598</div>
+				<div class="signup-item">现</div>
+				<div class="signup-item"><span class="red f32">¥298</span></div>
+			</div>
+			<div class="signup-item"><span class="orange f8">扫描下方的二维码即可报名</span></div>
+			<div class="signup-item"><span class="orange f8">预知更多优惠，敬请咨询猫博士，</span></div>
+			<div class="signup-item"><span class="orange f8">猫博士就在您的身边......</span></div>
+			<div class="signup-item"><span class="orange f8">联系电话13996581686</span></div>
+			<div class="signup-item">
+				<img src="public/img/mao_v.jpg">
+			</div>
+		</div>
+	</div>
+</div>

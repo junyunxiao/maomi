@@ -1,0 +1,92 @@
+.conven-nav>li {
+	clear: both;
+}
+
+.conven-nav>li>a {
+	font-size: 18px!important;
+}
+
+
+/*右边*/
+
+.convention-right {
+	min-height: 500px;
+	height: auto;
+	background: #fff;
+	padding: 20px;
+	margin-bottom: 85px;
+}
+
+
+/*社区公约*/
+
+.convention-title {
+	font-size: 18px;
+}
+
+.line {
+	margin: 15px 0;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.tab-pane p {
+	font-size: 14px;
+}
+
+.convention-items {}
+
+.convention-items li {
+	padding: 20px 0;
+	border-bottom: 1px dotted #DDDDDD;
+}
+
+.convention-items b {
+	font-size: 18px;
+}
+
+.convention-items p {
+	padding-top: 20px;
+}
+
+
+/*提交按钮*/
+
+.btn1 {
+	display: inline-block;
+	color: #fff!important;
+	padding: 10px 30px;
+	margin-bottom: 0;
+	font-size: 18px;
+	background-image: none;
+	border: none;
+	outline: none!important;
+	border-radius: 30px;
+	background: #34C9DB!important;
+}
+.btn1:hover{
+	color: #fff;
+	background: #34C9DB;
+}
+
+#joinus .thumbnail:hover{
+	cursor: pointer;
+	opacity: 0.7;
+}
+#joinus .thumbnail:hover .caption p{
+	color: #34C9DB;
+}
+#joinus .thumbnail .caption p{
+	color: #333;
+	text-align: center;
+	margin-top: 0;
+}
+
+	/*加载地图*/
+	.conven-map{
+		
+	}
+
+
+
+
+

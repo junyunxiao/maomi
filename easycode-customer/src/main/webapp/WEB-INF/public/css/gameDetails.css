@@ -1,0 +1,1021 @@
+
+
+body,
+button,
+input,
+select,
+textarea {
+	font: 12px/1.5 tahoma, arial, \5b8b\4f53;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+	font-style: normal;
+}
+
+code,
+kbd,
+pre,
+samp {
+	font-family: couriernew, courier, monospace;
+}
+
+small {
+	font-size: 12px;
+}
+
+ul,
+ol,
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+sup {
+	vertical-align: text-top;
+}
+
+sub {
+	vertical-align: text-bottom;
+}
+
+legend {
+	color: #000;
+}
+
+fieldset,
+img {
+	border: 0;
+}
+
+button,
+input,
+select,
+textarea {
+	font-size: 100%;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+	font-family: "microsoft yahei";
+	background: #F8F8F8;
+}
+.emm {
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	height: 20px;
+	width: 20px;
+}
+.emm2 {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	height: 20px;
+	width: 20px;
+}
+/*最外框*/
+
+.big {
+	margin-top: 102px;
+}
+
+
+/*页面宽度<=768时,contanir的内边距消失*/
+
+
+/*内容上边部分*/
+
+.content-top {
+	width: 100%;
+	min-height: 70px;
+	height: auto;
+	padding: 14px 15px 0 20px;
+	background: #fff;
+	padding-bottom: 10px;
+}
+
+.game-title {
+	color: #333333;
+	font-size: 18px;
+	padding: 6px 0;
+}
+
+.game-writer {
+	color: #666;
+	font-size: 14px;
+}
+
+
+/*内容中间部分*/
+
+.content-middle {
+	width: 100%;
+	/*min-height: 458px;*/
+	height: auto;
+	/*margin-top: 10px;*/
+	/*padding-top: 10px;*/
+	margin-bottom: 1px;
+	padding: 14px 15px 15px 15px;
+	background: #fff;
+}
+.conmment .conmment-ui{
+	     padding: 30px 0;
+    border-bottom: 1px dashed #ddd;
+}
+.item-left {
+	margin-top: 25px;
+
+	
+}
+.item-left-to {
+	margin-top: 65px;
+}
+.item-left-to:first-child {
+	margin-top: 15px;
+}
+.item-left>a{
+	display: inline-block;
+	height: 60px;
+	width: 60px;
+	float: left;
+	margin-right: 5px;
+}
+.item-left>a img {
+	
+border-radius: 50%;
+max-width: 100%;
+    object-fit: cover;
+}
+.item-content a{
+	display: inline-block;
+	color: #666;
+	font-size: 14px;
+	margin-right: 15px;
+}
+.item-content a:hover {
+	color: #0099FF;
+}
+.item-content .message {
+	    margin-top: 10px;
+    margin-left: 80px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+
+    overflow: hidden;
+}
+.item-right {
+	    float: right;
+    font-size: 14px;
+    color: #666666;
+    margin-top: 20px;
+}
+.children-box{
+	margin-left: 80px;
+}
+.item-right span {
+	cursor: pointer;
+}
+.item-right .dianzan {
+	display: inline-block;
+	margin-right: 30px;
+}
+.item-right .dianzan:hover {
+	color: orangered;
+}
+.item-right .huifu:hover{
+	color: darkcyan;
+}
+.huifu{
+
+}
+/*中间的左边内容*/
+
+.content-middle-left {
+	/*min-height: 458px;*/
+	height: auto;
+	height: auto;
+}
+
+
+/*中间的右边内容*/
+
+.content-middle-right {
+	min-height: 458px;
+	height: auto;
+	padding: 0;
+}
+
+
+/*游戏框*/
+
+.game-div {
+	height: 458px;
+	background: darkgray;
+}
+
+
+/*作品介绍*/
+
+.game-introduce-title {
+	min-height: 21px;
+	color: #333333;
+	font-size: 18px;
+}
+
+.game-introduce-content {
+	min-height: 120px;
+	color: #999999;
+	font-size: 15px;
+	margin-top: 10px;
+}
+
+
+/*操作介绍*/
+
+.game-instruction {
+	margin-top: 20px;
+}
+
+.game-instruction-title {
+	min-height: 21px;
+	color: #333333;
+	font-size: 18px;
+}
+
+.game-instruction-content {
+	min-height: 80px;
+	margin-top: 10px;
+	color: #999999;
+
+	font-size: 15px;
+}
+.game-instruction-content p {
+	height: 80px;
+	overflow-y: auto;
+
+}
+.displays {
+	display: none!important;
+}
+.conmment-review {
+	width: 100%!important;
+	margin-top: 65px;
+}
+.shar-gloab3 {
+	position: relative;
+}
+#qrcodeCanvas {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 55px;
+	display: none;
+	left: 0;
+	z-index: 999;
+}
+
+
+.dianzan3:hover #qrcodeCanvas {
+	display: block
+	
+}
+/*标记标签*/
+
+.labelling {}
+
+.labelling a {
+	color: #999;
+	padding: 5px 25px;
+	background: #eee;
+}
+
+/*.labelling a:hover {
+	background: #ddd;
+}*/
+
+
+/*改编、创作与发布*/
+
+.content-other {
+	min-height: 40px;
+	margin-top: 35px;
+	padding-left: 0;
+}
+
+.choose-make {
+	padding: 0;
+}
+
+.choose-make a {
+	/*display: inline-block;
+	width: 120px;
+	height: 38px;
+	color: #fff;
+	padding: 7px 12px;
+	background: #34C9DB;
+	font-size: 16px;
+	line-height: 1.6;
+	text-align: center;
+	border-radius: 20px;*/
+}
+.choose-make a input {
+	outline: none;
+	border: none;
+	width: 120px;
+	height: 38px;
+	color: #fff;
+	padding: 7px 12px;
+	background: #34C9DB;
+	font-size: 16px;
+	line-height: 1.6;
+	text-align: center;
+	border-radius: 20px;
+}
+
+/*"改编"右边距*/
+
+#game-choose {
+	margin-right: 20px;
+}
+
+.posted-updata {
+	padding: 0;
+	height: 38px;
+	line-height: 38px;
+
+}
+
+.posted-updata ul li span {
+	padding: 0;
+	color: #aaa;
+	width: 100%;
+	font-size: 16px;
+	text-align: center;
+	
+}
+
+
+/*内容下边部分*/
+
+.content-bootom {
+	width: 100%;
+	min-height: 82px;
+	height: auto;
+	padding: 22px 20px 20px 20px;
+	background: #fff;
+}
+
+
+/*浏览/收和分享*/
+
+.view-share {
+	min-height: 50px;
+	padding: 0;
+	font-size: 16px;
+	line-height: 50px;
+}
+
+.content-bottom-left {
+	padding: 0;
+}
+
+.content-bottom-left span {
+	color: #999;
+}
+
+.content-bottom-left span b {
+	color: #333;
+	padding: 0 30px 0 5px
+}
+
+
+
+/*设置左边点赞/分享图标设置以及外圈*/
+.shar-g{
+	padding:0 10px;
+	border: 2px solid #FC7373;
+	border-radius: 50%;
+	margin-right: 10px;
+	cursor: pointer;
+	width: 50px;
+	height: 50px;
+    position: relative
+}
+
+.sg1{
+	
+}
+.sg1:hover {
+	background: #FC7373;
+}
+.sg1:hover i{
+	color: #fff;
+}
+.sg2{
+	padding:0 8px;
+	border: 2px solid #FFC530;
+}
+.sg2 i{
+	color: #FFC530;
+}
+.sg2:hover {
+	background: #FFC530;
+}
+.sg2:hover i{
+	color: #fff;
+}
+.linlang{
+	display: inline-block;
+	margin-top: -10px;
+}
+.dianzan {
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	border-radius: 50%;
+	position: relative;
+	text-align: center;
+}
+.dianzan i {
+	font-size: 24px;
+	text-align: center;
+}
+.dianzan span {
+	position: absolute;
+	left: 0;
+	width: 100px;
+	left: 60%;
+}
+.dianzan5{
+	display: inline-block;
+	margin-right: 15px;
+}
+.dianzan1{
+	border: 2px solid #FC7373
+}
+.dianzan1:hover {
+	background: #FC7373;
+}
+.dianzan1:hover i{
+	color: #fff;
+}
+.dianzan2:hover {
+	background: #FFC530;
+}
+.dianzan2:hover i{
+	color: #fff;
+}
+.dianzan3:hover {
+	background: #5BE2E4;
+}
+.dianzan3:hover i{
+	color: #fff;
+}
+.dianzan2 {
+	border: 2px solid #FFC530
+	
+}
+.dianzan3 span {
+	left: 82%;
+}
+.dianzan1 i {
+	color: #FC7373;
+}
+.dianzan2 i {
+	color: #FFC530;
+	display: inline-block;
+	margin-top: 13px;
+}
+.dianzan3 i {
+	color: #5BE2E4;
+	font-size: 30px;
+	margin-top: 9px;
+	display: inline-block;
+}
+.dianzan3 {
+	border: 2px solid #5BE2E4
+	
+}
+.sg3{
+	padding:0 12px;
+	padding-top: -2px;
+	border: 2px solid #5BE2E4;
+}
+.sg3 i{
+	    font-size: 36px;
+    color: #5BE2E4;
+    position: absolute;
+    top: 6px;
+    left: 15px;
+}
+.sg3:hover {
+	background: #5BE2E4;
+}
+.sg3:hover i{
+	color: #fff;
+}
+
+
+
+.shar-gloab1 {
+	display: inline-block;
+	margin: 0 10px 0 30px;
+}
+
+.content-bottom-right {
+	padding: 0;
+	height: 50px;
+}
+
+.content-bottom-right span {
+	color: #999;
+
+}
+
+.content-bottom-right span i {
+	font-size: 24px;
+	color: #FFFFFF;
+	vertical-align: text-top;
+}
+
+.shar-gloab2 {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+/*设置右边点赞/分享图标设置以及外圈*/
+.shar-g2{
+	padding:0 10px;
+	border-radius: 50%;
+	margin-right: 10px;
+}
+.sg4,.sg5,.sg6{
+	padding:0 8px;
+	cursor: pointer;
+	
+	padding-top: -3px;
+	background: #D7DFE0;
+}
+.sg4:hover{
+	background: #4AA53C;
+}
+.sg5:hover{
+	background: #4E9CCF;
+}
+.sg6:hover{
+	background: #EC6145;
+}
+
+
+
+/*评论区，手机端隐藏*/
+
+.comment {
+	height: auto;
+	padding: 0;
+	min-height: 500px;
+	margin-top: 15px;
+}
+
+.comment-list {
+	padding: 20px 20px 30px 20px;
+	background: #fff;
+}
+
+
+/*留言头部*/
+
+.comment-head {
+	width: 100%;
+	height: 22px;
+	color: #333;
+	margin-bottom: 20px;
+	font-size: 18px;
+}
+
+
+/*添加留言*/
+
+.conmment-add {
+	width: 100%;
+	height: 100px;
+}
+
+.comment-add-box {
+	width: 80%;
+	height: 100px;
+	position: relative;
+}
+
+.write-comment {
+	float: left;
+	width: 100%;
+	height: 100px;
+	color: #555;
+	padding: 6px 12px;
+	background: #fff;
+	border: 1px solid #e4e8e9;
+	font-size: 14px;
+	line-height: 21px;
+	border-radius: 2px;
+}
+
+.comment-submit {
+	float: right;
+	width: 20%;
+	height: 100px;
+	color: #fff;
+	padding: 0 12px;
+	background: #34c9db;
+	border: 1px solid #34c9db;
+	font-size: 16px;
+	line-height: 100px;
+	text-align: center;
+	cursor: pointer;
+}
+
+
+/*留言详情*/
+
+.comment-details {
+	width: 100%;
+	height: auto;
+	margin-top: 30px;
+}
+
+.media {
+	clear: both;
+}
+
+.bs-example {
+	padding: 30px 0;
+	border-bottom: 1px dashed #999;
+}
+
+.media-heading {
+	color: #666;
+	font-size: 15px;
+	margin-right: 20px;
+}
+
+.comment-time {
+	color: #999;
+	font-size: 12px;
+}
+
+.comment-content {
+	color: #333;
+	font-size: 18px;
+	margin: 10px 0;
+}
+
+
+/*赞与回复*/
+
+.thump-replay {
+	color: #999;
+	font-size: 13px;
+}
+
+.thump-replay span {
+	padding: 0 10px;
+	cursor: pointer;
+	
+}
+
+.thump-replay span:hover {
+	color: #333;
+}
+
+
+/*小图标设置*/
+
+.thump-replay i {
+	margin-right: 5px;
+	font-size: 18px;
+	vertical-align: middle;
+
+}
+.zan:hover .fa-thumbs-o-up{
+	color: red;
+}
+
+/*他人回复框*/
+
+.other-replay {
+	clear: both;
+	width: 100%;
+	/*height: 140px;*/
+	height: auto;
+	padding-top: 20px;
+	background: #fff;
+}
+
+
+/*回复框*/
+
+.other-content {
+	width: 100%;
+	height: 70px;
+}
+
+.label2 {
+	width: 80%;
+	position: relative;
+	height: 70px;
+	margin: 0;
+}
+
+.replay2 {
+	float: right;
+	width: 20%;
+	height: 70px;
+	color: #fff;
+	padding: 0 12px;
+	background: #34c9db;
+	border: 1px solid #34c9db;
+	font-size: 16px;
+	line-height: 70px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.cancel-replay {
+	display: inline-block;
+	width: 10%;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+}
+
+
+/*吐槽人*/
+
+#media-head {
+	font-size: 12px;
+}
+
+#comment-content {
+	color: #666;
+	font-size: 14px;
+}
+
+
+/*改编、专题区*/
+
+.choose-area {
+	height: auto;
+	padding-right: 0px;
+	margin-top: 15px;
+}
+
+.item-sider {
+	width: 100%;
+	height: 187px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	background: #fff;
+}
+
+.sider-top {
+	padding: 0 10px;
+	width: 100%;
+	height: 21px;
+	color: #333;
+	font-size: 16px;
+}
+
+.sider-list {
+	width: 100%;
+	height: 131px;
+	margin-top: 10px;
+}
+
+.sider-img {
+	width: 100px;
+	height: 75px;
+	margin: 15px auto;
+	text-align: center;
+	line-height: 21px;
+	background: gray;
+}
+
+.sider-desc {
+	width: 100%;
+	height: 41px;
+	font-size: 14px;
+	text-align: center;
+	color: #999;
+	line-height: 21px;
+}
+
+
+/*专题*/
+
+.item-recommed {
+	width: 100%;
+	height: auto;
+	padding: 0 10px;
+	padding-top: 20px;
+	margin-bottom: 20px;
+	background: #fff;
+}
+
+.recommed-top {
+	font-size: 16px;
+}
+
+.recommed-content {
+	padding-bottom: 20px;
+}
+
+.recommed-right .media-heading {
+	color: #333;
+	font-size: 15px;
+}
+
+.recommed-right span {
+	color: #999;
+}
+
+.recommed-right span i {
+	padding-right: 5px;
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+.thump-replay .pull-right span:first-child {
+	opacity: 0;
+}
+
+
+/*手机端先显示*/
+
+.phone-area {
+	display: none;
+}
+
+
+/*单独处理(游戏框/改编-创作/浏览-分享/留言-回复)*/
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+	.container {
+		padding: 0;
+	}
+	.choose-make a {
+		display: inline-block;
+		height: 38px;
+		color: #fff;
+		padding: 7px 12px;
+		background: #34C9DB;
+		font-size: 16px;
+		line-height: 1.6;
+		text-align: center;
+		border-radius: 20px;
+	}
+	#game-choose {
+		margin: 0;
+	}
+	/*浏览*/
+	.content-bottom-left span{
+		margin-right: 8px;
+	}
+	.content-bottom-left span b {
+		padding: 0 0 0 5px;
+	}
+	.shar-gloab1,.shar-g{
+		margin: 0;
+	}
+	.content-bottom-left span i {
+		margin-right: 0;
+	}
+	.view-share {
+		font-size: 14px;
+	}
+	.content-bottom-left span i {
+		font-size: 26px;
+	}
+	/*分享*/
+	.shar-gloab2 {
+		margin: 0;
+	}
+	.content-bottom-right span i {
+		font-size: 20px;
+		margin-right: 0;
+	}
+	.shar-g2{
+		padding: 0 8px;
+		margin: 0;
+		margin-right: 5px;
+	}
+	.pull-right {
+		clear: both;
+		float: right!important;
+	}
+	/*评论*/
+	.choose-area {
+		padding: 0;
+	}
+}
+
+
+/*设置手机端显示*/
+
+@media only screen and (max-width: 768px) {
+	.content-middle {
+		padding: 0;
+	}
+	.big {
+		margin-top: 60px;
+	}
+	.content-middle-left {
+		padding: 0;
+	}
+	.container {
+		padding: 0;
+	}
+	/*游戏框*/
+	.game-div {
+		height: 310px;
+	}
+	.phone-area {
+		display: block;
+		width: 100%;
+		height: auto;
+		padding: 5px 5px 70px 5px;
+		/*box-sizing: border-box;	*/
+	}
+	.phone-game-top {
+		padding: 0 8px;
+		padding-bottom: 20px;
+		border-bottom: 1px solid #999;
+	}
+	.phone-game-title {
+		color: #333;
+		font-size: 18px;
+	}
+	.phone-game-write {
+		color: #666;
+		font-size: 15px;
+	}
+	.phone-game-top ul li span {
+		color: #666;
+		font-size: 16px;
+	}
+	.pull-right i {
+		font-size: 25px;
+		margin-right: 5px;
+		vertical-align: middle;
+	}
+	/*手机端点赞*/
+	.phone-zan{
+		margin-left: 10px;
+	}
+	.phone-game-top li {
+		margin-top: 10px;
+	}
+	.phone-game-content {
+		padding-left: 8px;
+	}
+	.caozuo-shuoming {
+		color: #666;
+		padding: 15px 0;
+		font-size: 18px;
+	}
+	.jieshao {
+		color: #999;
+		font-size: 16px;
+		padding-bottom: 20px;
+	}
+	.shuoming {
+		color: #999;
+		font-size: 16px;
+	}
+}

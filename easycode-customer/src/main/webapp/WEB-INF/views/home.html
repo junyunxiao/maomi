@@ -1,0 +1,321 @@
+<style type="text/css">
+	.item {
+		margin-top: 0;
+		cursor: pointer;
+		padding-left: 0;
+	}
+	
+	.main .selected-title {
+		/*margin-left: 10px;*/
+	}
+	
+	.swiper-container1 img {
+		width: 850px;
+		height: 350px;
+		/*object-fit: cover;*/
+	}
+	
+	.swiper-container2 img {
+		height: 200px;
+	}
+
+	
+</style>
+<div class="banner">
+	<div class="container bannercontainer">
+		<div class="row">
+			<div class="col-md-9">
+
+				<div class="swiper-container swiper-container1 hidden-xs">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<a href=""><img src="public/img/lunbo1.png" class="img-responsive" /></a>
+						</div>
+						<div class="swiper-slide">
+							<a href=""><img src="public/img/lunbo2.png" class="img-responsive" /></a>
+						</div>
+						<div class="swiper-slide">
+							<a href=""><img src="public/img/lunbo3.png" class="img-responsive" /></a>
+						</div>
+						<div class="swiper-slide">
+							<a href=""><img src="public/img/lunbo4.png" class="img-responsive" /></a>
+						</div>
+					</div>
+					<div class="swiper-pagination"></div>
+					<div class="swiper-button-next hidden-sm hidden-xs"></div>
+					<div class="swiper-button-prev hidden-sm hidden-xs"></div>
+				</div>
+				<!--M-->
+				<div class="swiper-container swiper-container2 hidden-lg hidden-md hidden-sm">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<a href=""><img src="public/img/lunbo1.png" class="img-responsive" /></a>
+						</div>
+						<div class="swiper-slide">
+							<a href=""><img src="public/img/lunbo2.png" class="img-responsive" /></a>
+						</div>
+						<div class="swiper-slide">
+							<a href=""><img src="public/img/lunbo3.png" class="img-responsive" /></a>
+						</div>
+						<div class="swiper-slide">
+							<a href=""><img src="public/img/lunbo4.png" class="img-responsive" /></a>
+						</div>
+					</div>
+					<div class="swiper-pagination"></div>
+					<div class="swiper-button-next hidden-sm hidden-xs"></div>
+					<div class="swiper-button-prev hidden-sm hidden-xs"></div>
+				</div>
+				<script>
+					var swiper = new Swiper('.swiper-container', {
+						spaceBetween: 30,
+						centeredSlides: true,
+						autoplay: {
+							delay: 2500,
+							disableOnInteraction: false,
+						},
+						pagination: {
+							el: '.swiper-pagination',
+							clickable: true
+						},
+						navigation: {
+							nextEl: '.swiper-button-next',
+							prevEl: '.swiper-button-prev',
+						}
+					});
+				</script>
+			</div>
+			<div class="col-md-3 hidden-sm hidden-xs text-center" style="position: relative;">
+				<img src="public/img/erweim.png" class="opinion img-rounded" />
+				<a href="editor.html"><img src="public/img/starter.png" class="opinion2" /></a>
+	
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--主内容区-->
+<div class="main" id="main">
+					<!--LODING-->
+			<div class="loading" v-show="isLoding">
+				<div class="loading-content">
+					<div class="sk-three-bounce">
+				        <div class="sk-child sk-bounce1"></div>
+				        <div class="sk-child sk-bounce2"></div>
+				        <div class="sk-child sk-bounce3"></div>
+				      </div>
+				</div>
+			</div>
+	<!--精选作品-->
+	<div class="main-liat liat-1">
+		<div class=" container">
+			<div class="row">
+				<div class="col-md-3 col-xs-6 work">
+					<div class="selected-title">
+						精选作品
+					</div>
+				</div>
+			</div>
+			<!--精选作品：内容区-->
+			<div class="selected-content">
+				<div class="row" id="feature_row">
+					
+				</div>
+				<!--模板-->
+						
+							<div class="col-md-3 col-sm-6 col-xs-6 item" v-for="val in featured" @click="gameDetails(val)">
+								<div class="thumbnail">
+									<a class="g_detail">
+										<img style=" height: 130px;" :src="'http://www.maomi.xn--fiqs8s/'+val.resourcesUrl"/>
+									</a>
+									<div class="caption">
+										<h5 class="ovhiden"><a href="" class="title-name">{{val.createUserName}}</a></h5>
+										<div class="row">
+											<div class="col-md-6 col-xs-12 text-left">
+												<a class="names">{{val.projectName}}</a>
+											</div>
+											<div class="col-md-6 col-xs-12 locate ">
+												<div class="col-md-6 col-xs-4">
+													<span class="glyphicon glyphicon-thumbs-up"><font>{{val.upvoteNum}}</font></span>
+												</div>
+												<div class="col-md-6 col-xs-8">
+													<span class="glyphicon glyphicon-eye-open"><font>{{val.browseNum}}</font></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+			
+			</div>
+		</div>
+	</div>
+	<!--热门作品-->
+	<div class="main-liat liat-2">
+		<div class=" container">
+			<div class="row">
+				<div class="col-md-3 col-xs-6 work">
+					<div class="selected-title">
+						热门作品
+					</div>
+				</div>
+			</div>
+			<!--热门作品：内容区-->
+			<div class="selected-content">
+				<div class="row" id="hot_row">
+					
+				</div>
+							<div class="col-md-3 col-sm-6 col-xs-6 item" v-for="val in hot" @click="gameDetails(val)">
+								<div class="thumbnail">
+									<a class="g_detail">
+
+										<img style=" height: 130px;" :src="'http://www.maomi.xn--fiqs8s/'+val.resourcesUrl"/>
+									</a>
+									<div class="caption">
+										<h5 class="ovhiden"><a href="" class="title-name">{{val.createUserName}}</a></h5>
+										<div class="row">
+											<div class="col-md-6 col-xs-12 text-left">
+												<a class="names">{{val.projectName}}</a>
+											</div>
+											<div class="col-md-6 col-xs-12 locate ">
+												<div class="col-md-6 col-xs-4">
+													<span class="glyphicon glyphicon-thumbs-up"><font>{{val.upvoteNum}}</font></span>
+												</div>
+												<div class="col-md-6 col-xs-8">
+													<span class="glyphicon glyphicon-eye-open"><font>{{val.browseNum}}</font></span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+			</div>
+		</div>
+	</div>
+
+	<!--精选专题-->
+	<!--<div class="main-liat liat-2">
+					<div class=" container">
+					<div class="row">
+						<div class="col-md-3 col-xs-6 work">
+							<div class="selected-title">
+								精选专题
+							</div>
+						</div>
+					</div>
+
+					<div class="selected-content">
+						<div class="row">
+							<div class="col-md-4 col-sm-6 col-xs-12 item special">
+									<div class="thumbnail">
+								      <a href="#/selected" target="_blank"><img src="public/img/6d6e56de-ad62-4a61-bd9d-4f88c8423b05.png" alt="..."></a>
+								      <div class="caption">
+								        <h5><a href="" class="title-name">太空飞人</a></h5>
+								        	<div class="row">
+								        		<div class="col-md-5 col-xs-12 text-left"><a class="names" href="">王胖安</a></div>
+								        		<div class="col-md-7 col-xs-12 locate ">
+								        			<div class="col-md-6 col-xs-4">
+								        				<span class="glyphicon glyphicon-thumbs-up"><font>33</font></span>
+								        			</div>
+								        			<div class="col-md-6 col-xs-8">
+								        				<span class="glyphicon glyphicon-eye-open"><font>6523</font></span>
+								        			</div>
+								        		</div>
+								        	</div>
+								      </div>
+							   		 </div>
+								</div>
+						<div class="col-md-4 col-sm-6 col-xs-12 item special">
+									<div class="thumbnail">
+								      <a href=""><img src="public/img/6d6e56de-ad62-4a61-bd9d-4f88c8423b05.png" alt="..."></a>
+								      <div class="caption">
+								        <h5><a href="" class="title-name">太空飞人</a></h5>
+								        	<div class="row">
+								        		<div class="col-md-5 col-xs-12 text-left"><a class="names" href="">王胖安</a></div>
+								        		<div class="col-md-7 col-xs-12 locate ">
+								        			<div class="col-md-6 col-xs-4">
+								        				<span class="glyphicon glyphicon-thumbs-up"><font>33</font></span>
+								        			</div>
+								        			<div class="col-md-6 col-xs-8">
+								        				<span class="glyphicon glyphicon-eye-open"><font>6523</font></span>
+								        			</div>
+								        		</div>
+								        	</div>
+								      </div>
+							   		 </div>
+								</div>
+								<div class="col-md-4 col-sm-6 col-xs-12 item special">
+									<div class="thumbnail">
+								      <a href=""><img src="public/img/6d6e56de-ad62-4a61-bd9d-4f88c8423b05.png" alt="..."></a>
+								      <div class="caption">
+								        <h5><a href="" class="title-name">太空飞人</a></h5>
+								        	<div class="row">
+								        		<div class="col-md-5 col-xs-12 text-left"><a class="names" href="">王胖安</a></div>
+								        		<div class="col-md-7 col-xs-12 locate ">
+								        			<div class="col-md-6 col-xs-4">
+								        				<span class="glyphicon glyphicon-thumbs-up"><font>33</font></span>
+								        			</div>
+								        			<div class="col-md-6 col-xs-8">
+								        				<span class="glyphicon glyphicon-eye-open"><font>6523</font></span>
+								        			</div>
+								        		</div>
+								        	</div>
+								      </div>
+							   		 </div>
+								</div>
+							</div>		
+						</div>
+					</div>
+			</div>-->
+</div>
+<script type="text/javascript">
+	new Vue({
+	  el: '#main',
+	  data:function(){
+			return {
+		  		featured:[],	//精选作品
+		  		isLoding:false,
+		  		hot:[],
+			}
+
+	  },
+	  methods:{
+	  	//精选作品
+	  	queryFeatured:function() {
+	  		var _this = this;
+	  		_this.isLoding = true	//显示loding
+					$.ajax({
+						type:"post",
+						url: "http://www.maomi.xn--fiqs8s/queryFeatured",
+						 success:function (res) {
+					 		_this.isLoding = false	//隐藏loding
+							_this.featured = res.bodyData.rows
+
+					 }
+					});
+	  	},
+	  	//热门作品http://www.maomi.xn--fiqs8s/queryHot
+	  	queryHot:function() {
+	  		var _this = this;
+	  		_this.isLoding = true	//显示loding
+					$.ajax({
+						type:"post",
+						url: "http://www.maomi.xn--fiqs8s/queryHot",
+						 success:function (res) {
+					 		_this.isLoding = false	//隐藏loding
+								_this.hot = res.bodyData.rows
+					 }
+					});
+	  	},
+	  	gameDetails:function(val) {
+	  		window.localStorage.setItem('data',JSON.stringify(val))
+	  		window.location.href="getDetails/"+val.projectId
+	  	}
+	  },
+	  created:function (){
+		  	this.queryFeatured()
+		  	this.queryHot()
+	  }
+
+	})
+</script>

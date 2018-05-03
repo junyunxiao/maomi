@@ -1,0 +1,199 @@
+<style type="text/css">
+	.gr_main {
+		padding-top: 100px;
+		
+	}
+	#myTab {
+		border-bottom: 1px solid #ccc!important;
+		position: relative;
+	}
+	.gr_tab #myTab>li>a {
+		padding: 0;
+		text-align: left;
+		padding-bottom: 20px;
+		border: none;
+	}
+	.gr_tab #myTab>li>a>i{
+		font-style:normal;
+		padding-bottom: 20px;
+	}
+	.ssg {
+		border-bottom: solid 3px #34C9DB;
+	}
+	#myTab>li:hover {
+		background: none;
+	}
+	.unread {
+		color: #333;
+		font-size: 15px;
+	}
+	.unreadbotton {
+		margin-top: 20px;
+		border-bottom: 1px dashed #ccc;
+		padding-bottom: 25px;
+		
+	}
+	.msg {
+			margin-top: 20px;
+
+	}
+	/*已读消息*/
+	.unread2 {
+		color: #999;
+	}
+	.empty {
+		position: absolute;
+		right: 0;
+		top: 16px;
+		font-size: 15px;
+	} 
+	.fa-trash-o {
+		margin-top: 2px;
+		font-size: 15px;
+	}
+	.del {
+		float: right;
+		color: #999;
+		display: none;
+	}
+	.msg:hover .del {
+		display: block;
+	}
+	ol li {
+		list-style: none;
+		float: left;
+		margin-left: 15px;
+	}
+	ol li a {
+		display: inline-block;
+		width: 50px;
+		font-size: 16px;
+	}
+	.nav>li>a:focus, .nav>li>a:hover {
+		background: none;
+	}
+	.media {
+		margin-top: 30px!important;
+		border-bottom: 1px dashed #999;
+		padding-bottom: 10px;
+	}
+	.media:first-child {
+		margin-top: 10px!important;
+	}
+	.comment-del {
+		float: right;
+		display: inline-block;
+		margin-right: 20px;
+		font-size: 15px;
+		display: none;
+	}
+	.media:hover .comment-del {
+		display: block;
+	}
+</style>
+		<div class="container gr_main">
+			<div class="container tabtab">
+				<div class="gr_tab">
+				<ul id="myTab" class="nav nav-tabs">
+						<li class="col-xs-3 col-sm-3 col-md-2 active"><a href="/#home" data-toggle="tab"><i class="ssg">全部消息</i> </a></li>
+						<li class="col-xs-3 col-md-2 col-sm-3"><a href="/#zan" data-toggle="tab"><i>互动留言</i>  </a></li>
+						<li class="col-xs-3 col-md-2 col-sm-3"><a href="/#fa" data-toggle="tab"><i>专题管理</i>  </a></li>
+						<li class="col-xs-3 col-md-2 col-sm-3"><a href="/#zhuan" data-toggle="tab"><i>系统通知</i>  </a></li>
+						<a href="javascript:" class="empty"><i class="fa-li fa fa-trash-o"></i>清空</a>
+				</ul>
+				<script type="text/javascript">
+					$('#myTab li a i').click( function () {
+						$(this).addClass('ssg').parents('li').siblings('li').find('i').removeClass('ssg')
+					})
+				</script>
+				<div id="myTabContent" class="tab-content clearfix">
+					<!--全部消息-->
+					<div class="tab-pane  fade in active clearfix" id="home">
+						<div class="row">
+							<div class="col-md-12 msg">
+								<p class="unread">12月26日 20:51:43 <a href="javascript:" class="del">删除</a></p>
+								<p class="unread unreadbotton">亲爱的卡搭用户，为了给您提供更好的服务，我们需要了您使用卡搭平台的基本情况，一分钟填写问卷：http://survey2.163.com/html/kadauser/paper.html ，您将有机会获得卡搭送出的神秘礼物！  感谢您的配合！</p>
+							</div>
+							<div class="col-md-12 msg">
+								<p class="unread">12月26日 20:51:43 <a href="javascript:" class="del">删除</a></p>
+								<p class="unread unreadbotton">亲爱的卡搭用户，为了给您提供更好的服务，我们需要了您使用卡搭平台的基本情况，一分钟填写问卷：http://survey2.163.com/html/kadauser/paper.html ，您将有机会获得卡搭送出的神秘礼物！  感谢您的配合！</p>
+							</div>
+						</div>
+					</div>
+					<!--互动留言-->
+					<div class="tab-pane fade in clearfix" id="zan">
+						<div class="row">
+						<div id="messagesall">
+							<ul class="media-list">
+										<li class="media">
+											<div class="media-left">
+												<a href="#">
+													<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="public/img/001.jpg" data-holder-rendered="true" style="width: 64px; height: 64px;">
+												</a>
+											</div>
+											<div class="media-body">
+												<div>
+													<span class="media-heading">乐园路皮卡丘说：</span>
+													<span class="comment-time">11月17日 12:02</span>
+													<a href="javascript:" class="comment-del">删除</a>
+												</div>
+												<div class="comment-content">
+													<p>评论什么的。。。。。</p>
+												</div>
+											</div>
+										</li>
+										<li class="media">
+											<div class="media-left">
+												<a href="#">
+													<img class="media-object" data-src="holder.js/64x64" alt="64x64" src="public/img/001.jpg" data-holder-rendered="true" style="width: 64px; height: 64px;">
+												</a>
+											</div>
+											<div class="media-body">
+												<div>
+													<span class="media-heading">乐园路皮卡丘说：</span>
+													<span class="comment-time">11月17日 12:02</span>
+													<a href="javascript:" class="comment-del">删除</a>
+												</div>
+												<div class="comment-content">
+													<p>评论什么的。。。。。</p>
+												</div>
+											</div>
+										</li>
+									
+							</ul>
+						</div>
+						</div>
+						<!-- 全部-->
+						
+					</div>
+					<!--专题管理-->
+					<div class="tab-pane fade in clearfix" id="fa">
+						<div class="row">
+							<div class="col-md-12 msg">
+								<p class="unread">12月26日 20:51:43 <a href="javascript:" class="del">删除</a></p>
+								<p class="unread unreadbotton">亲爱的卡搭用户，为了给您提供更好的服务，我们需要了您使用卡搭平台的基本情况，一分钟填写问卷：http://survey2.163.com/html/kadauser/paper.html ，您将有机会获得卡搭送出的神秘礼物！  感谢您的配合！</p>
+							</div>
+							<div class="col-md-12 msg">
+								<p class="unread">12月26日 20:51:43 <a href="javascript:" class="del">删除</a></p>
+								<p class="unread unreadbotton">亲爱的卡搭用户，为了给您提供更好的服务，我们需要了您使用卡搭平台的基本情况，一分钟填写问卷：http://survey2.163.com/html/kadauser/paper.html ，您将有机会获得卡搭送出的神秘礼物！  感谢您的配合！</p>
+							</div>
+						</div>
+					</div>
+					<!--系统通知-->
+					<div class="tab-pane fade in clearfix" id="zhuan">
+						<div class="row">
+								<div class="col-md-12 msg">
+								<p class="unread">12月26日 20:51:43 <a href="javascript:" class="del">删除</a></p>
+								<p class="unread unreadbotton">亲爱的卡搭用户，为了给您提供更好的服务，我们需要了您使用卡搭平台的基本情况，一分钟填写问卷：http://survey2.163.com/html/kadauser/paper.html ，您将有机会获得卡搭送出的神秘礼物！  感谢您的配合！</p>
+							</div>
+							<div class="col-md-12 msg">
+								<p class="unread">12月26日 20:51:43 <a href="javascript:" class="del">删除</a></p>
+								<p class="unread unreadbotton">亲爱的卡搭用户，为了给您提供更好的服务，我们需要了您使用卡搭平台的基本情况，一分钟填写问卷：http://survey2.163.com/html/kadauser/paper.html ，您将有机会获得卡搭送出的神秘礼物！  感谢您的配合！</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		
+		

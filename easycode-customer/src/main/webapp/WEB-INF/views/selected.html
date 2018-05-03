@@ -1,0 +1,434 @@
+<style type="text/css">
+	.item {
+		margin-top: 0;
+	}
+	.main .selected-title{
+		margin-left: 10px;
+	}
+	.main {
+		margin-top: 20px;
+	}
+	.selected-title {
+		background: none!important;
+		color: #000!important;
+		margin-left: 0!important;
+		font-size: 16px!important;
+		color: #333!important;
+	}
+	.selected-title span {
+		color: #999;
+		font-size: 14px!important;
+	}
+	.page-header{
+		margin-top: 60px;
+		background: #78bdff;
+
+		padding: 50px 0;
+	}
+	.frame {
+		background: #fff;
+		width: 250px;
+		height: 190px;
+		padding: 6px;
+		box-sizing: border-box;
+	}
+	.mide h1 {
+		font-size: 25px;
+		margin-top: 55px;
+	}
+	.mide p {
+		font-size: 14px;
+	}
+	.mide p,.mide h1 {
+		color: #fff;
+
+	}
+	.mide .p2 {
+		margin-top: 25px;
+	}
+	.collect-btn {
+		display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+	line-height: 34px;
+	}
+	.collect-btn  i {
+		color: #78bdff;
+		font-size: 17px;
+
+	}
+	.itip,.arrayto {
+		color: #fff;
+		font-size: 14px;
+	}
+	.array {
+		padding: 0;
+	}
+	.gr-click {
+		display: inline-block;
+		    width: 160px;
+    height: 50px;
+    background: #FFFFFF;
+    border-radius: 100px;
+    font-size: 20px;
+    color: #34C9DB;
+    line-height: 50px;
+    text-align: center;
+
+    margin-right: 20px;
+    cursor: pointer;
+	}
+	.down {
+		margin-top: 100px;
+	}
+	.arrayto {
+		text-align: right;
+		margin-right: 42px;
+	}
+	.ux-btn {
+		display: inline-block;
+		text-align: center;
+		cursor: pointer;
+		float: right;
+		margin-top: 5px;
+		width: 76px;
+		height: 32px;
+		background: #78bdff;
+		font-size: 14px;
+    color: #FFFFFF;
+    border-radius: 35px !important;
+    line-height: 32px;
+    
+	}
+	.fotmsg {
+		margin-top: 40px;
+	}
+	.spn {
+		display: inline-block;
+		margin-left: 20px;
+		font-size: 12px;
+	}
+	.hobt li{
+		float: left;
+	}
+	.hobt li a{
+		font-size: 18px;
+	}
+	.hobt li a:hover,.hobt li a:active{
+		background: #fff;
+		border: none;
+	}
+	.phone-special{
+		margin-top: 50px;
+		position: relative;
+
+	}
+	.mask-h {
+
+	}
+	.mask-top{
+		    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.7);
+	}
+	.word{
+		font-size: 2rem;
+		color: #fff;
+		font-weight: bold;
+		margin-top: 30px;
+	}
+	.gallery-authorName,.gallery-viewCount,.gallery,.gallery-btn-item,.btn-sep {
+		color: #fff;
+		font-size: 1.7rem;
+		font-style: normal;
+	}
+	.mask-btn {
+		position: absolute;
+		bottom: -19px;
+		left: 50%;
+		margin-left: -100px;
+		background: #7bdde9;
+		padding: 8px 20px;
+		border-radius: 20px;
+	}
+	.btn-sep {
+		display: inline-block;
+		padding: 0 20px;
+	}
+	.mask-content {
+		padding: 10px 15px;
+		margin-top: 30px;
+		font-size: 1.7rem;
+	}
+	.gallery-p {
+		margin-top: 100px;
+	}
+</style>
+	
+	<!--手机端显示-->
+	<div class="phone-special hidden-lg hidden-md hidden-print hidden-sm">
+		<div class="row mask-h">
+					<img src="public/img/content2.png" class="img-responsive"/>
+			
+			<div class="mask-top">
+				<div class="mask-div">
+						<div class="container">
+							<div class="gallery-p">
+								<h3 class="text-center word">我的世界，自由创造，从一个方块开始</h3>
+								<p class="text-center">
+									<a class="gallery-authorName">卡搭官方</a>
+									<i class="gallery">|</i>
+									<span class="gallery-viewCount">浏览 19.1k</span>
+								</p>
+							</div>
+							
+						</div>
+				</div>
+				<div class="mask-btn">
+				
+						
+							<div class="container">
+						<span class="gallery-btn-item gallery-btn-collect">
+							<i class="fa fa-heart-o" style="margin-right: 10px;"></i>收藏
+	                    </span>
+	                    <i class="btn-sep">|</i>
+	                    <span class="gallery-btn-item gallery-btn-thumbup"><i style="margin-right: 10px;" class="fa fa-thumbs-o-up"></i>47
+	                    </span>
+					</div>
+				</div>
+				
+				
+			</div>
+			
+		</div>
+	</div>
+		<div class="mask-content hidden-lg hidden-md hidden-print hidden-sm">一块积木一个世界，用Scratch的积木转换成我的世界积木，创造自己的世界。</div>
+	
+		<div class="page-header hidden-xs">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="frame">
+							<img class="img-responsive" src="public/img/content.png"/>
+						</div>
+					</div>
+					<div class="col-md-5 mide">
+						<h1>我的世界，自由创造，从一个方块开始</h1>
+						<p>创建者：卡搭官方创建于 2017-11-10</p>
+						<p class="p2">一块积木一个世界，用Scratch的积木转换成我的世界积木，创造自己的世界。</p>
+					</div>
+					<div class="col-md-4">
+
+							<div class="col-sm-4 array">
+								<div class="collect-btn">
+									<i class="fa fa-heart-o"></i>
+									
+								</div>
+								<span class="itip">收藏</span>
+							</div>
+							<div class="col-sm-4 array">
+								<div class="collect-btn">
+									<i class="fa fa-thumbs-o-up"></i>
+								</div>
+								<span class="itip">已点赞 45</span>
+								
+							</div>
+							<div class="col-sm-4 array">
+								<div class="collect-btn">
+									<i class="fa fa-share"></i>
+								</div>
+								<span class="itip">分享</span>
+							</div>
+							<div class="down">
+								<p class="arrayto">浏览 19.1K  &nbsp;&nbsp;留言 22</p>
+								<p class="text-right"><a href="javascript:" class="gr-click">投稿</a></p>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="main">
+
+				<div class="main-liat liat-1">
+					<div class=" container">
+					<div class="row">
+						<div class="col-md-3 work">
+							<div class="selected-title">
+								 全部作品<span> 14</span>
+							</div>
+						</div>
+						<!--<div class="col-ms-9 pull-right hobt">
+							<ul class="nav nav-tabs">
+								<li>
+									<a href="javascript:" data-toggle="tab">热门</a>
+								</li>
+								<li>
+										<a style="padding: 10px 0;">|</a>
+									</li>
+								<li>
+									<a href="javascript:" data-toggle="tab">最新</a>
+								</li>
+							</ul>
+						</div>-->
+					</div>
+
+					<div class="selected-content">
+						<div class="row">
+							<div class="col-md-3 col-sm-6 col-xs-6 item">
+									<div class="thumbnail">
+								      <a href="#/gameDetails"><img src="public/img/content.png" alt="..."></a>
+								      <div class="caption">
+								        <h5><a href="" class="title-name">太空飞人</a></h5>
+								        	<div class="row">
+								        		<div class="col-md-5 col-xs-12 text-left"><a class="names" href="">王胖安</a></div>
+								        		<div class="col-md-7 col-xs-12 locate ">
+								        			<div class="col-md-6 col-xs-4">
+								        				<span class="glyphicon glyphicon-thumbs-up"><font>33</font></span>
+								        			</div>
+								        			<div class="col-md-6 col-xs-8">
+								        				<span class="glyphicon glyphicon-eye-open"><font>6523</font></span>
+								        			</div>
+								        		</div>
+								        	</div>
+								      </div>
+							   		 </div>
+								</div>
+						<div class="col-md-3 col-sm-6 col-xs-6 item">
+									<div class="thumbnail">
+								      <a href="#/gameDetails"><img src="public/img/content.png" alt="..."></a>
+								      <div class="caption">
+								        <h5><a href="" class="title-name">太空飞人</a></h5>
+								        	<div class="row">
+								        		<div class="col-md-5 col-xs-12 text-left"><a class="names" href="">王胖安</a></div>
+								        		<div class="col-md-7 col-xs-12 locate ">
+								        			<div class="col-md-6 col-xs-4">
+								        				<span class="glyphicon glyphicon-thumbs-up"><font>33</font></span>
+								        			</div>
+								        			<div class="col-md-6 col-xs-8">
+								        				<span class="glyphicon glyphicon-eye-open"><font>6523</font></span>
+								        			</div>
+								        		</div>
+								        	</div>
+								      </div>
+							   		 </div>
+								</div>
+								<div class="col-md-3 col-sm-6 col-xs-6 item">
+									<div class="thumbnail">
+								      <a href="#/gameDetails"><img src="public/img/content.png" alt="..."></a>
+								      <div class="caption">
+								        <h5><a href="" class="title-name">太空飞人</a></h5>
+								        	<div class="row">
+								        		<div class="col-md-5 col-xs-12 text-left"><a class="names" href="">王胖安</a></div>
+								        		<div class="col-md-7 col-xs-12 locate ">
+								        			<div class="col-md-6 col-xs-4">
+								        				<span class="glyphicon glyphicon-thumbs-up"><font>33</font></span>
+								        			</div>
+								        			<div class="col-md-6 col-xs-8">
+								        				<span class="glyphicon glyphicon-eye-open"><font>6523</font></span>
+								        			</div>
+								        		</div>
+								        	</div>
+								      </div>
+							   		 </div>
+								</div>
+								<div class="col-md-3 col-sm-6 col-xs-6 item">
+									<div class="thumbnail">
+								      <a href="#/gameDetails"><img src="public/img/content.png" alt="..."></a>
+								      <div class="caption">
+								        <h5><a href="" class="title-name">太空飞人</a></h5>
+								        	<div class="row">
+								        		<div class="col-md-5 col-xs-12 text-left"><a class="names" href="">王胖安</a></div>
+								        		<div class="col-md-7 col-xs-12 locate ">
+								        			<div class="col-md-6 col-xs-4">
+								        				<span class="glyphicon glyphicon-thumbs-up"><font>33</font></span>
+								        			</div>
+								        			<div class="col-md-6 col-xs-8">
+								        				<span class="glyphicon glyphicon-eye-open"><font>6523</font></span>
+								        			</div>
+								        		</div>
+								        	</div>
+								      </div>
+							   		 </div>
+								</div>
+								<div class="col-md-3 col-sm-6 col-xs-6 item">
+									<div class="thumbnail">
+								      <a href="#/gameDetails"><img src="public/img/content.png" alt="..."></a>
+								      <div class="caption">
+								        <h5><a href="" class="title-name">太空飞人</a></h5>
+								        	<div class="row">
+								        		<div class="col-md-5 col-xs-12 text-left"><a class="names" href="">王胖安</a></div>
+								        		<div class="col-md-7 col-xs-12 locate ">
+								        			<div class="col-md-6 col-xs-4">
+								        				<span class="glyphicon glyphicon-thumbs-up"><font>33</font></span>
+								        			</div>
+								        			<div class="col-md-6 col-xs-8">
+								        				<span class="glyphicon glyphicon-eye-open"><font>6523</font></span>
+								        			</div>
+								        		</div>
+								        	</div>
+								      </div>
+							   		 </div>
+								</div>
+						</div>		
+					</div>
+					</div>
+			</div>
+		</div>
+		
+<!--留言-->
+	<div class="fotmsg hidden-xs">
+		<div class="container">
+			<div class="row">
+				 <div class="col-md-12" style="font-size: 16px;margin-bottom: 10px;">留言 0</div>
+				 <div class="col-md-12">
+				 	<textarea name="" class="form-control" rows="4" cols="" placeholder="卡塔真好玩"></textarea>
+				 </div>
+				 <div class="col-md-12">
+				 	<span class="ux-btn">
+					  		 留言
+					</span>
+				 </div>
+			</div>
+			<!--留言列表-->
+			<div class="media">
+      <div class="media-left">
+        <a href="#">
+          <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNjBhNjJkYmU4MSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE2MGE2MmRiZTgxIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy4xNzk2ODc1IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+        </a>
+      </div>
+      <div class="media-body">
+      	<div style="height: 64px;">
+
+      		<h4 class="media-heading">颜夕小小浪·king <span class="spn">12月28日 11:41</span></h4>
+       		<p>呵呵。。。不好玩。。。辣鸡一个。。。</p>
+      	</div>
+        
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNjBhNjJlMTI3YSB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE2MGE2MmUxMjdhIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy4xNzk2ODc1IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true">
+            </a>
+          </div>
+          <div class="media-body" style="height: 64px;">
+            <h4 class="media-heading">卡搭官方 <span class="spn">12月28日 11:41</span></h4>
+           	<p><a href="javascript:">@水晶之钻~火雨 </a> 将作品投稿这个专题即可</p> 
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+		</div>
+	</div>
+	
+
