@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.easycode.rest.dao.Comment" >
+  <resultMap id="BaseResultMap" type="com.easycode.rest.domain.CommentInfo" >
+    <id column="commentInfoId" property="commentinfoid" jdbcType="BIGINT" />
+    <result column="commentUserId" property="commentuserid" jdbcType="BIGINT" />
+    <result column="parentId" property="parentid" jdbcType="BIGINT" />
+    <result column="commentType" property="commenttype" jdbcType="INTEGER" />
+    <result column="commentContent" property="commentcontent" jdbcType="VARCHAR" />
+    <result column="commentDate" property="commentdate" jdbcType="TIMESTAMP" />
+    <result column="commentIP" property="commentip" jdbcType="VARCHAR" />
+    <result column="commentState" property="commentstate" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+ 
+  <!-- 查询所有父级评论 -->
+  <select id="queryCommentInfo"  parameterType="java.util.Map" resultMap="BaseResultMap">
+		SELECT
+			comi.commentInfoId,
+			comi.commentUserId,
+			comi.parentId,
+			comi.commentType,
+			comi.commentContent,
+			comi.commentDate,
+			comi.commentIP,
+			comi.commentState,
+			comi.createTime,
+			comi.updateTime
+		FROM
+			commentInfo comi
+		WHERE
+			1 = 1
+		<if test="projectId !=null">
+      	AND comi.parentId=  #{projectId,jdbcType=BIGINT}
+      	</if>
+		ORDER BY comi.commentDate DESC
+  </select>
+  
+  <!-- 父级评论总条数 -->
+  <select id="queryCommentInfoCount"  parameterType="java.util.Map"   resultType="java.lang.Integer">
+  	SELECT COUNT(s.commentInfoId) from (
+		SELECT
+			comi.commentInfoId,
+			comi.commentUserId,
+			comi.parentId,
+			comi.commentType,
+			comi.commentContent,
+			comi.commentDate,
+			comi.commentIP,
+			comi.commentState,
+			comi.createTime,
+			comi.updateTime
+		FROM
+			commentInfo comi
+		WHERE
+			1 = 1
+		<if test="projectId !=null">
+      	AND comi.parentId=  #{projectId,jdbcType=BIGINT}
+      	</if>
+      	
+		ORDER BY comi.commentDate DESC) s
+  </select>
+  
+  <!-- 查询所有子评论信息 -->
+  <select id="findReplyCommentByCommentId"  parameterType="java.lang.Long"   resultMap="BaseResultMap">
+		SELECT
+			comi.commentInfoId,
+			comi.commentUserId,
+			comi.parentId,
+			comi.commentType,
+			comi.commentContent,
+			comi.commentDate,
+			comi.commentIP,
+			comi.commentState,
+			comi.createTime,
+			comi.updateTime
+		FROM commentInfo comi
+		WHERE comi.parentId= #{commentInfoId,jdbcType=BIGINT}
+	</select>
+  
+  
+  
+ <!-- 添加评论及回复数据 -->
+  <insert id="insertSelective" parameterType="com.easycode.rest.domain.CommentInfo" >
+    insert into commentInfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commentinfoid != null" >
+        commentInfoId,
+      </if>
+      <if test="commentuserid != null" >
+        commentUserId,
+      </if>
+      <if test="parentid != null" >
+        parentId,
+      </if>
+      <if test="commenttype != null" >
+        commentType,
+      </if>
+      <if test="commentcontent != null" >
+        commentContent,
+      </if>
+      <if test="commentdate != null" >
+        commentDate,
+      </if>
+      <if test="commentip != null" >
+        commentIP,
+      </if>
+      <if test="commentstate != null" >
+        commentState,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commentinfoid != null" >
+        #{commentinfoid,jdbcType=BIGINT},
+      </if>
+      <if test="commentuserid != null" >
+        #{commentuserid,jdbcType=BIGINT},
+      </if>
+      <if test="parentid != null" >
+        #{parentid,jdbcType=BIGINT},
+      </if>
+      <if test="commenttype != null" >
+        #{commenttype,jdbcType=INTEGER},
+      </if>
+      <if test="commentcontent != null" >
+        #{commentcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="commentdate != null" >
+        #{commentdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commentip != null" >
+        #{commentip,jdbcType=VARCHAR},
+      </if>
+      <if test="commentstate != null" >
+        #{commentstate,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+</mapper>

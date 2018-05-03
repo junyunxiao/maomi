@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.easycode.rest.dao.Category" >
+  <resultMap id="BaseResultMap" type="com.easycode.rest.domain.CategoryInfo" >
+    <id column="categoryId" property="categoryid" jdbcType="BIGINT" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="createUserId" property="createuserid" jdbcType="BIGINT" />
+    <result column="updateUserId" property="updateuserid" jdbcType="BIGINT" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    categoryId, category, createTime, updateTime, remark, createUserId, updateUserId
+  </sql>
+  
+  <!-- 查询所有作品分类 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from categoryInfo
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from categoryInfo
+    where categoryId = #{categoryid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.easycode.rest.domain.CategoryInfo" >
+    insert into categoryInfo (categoryId, category, createTime, 
+      updateTime, remark, createUserId, 
+      updateUserId)
+    values (#{categoryid,jdbcType=BIGINT}, #{category,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, #{createuserid,jdbcType=BIGINT}, 
+      #{updateuserid,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.easycode.rest.domain.CategoryInfo" >
+    insert into categoryInfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="categoryid != null" >
+        categoryId,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+      <if test="updatetime != null" >
+        updateTime,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="createuserid != null" >
+        createUserId,
+      </if>
+      <if test="updateuserid != null" >
+        updateUserId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="categoryid != null" >
+        #{categoryid,jdbcType=BIGINT},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createuserid != null" >
+        #{createuserid,jdbcType=BIGINT},
+      </if>
+      <if test="updateuserid != null" >
+        #{updateuserid,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.easycode.rest.domain.CategoryInfo" >
+    update categoryInfo
+    <set >
+      <if test="category != null" >
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createuserid != null" >
+        createUserId = #{createuserid,jdbcType=BIGINT},
+      </if>
+      <if test="updateuserid != null" >
+        updateUserId = #{updateuserid,jdbcType=BIGINT},
+      </if>
+    </set>
+    where categoryId = #{categoryid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.easycode.rest.domain.CategoryInfo" >
+    update categoryInfo
+    set category = #{category,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+      createUserId = #{createuserid,jdbcType=BIGINT},
+      updateUserId = #{updateuserid,jdbcType=BIGINT}
+    where categoryId = #{categoryid,jdbcType=BIGINT}
+  </update>
+</mapper>

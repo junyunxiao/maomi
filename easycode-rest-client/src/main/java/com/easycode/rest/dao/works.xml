@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.easycode.rest.dao.Works">
+	<resultMap id="ResultOneToManyMap" type="com.easycode.rest.domain.WorksInfo">
+		<id column="project_id" property="projectId" jdbcType="BIGINT" />
+		<result column="project_name" property="projectName" jdbcType="VARCHAR" />
+		<result column="phone_mode" property="phoneMode" jdbcType="VARCHAR" />
+		<result column="project_url" property="projectUrl" jdbcType="VARCHAR" />
+		<result column="resources_url" property="resourcesUrl" jdbcType="VARCHAR" />
+		<result column="upvoteNum" property="upvoteNum" jdbcType="INTEGER" />
+		<result column="browseNum" property="browseNum" jdbcType="INTEGER" />
+		<result column="is_public" property="isPublic" jdbcType="VARCHAR" />
+		<result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="is_publish" property="isPublish" jdbcType="VARCHAR" />
+		<result column="create_user_id" property="createUserId" jdbcType="BIGINT" />
+		<result column="project_description" property="projectDescription" jdbcType="VARCHAR" />
+		<result column="project_instructions" property="projectInstructions" jdbcType="VARCHAR" />
+		<result column="project_remark" property="projectRemark" jdbcType="VARCHAR" />
+		<collection property="projectTypes" ofType="com.easycode.rest.domain.ProjectCategory">
+			<id column="projectCategoryId" property="projectcategoryid" jdbcType="BIGINT" />
+			<result column="projectId" property="projectid" jdbcType="BIGINT" />
+			<result column="category" property="category" jdbcType="VARCHAR" />
+		</collection>
+	</resultMap>
+	
+	<!-- 首页查询精选作品,按照点赞数来排序 -->
+	<select id="queryChosen" parameterType="java.util.Map"  resultType="com.easycode.rest.domain.WorksInfo">
+		SELECT
+		proi.create_user_name projectName,
+		proi.project_id projectId,
+		proi.project_name createUserName,
+		proi.resources_url resourcesUrl,
+		proi.upvoteNum upvoteNum,
+		proi.browseNum browseNum
+		FROM projectInfo proi
+		WHERE 1 = 1
+		AND proi.is_publish = '1'
+		GROUP BY proi.project_id
+		ORDER BY proi.upvoteNum desc
+	
+	</select>
+	
+	<select id="queryChosenCount" parameterType="java.util.Map"  resultType="java.lang.Integer">
+		SELECT COUNT(s.projectId) FROM(
+		SELECT
+		proi.create_user_name projectName,
+		proi.project_id projectId,
+		proi.project_name createUserName,
+		proi.resources_url resourcesUrl,
+		proi.upvoteNum upvoteNum,
+		proi.browseNum browseNum
+		FROM projectInfo proi
+		WHERE 1 = 1
+		AND proi.is_publish = '1'
+		GROUP BY proi.project_id
+		ORDER BY proi.upvoteNum desc)s
+	</select>
+	
+	<!-- 热门作品 按照浏览数来排序 -->
+	<select id="queryHot" parameterType="java.util.Map"  resultType="com.easycode.rest.domain.WorksInfo">
+		SELECT
+		proi.create_user_name projectName,
+		proi.project_id projectId,
+		proi.project_name createUserName,
+		proi.resources_url resourcesUrl,
+		proi.upvoteNum upvoteNum,
+		proi.browseNum browseNum
+		FROM projectInfo proi
+		WHERE 1 = 1
+		AND proi.is_publish = '1'
+		GROUP BY proi.project_id
+		ORDER BY proi.browseNum desc
+	</select>
+	
+	<select id="queryHotCount" parameterType="java.util.Map"  resultType="java.lang.Integer">
+		SELECT COUNT(s.projectId) FROM(
+		SELECT
+		proi.create_user_name projectName,
+		proi.project_id projectId,
+		proi.project_name createUserName,
+		proi.resources_url resourcesUrl,
+		proi.upvoteNum upvoteNum,
+		proi.browseNum browseNum
+		FROM projectInfo proi
+		WHERE 1 = 1
+		AND proi.is_publish = '1'
+		GROUP BY proi.project_id
+		ORDER BY proi.browseNum desc)s
+	</select>
+	
+	<!-- 发现页面查询 -->
+	<select id="queryFind" parameterType="java.util.Map" resultMap="ResultOneToManyMap">
+		SELECT
+		proi.project_id project_id,
+		proi.browseNum browseNum,
+		proi.upvoteNum upvoteNum,
+		proi.create_user_name create_user_name,
+		proi.project_name project_name,
+		proi.resources_url resources_url
+		FROM
+		projectInfo proi
+		LEFT JOIN projectCategory proc ON proi.project_id =proc.projectId
+		WHERE 1 = 1
+		AND proi.is_publish = '1'
+		<!-- 作品类型 -->
+		<if test="projectType !=null">
+			and proc.category= #{projectType,jdbcType=VARCHAR}
+		</if>
+		<!-- 搜索条件 -->
+		<if test="searchStr !=null">
+			 and proi.project_name like concat(concat('%',#{searchStr}),'%') 
+		</if>
+		GROUP BY proi.project_id
+		<!-- 排序 -->
+		<if test="sortStr ==0">
+				ORDER BY proi.browseNum desc 
+		</if>
+		<if test="sortStr ==1">
+				ORDER BY proi.create_time desc 
+		</if>
+	</select>
+
+	<select id="queryFindCount" parameterType="java.util.Map"  resultType="java.lang.Integer">
+		SELECT
+		COUNT(s.project_id)
+		FROM
+		(SELECT
+			proi.project_id project_id,
+			proi.browseNum browseNum,
+			proi.upvoteNum upvoteNum,
+			proi.create_user_name create_user_name,
+			proi.project_name project_name,
+			proi.resources_url resources_url
+		FROM
+			projectInfo proi
+		LEFT JOIN projectCategory proc ON proi.project_id = proc.projectId
+		WHERE 1 = 1
+		AND proi.is_publish = '1'
+		<!-- 作品类型 -->
+		<if test="projectType !=null">
+			and proc.category= #{projectType,jdbcType=VARCHAR}
+		</if>
+		<!-- 搜索条件 -->
+		<if test="searchStr !=null">
+			 and proi.project_name like concat(concat('%',#{searchStr}),'%')
+		</if>
+		GROUP BY proi.project_id
+		<!-- 排序 -->
+		<if test="sortStr ==0">
+				ORDER BY proi.browseNum desc 
+		</if>
+		<if test="sortStr ==1">
+				ORDER BY proi.create_time desc 
+		</if>
+		) s
+	</select>
+	
+	<!-- 作品详情页面查询 -->
+	<select id="queryDetail" parameterType="java.lang.Long" resultMap="ResultOneToManyMap">
+			SELECT
+					proi.*,
+					prod.project_description,
+					prod.project_instructions,
+					proc.projectCategoryId,
+					proc.projectId,
+					proc.category
+				FROM
+					projectInfo proi
+				LEFT JOIN projectDesc prod ON proi.project_id = prod.project_id
+				LEFT JOIN projectCategory proc ON proi.project_id = proc.projectId
+				WHERE 1 = 1 	
+				AND proi.project_id=#{value,jdbcType=BIGINT}
+	</select>
+	
+
+</mapper>

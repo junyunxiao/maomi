@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.easycode.rest.dao.ProjectCategory" >
+  <resultMap id="BaseResultMap" type="com.easycode.rest.domain.ProjectCategory" >
+    <id column="projectCategoryId" property="projectcategoryid" jdbcType="BIGINT" />
+    <result column="projectId" property="projectid" jdbcType="BIGINT" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+  </resultMap>
+
+ <insert id="insertSelective" parameterType="com.easycode.rest.domain.ProjectCategory" >
+    insert into projectCategory
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="projectcategoryid != null" >
+        projectCategoryId,
+      </if>
+      <if test="projectid != null" >
+        projectId,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="projectcategoryid != null" >
+        #{projectcategoryid,jdbcType=BIGINT},
+      </if>
+      <if test="projectid != null" >
+        #{projectid,jdbcType=BIGINT},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+    <delete id="deleteByProjectId" parameterType="java.lang.Long" >
+    delete from projectCategory
+    where projectId = #{projectId,jdbcType=BIGINT}
+  </delete>
+</mapper>
