@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       	 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- 加载配置文件 -->
+	<context:property-placeholder location="classpath:properties/*.properties" />
+
+	<!-- 配置数据源，此处使用阿里巴巴德鲁伊连接池 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<!-- 数据库驱动 -->
+		<property name="driverClassName" value="${jdbc_driver}" /> 
+		<!-- 基本属性 url、user、password -->
+		<property name="url" value="${jdbc_url}" />
+		<property name="username" value="${jdbc_user}" />
+		<property name="password" value="${jdbc_password}" />
+		  <!-- 配置监控统计拦截的filters -->
+   		 <property name="connectionProperties" value="config.decrypt=true;config.decrypt.key=${jdbc_connectionProperties}" />
+		<!--过滤器说明:config=密码解密,stat:监控,wall:防止sql注入-->
+   		 <property name="filters" value="config,stat,wall" />
+   		 <!-- 最大连接池数量 -->
+		<property name="maxActive" value="25" />
+		<!-- 初始化时建立物理连接的个数 -->
+		<property name="initialSize" value="2" />
+		<!-- 获取连接时最大等待时间，单位毫秒 -->
+		<property name="maxWait" value="60000" />
+		<!-- 最小连接池数量 -->
+		<property name="minIdle" value="2" />
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+		<!-- 检测sql是否有效 -->
+		<property name="validationQuery" value="SELECT 1 FROM DUAL" />
+		<property name="testWhileIdle" value="true" />
+		<property name="poolPreparedStatements" value="true" />
+		<property name="maxPoolPreparedStatementPerConnectionSize"	value="50" />
+		<property name="maxOpenPreparedStatements" value="100" />
+	</bean>
+
+	<!-- MyBatis数据访问服务 -->
+	<bean id="sqlSessionFactoryIlpAnalysis" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath*:com/easycode/rest/dao/*.xml" />
+		
+	</bean>
+	<!-- 数据访问服务 -->
+	<!-- dialect:数据库查询SQL分页的SQL修改器，默认为null不启用SQL分页操作。 -->
+	<bean id="dataServiceStat" class="com.easycode.common.server.impl.DataServiceMybatis"	init-method="initialize">
+		<property name="sqlSessionFactory" ref="sqlSessionFactoryIlpAnalysis" />
+		<!-- <property name="dialect" ref="oracleDialect" /> -->
+	</bean>
+
+	<!-- 数据库查询SQL分页的SQL修改器 -->
+	<bean id="oracleDialect" class="com.easycode.common.dialect.Oracle11gDialect" />
+
+
+</beans>

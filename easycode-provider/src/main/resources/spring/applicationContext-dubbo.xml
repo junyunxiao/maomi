@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="easycode-provider" />
+    
+	<dubbo:registry protocol="zookeeper" address="111.231.104.100:2181,111.231.104.100:2182,111.231.104.100:2183" />
+	
+    <dubbo:protocol name="dubbo" port="20880" />
+	 
+	 <dubbo:service interface="com.easycode.rest.server.UserService" ref="userService"  timeout="6000"/>
+	 
+	 <dubbo:service interface="com.easycode.rest.server.FileService" ref="fileService"  timeout="6000"/>
+	 
+	 <dubbo:service interface="com.easycode.rest.server.SchoolInfoServer" ref="schoolInfoService"  timeout="6000"/>
+	 
+	 <dubbo:service interface="com.easycode.rest.server.WorksServer" ref="worksService"  timeout="6000"/>
+	 
+	 <dubbo:service interface="com.easycode.rest.server.CategoryServer" ref="categoryServer"  timeout="6000"/>
+	 
+	 <dubbo:service interface="com.easycode.rest.server.CommentServer" ref="commentServer" timeout="6000"/>
+	
+</beans>
