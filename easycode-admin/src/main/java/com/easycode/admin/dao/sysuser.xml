@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.easycode.admin.dao.SysUser" >
+  <resultMap id="BaseResultMap" type="com.easycode.admin.domain.SysUser" >
+    <id column="sys_user_id" property="sysUserId" jdbcType="BIGINT" />
+    <result column="sys_user_name" property="sysUserName" jdbcType="VARCHAR" />
+    <result column="sys_user_passord" property="sysUserPassord" jdbcType="VARCHAR" />
+    <result column="sys_user_salt" property="sysUserSalt" jdbcType="VARCHAR" />
+    <result column="sys_user_avatar" property="sysUserAvatar" jdbcType="VARCHAR" />
+    <result column="sys_user_mail" property="sysUserMail" jdbcType="VARCHAR" />
+    <result column="create_user_id" property="createUserId" jdbcType="BIGINT" />
+    <result column="update_user_id" property="updateUserId" jdbcType="BIGINT" />
+    <result column="sys_user_start" property="sysUserStart" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="sys_user_remark" property="sysUserRemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sys_user_id, sys_user_name, sys_user_passord, sys_user_salt, sys_user_avatar, sys_user_mail, 
+    create_user_id, update_user_id, sys_user_start, create_time, update_time, sys_user_remark
+  </sql>
+  
+ <select id="getSysUserByUserNmae" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select 
+		<include refid="Base_Column_List" />
+		 from sys_user
+   		where 1=1
+   		<if test ="_parameter!= null">
+   			AND sys_user_name = #{userName,jdbcType=VARCHAR}
+   		</if> 
+  </select>
+	
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where sys_user_id = #{sysUserId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_user
+    where sys_user_id = #{sysUserId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.easycode.admin.domain.SysUser" >
+    insert into sys_user (sys_user_id, sys_user_name, sys_user_passord, 
+      sys_user_salt, sys_user_avatar, sys_user_mail, 
+      create_user_id, update_user_id, sys_user_start, 
+      create_time, update_time, sys_user_remark
+      )
+    values (#{sysUserId,jdbcType=BIGINT}, #{sysUserName,jdbcType=VARCHAR}, #{sysUserPassord,jdbcType=VARCHAR}, 
+      #{sysUserSalt,jdbcType=VARCHAR}, #{sysUserAvatar,jdbcType=VARCHAR}, #{sysUserMail,jdbcType=VARCHAR}, 
+      #{createUserId,jdbcType=BIGINT}, #{updateUserId,jdbcType=BIGINT}, #{sysUserStart,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{sysUserRemark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.easycode.admin.domain.SysUser" >
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sysUserId != null" >
+        sys_user_id,
+      </if>
+      <if test="sysUserName != null" >
+        sys_user_name,
+      </if>
+      <if test="sysUserPassord != null" >
+        sys_user_passord,
+      </if>
+      <if test="sysUserSalt != null" >
+        sys_user_salt,
+      </if>
+      <if test="sysUserAvatar != null" >
+        sys_user_avatar,
+      </if>
+      <if test="sysUserMail != null" >
+        sys_user_mail,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
+      <if test="sysUserStart != null" >
+        sys_user_start,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="sysUserRemark != null" >
+        sys_user_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sysUserId != null" >
+        #{sysUserId,jdbcType=BIGINT},
+      </if>
+      <if test="sysUserName != null" >
+        #{sysUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserPassord != null" >
+        #{sysUserPassord,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserSalt != null" >
+        #{sysUserSalt,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserAvatar != null" >
+        #{sysUserAvatar,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserMail != null" >
+        #{sysUserMail,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="sysUserStart != null" >
+        #{sysUserStart,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUserRemark != null" >
+        #{sysUserRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.easycode.admin.domain.SysUser" >
+    update sys_user
+    <set >
+      <if test="sysUserName != null" >
+        sys_user_name = #{sysUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserPassord != null" >
+        sys_user_passord = #{sysUserPassord,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserSalt != null" >
+        sys_user_salt = #{sysUserSalt,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserAvatar != null" >
+        sys_user_avatar = #{sysUserAvatar,jdbcType=VARCHAR},
+      </if>
+      <if test="sysUserMail != null" >
+        sys_user_mail = #{sysUserMail,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="sysUserStart != null" >
+        sys_user_start = #{sysUserStart,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sysUserRemark != null" >
+        sys_user_remark = #{sysUserRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where sys_user_id = #{sysUserId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.easycode.admin.domain.SysUser" >
+    update sys_user
+    set sys_user_name = #{sysUserName,jdbcType=VARCHAR},
+      sys_user_passord = #{sysUserPassord,jdbcType=VARCHAR},
+      sys_user_salt = #{sysUserSalt,jdbcType=VARCHAR},
+      sys_user_avatar = #{sysUserAvatar,jdbcType=VARCHAR},
+      sys_user_mail = #{sysUserMail,jdbcType=VARCHAR},
+      create_user_id = #{createUserId,jdbcType=BIGINT},
+      update_user_id = #{updateUserId,jdbcType=BIGINT},
+      sys_user_start = #{sysUserStart,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      sys_user_remark = #{sysUserRemark,jdbcType=VARCHAR}
+    where sys_user_id = #{sysUserId,jdbcType=BIGINT}
+  </update>
+</mapper>

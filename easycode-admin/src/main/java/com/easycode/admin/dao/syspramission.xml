@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.easycode.admin.dao.SysPramission" >
+  <resultMap id="BaseResultMap" type="com.easycode.admin.domain.SysPramission" >
+    <id column="permissions_id" property="permissionsId" jdbcType="BIGINT" />
+    <result column="permissions_name" property="permissionsName" jdbcType="VARCHAR" />
+    <result column="permissions_url" property="permissionsUrl" jdbcType="VARCHAR" />
+    <result column="permissions_str" property="permissionsStr" jdbcType="VARCHAR" />
+    <result column="create_user_id" property="createUserId" jdbcType="BIGINT" />
+    <result column="update_user_id" property="updateUserId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="permissions_remark" property="permissionsRemark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+	permissions_id, permissions_name, permissions_url, permissions_str, create_user_id, 
+    update_user_id, create_time, update_time, permissions_remark
+  </sql>
+  
+  <select id="queryPermissionsByUserId"  resultType="java.lang.String" parameterType="java.lang.Long" >
+  SELECT sp.permissions_str 
+   FROM sys_user_role sur 
+	INNER JOIN sys_role_pramission srp ON sur.role_id=srp.role_id
+	INNER JOIN sys_pramission sp ON srp.`
+	permissions_id`=sp.`
+	permissions_id`
+	WHERE 1=1
+	AND sur.sys_user_id=#{userId,jdbcType=BIGINT}
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_pramission
+    where 
+	permissions_id = #{permissionsId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from sys_pramission
+    where 
+	permissions_id = #{permissionsId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.easycode.admin.domain.SysPramission" >
+    insert into sys_pramission (permissions_id, permissions_name, 
+      permissions_url, permissions_str, create_user_id, 
+      update_user_id, create_time, update_time, 
+      permissions_remark)
+    values (#{permissionsId,jdbcType=BIGINT}, #{permissionsName,jdbcType=VARCHAR}, 
+      #{permissionsUrl,jdbcType=VARCHAR}, #{permissionsStr,jdbcType=VARCHAR}, #{createUserId,jdbcType=BIGINT}, 
+      #{updateUserId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{permissionsRemark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.easycode.admin.domain.SysPramission" >
+    insert into sys_pramission
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="permissionsId != null" >
+		permissions_id,
+      </if>
+      <if test="permissionsName != null" >
+        permissions_name,
+      </if>
+      <if test="permissionsUrl != null" >
+        permissions_url,
+      </if>
+      <if test="permissionsStr != null" >
+        permissions_str,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="permissionsRemark != null" >
+        permissions_remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="permissionsId != null" >
+        #{permissionsId,jdbcType=BIGINT},
+      </if>
+      <if test="permissionsName != null" >
+        #{permissionsName,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionsUrl != null" >
+        #{permissionsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionsStr != null" >
+        #{permissionsStr,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="permissionsRemark != null" >
+        #{permissionsRemark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.easycode.admin.domain.SysPramission" >
+    update sys_pramission
+    <set >
+      <if test="permissionsName != null" >
+        permissions_name = #{permissionsName,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionsUrl != null" >
+        permissions_url = #{permissionsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionsStr != null" >
+        permissions_str = #{permissionsStr,jdbcType=VARCHAR},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="permissionsRemark != null" >
+        permissions_remark = #{permissionsRemark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where 
+	permissions_id = #{permissionsId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.easycode.admin.domain.SysPramission" >
+    update sys_pramission
+    set permissions_name = #{permissionsName,jdbcType=VARCHAR},
+      permissions_url = #{permissionsUrl,jdbcType=VARCHAR},
+      permissions_str = #{permissionsStr,jdbcType=VARCHAR},
+      create_user_id = #{createUserId,jdbcType=BIGINT},
+      update_user_id = #{updateUserId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      permissions_remark = #{permissionsRemark,jdbcType=VARCHAR}
+    where 
+	permissions_id = #{permissionsId,jdbcType=BIGINT}
+  </update>
+</mapper>

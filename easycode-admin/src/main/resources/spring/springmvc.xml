@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       	 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- 组件扫描 -->
+	<context:component-scan base-package="com.easycode.admin.controller"></context:component-scan>
+	<!-- 注解驱动 防止json返回数据乱码 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<aop:config proxy-target-class="true"></aop:config>
+	<!-- 开启shiro注解支持 -->
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+	
+	
+	<!-- 静态资源的解析
+			包括：js、css、img
+	 -->
+	<!-- 解析静态资源 -->
+	<mvc:default-servlet-handler/>
+	<!-- 静态资源映射 -->
+	<mvc:resources location="/WEB-INF/assets/" mapping="/assets/**"/>
+	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
+	<mvc:resources location="/WEB-INF/font/" mapping="/font/**"/>
+	<mvc:resources location="/WEB-INF/images/" mapping="/images/**"/>
+	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
+	<mvc:resources location="/WEB-INF/products/" mapping="/products/**"/>
+	<mvc:resources location="/WEB-INF/Widget/" mapping="/Widget/**"/>
+	
+
+	<!-- 视图解析器 采用freeMark视图解析器解析试图 -->
+	<bean id="freemarkerConfiguration" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="location" value="classpath:properties/freemarker.properties" />
+	</bean>
+	<!-- html视图解析器 必须先配置freemarkerConfig,注意html是没有prefix前缀属性的 -->
+	<bean id="freemarkerConfig"
+		  class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="freemarkerSettings" ref="freemarkerConfiguration" />
+		<property name="templateLoaderPath">
+			<value>/WEB-INF/template/</value>
+		</property>
+	</bean>
+	<bean id="htmlviewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="suffix" value=".ftl" />
+		<property name="order" value="0"></property>
+	    <property name="exposeRequestAttributes" value="true" />
+	    <property name="exposeSessionAttributes" value="true" />
+	    <property name="exposeSpringMacroHelpers" value="true" />
+	    <property name="requestContextAttribute" value="request" />
+	    <property name="cache" value="true" />
+		<property name="contentType" value="text/html;charset=UTF-8"></property>
+	</bean>
+	<!-- 定义统一异常处理器 -->
+	<bean class="com.easycode.admin.exception.CustomExceptionResolver"></bean>
+</beans>
