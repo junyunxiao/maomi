@@ -826,7 +826,7 @@
 					url: "${pageContext.request.contextPath}/queryCategoryInfo",
 					success: function(res) {
 						_this.isLoding = false;//隐藏loding
-						_this.resultData = res.data.slice(1, -1);
+						_this.resultData = res.data.slice(1);
 					}
 				});
 			},
