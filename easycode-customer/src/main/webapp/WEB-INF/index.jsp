@@ -154,7 +154,7 @@
 												<img src="http://www.maomi.xn--fiqs8s/${userData.avatar}" />
 											</c:if>
 											<c:if test="${userData.avatar==null }">
-												<img src="public/img/ren.png" />
+												<img src="public/img/ren.png?v=20180422" />
 											</c:if>
 										</a>
 										<ul id="leftTopto" style="display: none;">
@@ -231,7 +231,7 @@
 						</li>
 						
 						<li>
-							<img src="public/img/sdfsdf.png" class="footer-code" />
+							<img src="public/img/sdfsdf.png?v=20180422" class="footer-code" />
 						</li>
 					</div>
 				</div> -->
@@ -252,9 +252,7 @@
 						<li>
 							<a href="#/termsUs">使用条款</a>
 						</li>
-						<li>
-							<a href="#/sitemap">网站地图</a>
-						</li>
+
 					</div>
 					<div class="col-md-6">
 						<li>
@@ -262,13 +260,13 @@
 						</li>
 						
 						<li>
-							<img src="public/img/sdfsdf.png" class="footer-code" />
+							<img src="public/img/sdfsdf.png?v=20180422" class="footer-code" />
 						</li>
 					</div>
 				</div>
 				<div class="col-md-3 footer-input">
 
-						<img src="public/img/20180201123032.png">
+						<img src="public/img/20180201123032.png?v=20180422">
 				</div>
 			</div>
 			</div>

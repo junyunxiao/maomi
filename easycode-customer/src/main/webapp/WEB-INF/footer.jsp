@@ -38,13 +38,13 @@
 							<h4>其他服务</h4>
 						</li>
 						<li>
-							<img src="${pageContext.request.contextPath}/public/img/sdfsdf.png" class="footer-code" />
+							<img src="${pageContext.request.contextPath}/public/img/sdfsdf.png?v=20180422" class="footer-code" />
 						</li>
 					</div>
 				</div>
 				<div class="col-md-3 footer-input">
 
-					<img src="${pageContext.request.contextPath}/public/img/20180201123032.png">
+					<img src="${pageContext.request.contextPath}/public/img/20180201123032.png?v=20180422">
 				</div>
 			</div>
 			</div>
