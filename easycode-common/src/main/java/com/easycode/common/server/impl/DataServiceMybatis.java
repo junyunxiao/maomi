@@ -88,6 +88,7 @@ public class DataServiceMybatis implements DataService {
 			page.setRowSum(page.getRows().size());
 		}
 		time = System.currentTimeMillis() - time;
+		System.err.println("sql执行时间:"+time);
 		return page;
 	}
 
