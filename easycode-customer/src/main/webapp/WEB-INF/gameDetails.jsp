@@ -3,17 +3,23 @@
 <%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="zh" ng-app="myapp" ng-controller="mycont">
-
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<meta name="google" value="notranslate" />
-		<meta name="renderer" content="webkit" />
-		<title>Document</title>
-		<script src="${pageContext.request.contextPath}/script/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<meta name="google" value="notranslate" />
+		<meta name="renderer" content="webkit"/>
+	<title>猫咪易编</title>
+		<!-- 网站图标 -->
+	  <link rel="icon" href="${pageContext.request.contextPath}/public/img/favicon.ico" type="image/x-icon" />
+	  <script src="${pageContext.request.contextPath}/script/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="${pageContext.request.contextPath}/script/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="${pageContext.request.contextPath}/script/angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 生成二维码 -->
+		<script src="${pageContext.request.contextPath}/js/jquery.qrcode.js" type="text/javascript" charset="utf-8"></script>
+		<script src="${pageContext.request.contextPath}/js/qrcode.js" type="text/javascript" charset="utf-8"></script>
+		<script src="${pageContext.request.contextPath}/js/utf.js" type="text/javascript" charset="utf-8"></script>
+
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/css/find.css" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/css/index.css" />
@@ -24,10 +30,39 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/font-awesome.min.css" />
 		<!--登录与注册-->
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/reg_log1.css" />
-		<link rel="stylesheet" href="public/css/reg_log2.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/reg_log2.css" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/css/convention.css" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/css/loading.css" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/public/css/log-reg.css" />
+		<!-- <style type="text/css">
+			.togzan {
+				background: #FC7373;
+				color: #fff!important;
+			}
+			.colors{
+				color: #fff!important;
+			}
+			#dianzan {
+				position: relative;
+			}
+			.jiayi {
+				position: absolute;
+				top: -40px;
+				left: 15px;
+				display: none;
+				font-size: 14px;
+			}
+			.togcoll{
+				background: #FFC530;
+				color: #fff!important;
+				
+			}
+			.prohibit {
+
+				background: #ccc!important;
+				cursor: not-allowed;
+			}
+		</style> -->
 		<style type="text/css">
 			.togzan {
 				background: #FC7373;
@@ -63,48 +98,132 @@
 				cursor: not-allowed;
 			}
 		</style>
-	</head>
+</head>
+<body>
+	    <script type="text/javascript" src="${pageContext.request.contextPath}/js/history.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/swfobject.js"></script>
+    <script type="text/javascript">
+            // For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
+            var swfVersionStr = "11.1.0";
+            // To use express install, set to playerProductInstall.swf, otherwise the empty string. 
+            var xiSwfUrlStr = "playerProductInstall.swf";
+            var flashvars = {
+            	extensionDevMode: 'true',
+            	showOnly: 'true',
+            	projectUrl: 'http://www.maomiyibian.com/${projectUrl}'
+            };
+            var params = {};
+            params.quality = "high";
+            params.bgcolor = "#ffffff";
+            params.allowscriptaccess = "sameDomain";
+            params.allowfullscreen = "true";
+            var attributes = {};
+            attributes.id = "Player";
+            attributes.name = "Player";
+            attributes.align = "middle";
+            swfobject.embedSWF(
+                "${pageContext.request.contextPath}/scratch/Scratch.swf", "flashContent", 
+                "100%", "100%", 
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+            // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
+            swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+        </script>
+		
+		
+		
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <%--通过config接口注入权限验证配置--%>
+   <script type="text/javascript">
+    $(function(){
 
-	<body>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/js/history.js"></script>
-		<script type="text/javascript" src="${pageContext.request.contextPath}/js/swfobject.js"></script>
-		<script type="text/javascript">
-			// For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
-			var swfVersionStr = "11.1.0";
-			// To use express install, set to playerProductInstall.swf, otherwise the empty string. 
-			var xiSwfUrlStr = "playerProductInstall.swf";
-			var flashvars = {
-				extensionDevMode: 'true',
-				showOnly: 'true',
-				projectUrl: '${pageContext.request.contextPath}/scratch/Original.sb2'
-			};
-			var params = {};
-			params.quality = "high";
-			params.bgcolor = "#ffffff";
-			params.allowscriptaccess = "sameDomain";
-			params.allowfullscreen = "true";
-			var attributes = {};
-			attributes.id = "Player";
-			attributes.name = "Player";
-			attributes.align = "middle";
-			swfobject.embedSWF(
-				"${pageContext.request.contextPath}/scratch/Scratch.swf", "flashContent",
-				"100%", "100%",
-				swfVersionStr, xiSwfUrlStr,
-				flashvars, params, attributes);
-			// JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
-			swfobject.createCSS("#flashContent", "display:block;text-align:left;");
-			
-		</script>
+    $.ajax({
+    url:"${pageContext.request.contextPath}/getWxInfo1",
+    type:"post",
+    dataType:"json",
+    data:{
+   url1:"http://www.maomiyibian.com/${projectUrl}"
+    /*  opreatopn:"dd"*/
+    },
+    success:function(res){
+    window.noncestr=res.noncestr;
+    window.timestamp1=res.timestamp;
+    window.signature=res.signature;
+   /*console.log("请求成功！"+noncestr+"timestamp"+timestamp+"signature"+signature)*/
+    },
+    error:function() {
+    console.log("数据返回失败！")
+    }
+    });
+    })
+   </script>
+
+
+    <script type="text/javascript">
+        wx.config({
+            debug: false,
+            appId: 'wx246bae8548b676c6',
+            timestamp:window.timestamp1,
+            nonceStr:window.noncestr,
+            signature: window.signature,
+            jsApiList: [
+                'checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+            ]
+        });
+        wx.ready(function () {
+            <%--公共方法--%>
+            var shareData = {
+                title: '这是我做的作品~大家一起来体验一下吧！',
+                desc: '${projectDescription}',
+                link: 'http://www.moamiyibian.com/${projectUrl}',
+                imgUrl: 'http://bj-feiyuantu.oss-cn-beijing.aliyuncs.com/creative/vcg/veer/800water/veer-120563514.jpg',
+                success: function (res) {
+                    //alert('已分享');
+                },
+                cancel: function (res) {
+                }
+            };
+            <%--分享给朋友接口--%>
+            wx.onMenuShareAppMessage({
+                title: '快来maomiyibian和我一起创作吧！',
+                desc: '${projectDescription}',
+                link: 'http://www.moamiyibian.com/${projectUrl}',
+                imgUrl: "http://bj-feiyuantu.oss-cn-beijing.aliyuncs.com/creative/vcg/veer/800water/veer-120563514.jpg",
+                trigger: function (res) {
+                    //  alert('用户点击发送给朋友');
+                },
+                success: function (res) {
+                    //alert('已分享');
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            });
+            <%--分享到朋友圈接口--%>
+            wx.onMenuShareTimeline(shareData);
+        });
+        <%--处理失败验证--%>
+        wx.error(function (res) {
+            alert("error: " + res.errMsg);
+        });
+    </script>
+		
+		
 		<div class="big" id="projectName">
-			<!--导航条-->
-			<c:import url="header.jsp"></c:import>
+       	 <!--导航条-->
+<!-- 			<div ng-include="'header.html'"></div> -->
+		<c:import url="header.jsp"></c:import>
 			<div class="container">
 				<!--内容上部分-->
 				<div class="content-top hidden-sm hidden-xs">
 					<ul style="margin-bottom: 0;">
 						<li>
-							<p class="game-title">${projectName}</p>
+							<p class="game-title">${projectName }</p>
 						</li>
 						<li><span class="game-writer">${createUserName }</span><span>${remark }</span> </li>
 					</ul>
@@ -115,22 +234,23 @@
 					<div class="row">
 						<!--游戏框-->
 						<div ng-class="game()" class="col-md-6 col-sm-12 content-middle-left">
-
+							
 							<div class="game-div">
-
+						
 								<div id="flashContent">
-									<p>
-										To view this page ensure that Adobe Flash Player version 11.1.0 or greater is installed.
-									</p>
-									<script type="text/javascript">
-										var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://");
-										document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" +
-											pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>");
-									</script>
-								</div>
-								<noscript>
+						            <p>
+						                To view this page ensure that Adobe Flash Player version 
+						                11.1.0 or greater is installed. 
+						            </p>
+						            <script type="text/javascript"> 
+						                var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://"); 
+						                document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" 
+						                                + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" ); 
+						            </script> 
+						        </div>
+								     <noscript>
 							            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%" id="Player" style="margin-left: 300px;">
-							                <param name="movie" value="scratch/Scratch.swf" />
+							                <param name="movie" value="${pageContext.request.contextPath}/scratch/Scratch.swf" />
 							                <param name="quality" value="high" />
 							                <param name="bgcolor" value="#ffffff" />
 							                <param name="allowScriptAccess" value="sameDomain" />
@@ -155,10 +275,10 @@
 							                </object>
 							                <!--<![endif]-->
 							            </object>
-							        </noscript>
+							        </noscript>  
 							</div>
 						</div>
-						<div class="col-md-6 col-sm-12 hidden-xs content-middle-right">
+					<div class="col-md-6 col-sm-12 hidden-xs content-middle-right" >
 							<!--作品介绍-->
 							<div class="col-md-12 col-sm-12 game-introduce">
 								<ul>
@@ -182,13 +302,14 @@
 										<p>
 											${projectInstructions}
 										</p>
-
+										
 									</li>
 								</ul>
 							</div>
 							<!--标记标签-->
-
+							
 							<div class="col-md-12 col-sm-12 hidden-xs labelling">
+								<!-- <a v-for="val in resultData" style="display: inline-block; margin-right: 10px;">{{val.category}}</a> -->
 								<c:forEach var="types" items="${projectType }">
 									<a>${types.category }</a>
 								</c:forEach>
@@ -199,7 +320,7 @@
 									<!--改编form提交-->
 									  <form action="${pageContext.request.contextPath}/adaptation" method="post" class="col-md-6 col-sm-12">
 									  	<input type="hidden" name="remark"  value=" 本作品改编自 ${createUserName} 的作品 ${projectName}" />
-									  	<input type="hidden" name="projectUrl"  value="http://www.maomi.xn--fiqs8s/${projectUrl}" />
+									  	<input type="hidden" name="projectUrl"  value="http://www.maomiyibian.com/${projectUrl}" />
 										  <a href="javascript:" id="game-choose">
 										  		<input type="submit" value="改编" :disabled="isPublic==0"  :class="{'prohibit':isPublic==0}"/>
 										  	</a>
@@ -224,13 +345,12 @@
 								</div>
 							</div>
 						</div>
+				
+						
 
 					</div>
 				</div>
 
-				<!--内容下边部分 手机端自动隐藏-->
-				<div class="col-md-12 hidden-xs content-bootom">
-					<!--浏览、收藏和分享-->
 				<!--内容下边部分 手机端自动隐藏-->
 				<div class="col-md-12 hidden-xs content-bootom">
 					<!--浏览、收藏和分享-->
@@ -247,6 +367,8 @@
 									<i class="fa  fa-thumbs-o-up" :class={'togzan':isLike==true}></i>
 									<span id="upvotes">${upvoteNum }</span>
 								</div>
+							
+								
 							</div>
 							<div class="col-sm-3">
 								<div class="dianzan  dianzan2" :class={'togcoll':isCollection==true} id="collection" @click="collection">
@@ -261,7 +383,10 @@
 									<div id="qrcodeCanvas"></div>
 									<!-- <img src="public/img/erweim.png" id="imgshouji"/> -->
 								</div>
+
+								
 							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -292,7 +417,7 @@
 									<div class="conmment-content clearfix">
 										<div class="item-left">
 											<a href="javascript:">
-												<img width="60px" height="60px" v-if="val.customer.avatar" :src="'http://www.maomi.xn--fiqs8s/'+val.customer.avatar"/>
+												<img width="60px" height="60px" v-if="val.customer.avatar" :src="'http://www.maomiyibian.com/'+val.customer.avatar"/>
 												<img v-else src="${pageContext.request.contextPath}/public/img/touxiang.png" />
 											<div class="item-content">
 												<a href="javascript:">{{val.customer.userNick}}</a>
@@ -321,7 +446,7 @@
 										<div class="conmment-content clearfix">
 											<div class="item-left item-left-to" v-for="(item,ind) in val.replyComment">
 												<a href="javascript:" style="margin-right: 20px;">
-													<img width="60px" height="60px"  v-if="item.replyCustomer.avatar" :src="'http://www.maomi.xn--fiqs8s/'+item.replyCustomer.avatar"/>
+													<img width="60px" height="60px"  v-if="item.replyCustomer.avatar" :src="'http://www.maomiyibian.com/'+item.replyCustomer.avatar"/>
 													<img v-else src="${pageContext.request.contextPath}/public/img/touxiang.png" />
 												</a>
 												<div class="item-content">
@@ -352,173 +477,185 @@
 						</div>
 					</div>
 				</div>
-				<!--LODING-->
-				<div class="loading" v-show="isLoding">
-					<div class="loading-content">
-						<div class="sk-three-bounce">
-							<div class="sk-child sk-bounce1"></div>
-							<div class="sk-child sk-bounce2"></div>
-							<div class="sk-child sk-bounce3"></div>
-						</div>
-					</div>
+<!--LODING-->
+			<div class="loading" v-show="isLoding">
+				<div class="loading-content">
+					<div class="sk-three-bounce">
+				        <div class="sk-child sk-bounce1"></div>
+				        <div class="sk-child sk-bounce2"></div>
+				        <div class="sk-child sk-bounce3"></div>
+				      </div>
 				</div>
+			</div>
 			</div>
 			<div class="cd-user-modal" style="display: none;" id="userModal">
 
-				<div class="cd-user-modal-container">
-					<sapn id="close"><i class="fa fa-close"></i></sapn>
-					<ul class="cd-switcher">
-						<li>
-							<a href="javascript:" id="add" style="display: none;">用户登录</a>
-						</li>
-						<li>
-							<a href="javascript:" id="add-reg" style="display: none;">注册新用户</a>
-						</li>
-					</ul>
-					<!-- 登录表单 -->
-					<div id="cd-login">
-						<form class="cd-form logins">
-							<!--用户名-->
-							<p class="fieldset">
-								<label class="image-replace" for="userName">用户名</label>
-								<input class="full-width has-padding has-border" id="userName" name="userName" maxlength="16" type="text" placeholder="输入用户名">
-							</p>
-							<span class="tips1 tips"></span>
-							<!--密码-->
-							<p class="fieldset">
-								<label class="image-replace" for="userPwd">密码</label>
-								<input class="full-width has-padding has-border" id="userPwd" type="password" placeholder="请输入密码">
-								<i class="fa fa-eye fa-2x eye" title="点击显示或隐藏密码"></i>
-							</p>
-							<span class="tips tips2"></span>
+			<div class="cd-user-modal-container">
+				<sapn id="close"><i class="fa fa-close"></i></sapn>
+				<ul class="cd-switcher">
+					<li>
+						<a href="javascript:" id="add" style="display: none;">用户登录</a>
+					</li>
+					<li>
+						<a href="javascript:" id="add-reg" style="display: none;">注册新用户</a>
+					</li>
+				</ul>
+				<!-- 登录表单 -->
+				<div id="cd-login">
+					<form class="cd-form logins">
+						<!--用户名-->
+						<p class="fieldset">
+							<label class="image-replace" for="userName">用户名</label>
+							<input class="full-width has-padding has-border" id="userName" name="userName" maxlength="16" type="text" placeholder="输入用户名">
+						</p>
+						<span class="tips1 tips"></span>
+						<!--密码-->
+						<p class="fieldset">
+							<label class="image-replace" for="userPwd">密码</label>
+							<input class="full-width has-padding has-border" id="userPwd" type="password" placeholder="请输入密码">
+						</p>
+						<span class="tips tips2"></span>
 
-							<p class="fieldset">
-								<input type="checkbox" id="remember-me" checked>
-								<label for="remember-me">记住登录状态</label>
-								<span style="float: right;" id="goreg">没有账号？去注册</span>
+						<p class="fieldset">
+							<input type="checkbox" id="remember-me" checked>
+							<label for="remember-me">记住登录状态</label>
+						<span style="float: right;" id="goreg">没有账号？去注册</span>
+							
+						</p>
 
-							</p>
+						<p class="fieldset">
+							<input class="full-width2" type="button" value="登 录" id="login">
+						</p>
+					</form>
+				</div>
 
-							<p class="fieldset">
-								<input class="full-width2" type="button" value="登 录" id="login">
-							</p>
-						</form>
-					</div>
+				<!-- 注册表单 -->
+				<div id="cd-signup" style="display: none;">
+					<form class="cd-form">
+						<!--用户名-->
+						<p class="fieldset">
+							<label class="image-replace" for="signup-username">用户名</label>
+							<input name="userName" maxlength="16" id="regName" class="full-width has-padding has-border" id="signup-username" type="text" placeholder="请输入猫咪号">
+							<span id="mustwrite">*必填</span>
+						</p>
+						<span class="tips reg-tips-user"></span>
+						<!--密码-->
+						<p class="fieldset">
+							<label class="image-replace" for="signup-password">密码</label>
+							<input name="userPwd" class="full-width has-padding has-border" id="signup-password" type="password" placeholder="请输入密码">
+							<i class="fa fa-eye fa-2x eye" title="点击显示或隐藏密码"></i>
+							<span id="mustwrite2">*必填</span>
 
-					<!-- 注册表单 -->
-					<div id="cd-signup" style="display: none;">
-						<form class="cd-form">
-							<!--用户名-->
-							<p class="fieldset">
-								<label class="image-replace" for="signup-username">用户名</label>
-								<input name="userName" maxlength="16" id="regName" class="full-width has-padding has-border" id="signup-username" type="text" placeholder="请输入用户名">
-								<span id="mustwrite">*必填</span>
-							</p>
-							<span class="tips reg-tips-user"></span>
-							<!--密码-->
-							<p class="fieldset">
-								<label class="image-replace" for="signup-password">密码</label>
-								<input name="userPwd" class="full-width has-padding has-border" id="signup-password" type="password" placeholder="请输入密码">
-								<span id="mustwrite2">*必填</span>
+						</p>
+						<span class="tips reg-tips-pwd"></span>
+						<p class="fieldset">
+							<label class="image-replace" for="signup-password-again">请再次输入密码</label>
+							<input name="userPwdAgain" class="full-width has-padding has-border" id="signup-password-again" type="password" placeholder="请再次输入密码">
+							<i class="fa fa-eye fa-2x eye" title="点击显示或隐藏密码"></i>
+							<span id="mustwrite2">*必填</span>
 
-							</p>
-							<span class="tips reg-tips-pwd"></span>
-							<p class="fieldset">
-								<label class="image-replace" for="signup-password-again">请再次输入密码</label>
-								<input name="userPwdAgain" class="full-width has-padding has-border" id="signup-password-again" type="password" placeholder="请再次输入密码">
-								<span id="mustwrite2">*必填</span>
+						</p>
+						<span class="tips reg-tips-pwd-again"></span>
+						<p class="fieldset">
+							<label class="image-replace cd-username" for="signup-userNAME">姓名</label>
+							<input class="full-width has-padding has-border" name="name" id="signup-userNAME" type="text" placeholder="输入姓名">
+							<span id="mustwrite3">*必填</span>
+						</p>
+						<span class="tips reg-tips-nickname"></span>
+						<p class="fieldset">
+							<label class="image-replace" for="signup-userNick">昵称</label>
+							<input name="userNick" class="full-width has-padding has-border" id="signup-userNick" type="text" placeholder="输入昵称">
+						</p>
+						<span class="tips reg-tips-nick"></span>
 
-							</p>
-							<span class="tips reg-tips-pwd-again"></span>
-							<p class="fieldset">
-								<label class="image-replace cd-username" for="signup-userNAME">姓名</label>
-								<input class="full-width has-padding has-border" name="name" id="signup-userNAME" type="text" placeholder="输入姓名">
-								<span id="mustwrite3">*必填</span>
-							</p>
-							<span class="tips reg-tips-nickname"></span>
-							<p class="fieldset">
-								<label class="image-replace" for="signup-userNick">昵称</label>
-								<input name="userNick" class="full-width has-padding has-border" id="signup-userNick" type="text" placeholder="输入昵称">
-							</p>
-							<span class="tips reg-tips-nick"></span>
+						<p class="fieldset">
+							<label class="image-replace" for="signup-occupation">请选择用户类型</label>
+							<select class="full-width has-padding has-border" id="signup-occupation" name="userType">
+								<option value="" disabled selected>请选择用户类型</option>
+								<option value="1">老师</option>
+								<option value="2">学生</option>
+								<option value="3">家长</option>
+							</select>
+						</p>
+						<span class="tips reg-tips-usertype"></span>
+						
+						
+						<span class="tips"></span>
+						<p class="fieldset" id="hideSchool">
+							<label class="image-replace" for="signup-provinces">请选择学校</label>
+							<select class="full-width has-padding has-border" name="school"  id="signup-provinces" @change="changeScroll">
+								<option value="" disabled selected>请选择学校</option>
+								<option :value="val.id" :data-id="val.schoolName" v-for="val in scroll">{{val.schoolName}}</option>
+							</select>
+						</p>
+						<span class="tips"></span>
+						<p class="fieldset" id="hideGrade" v-if="grade.length!=0">
+							<label class="image-replace" for="signup-school">请选择年级</label>
+							<select class="full-width has-padding has-border" name="grade" id="signup-school" @change="changeScroll2">
+								<option value="" disabled selected>请选择年级</option>
+								<option :value="val.id" :data-id="val.schoolName" v-for="val in grade">{{val.schoolName}}</option>
+							</select>
+						</p>
+						<span class="tips"></span>
+						<p class="fieldset" id="hideClassNo" v-if="className.length!=0">
+							<label class="image-replace" for="signup-grade">请选择班级</label>
+							<select class="full-width has-padding has-border" name="classNo" id="signup-grade">
+								<option value="" disabled selected>请选择班级</option>
+								<option :value="val.id" :data-id="val.schoolName" v-for="val in className">{{val.schoolName}}</option>
+							</select>
+						</p>
+						<span class="tips"></span>
+						<!--电话-->
+						<p class="fieldset">
+							<label class="image-replace cd-username" for="signup-phone">请输入电话号码</label>
+							<input class="full-width has-padding has-border" name="telphone" id="signup-phone" type="text" placeholder="请输入电话号码">
+						</p>
+						<span class="tips reg-tips-tel"></span>
+						<!--邮箱-->
+						<p class="fieldset">
+							<label class="image-replace" for="signup-email">请输入邮箱号码</label>
+							<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="请输入邮箱号码">
+						</p>
+						<span class="tips reg-tips-email"></span>
+						<!--QQ-->
+						<p class="fieldset">
+							<label class="image-replace  cd-username" for="signup-qq">请输入QQ号码</label>
+							<input class="full-width has-padding has-border" name="qq" id="signup-qq" type="text" placeholder="请输入QQ号码">
+						</p>
+						<span class="tips reg-tips-qq"></span>
+						<!--微信-->
+						<p class="fieldset">
+							<label class="image-replace  cd-username" for="signup-wechat">请输入微信号码</label>
+							<input class="full-width has-padding has-border" name="wechat" id="signup-wechat" type="text" placeholder="请输入微信号码">
+						</p>
+						<span class="tips reg-tips-wx"></span>
 
-							<p class="fieldset">
-								<label class="image-replace" for="signup-occupation">请选择用户类型</label>
-								<select class="full-width has-padding has-border" id="signup-occupation" name="userType">
-									<option value="" disabled selected>请选择用户类型</option>
-									<option value="1">老师</option>
-									<option value="2">学生</option>
-									<option value="3">家长</option>
-								</select>
-							</p>
-							<span class="tips reg-tips-usertype"></span>
-
-							<span class="tips"></span>
-							<p class="fieldset" id="hideSchool">
-								<label class="image-replace" for="signup-provinces">请选择学校</label>
-								<select class="full-width has-padding has-border" name="school" id="signup-provinces" @change="changeScroll">
-									<option value="" disabled selected>请选择学校</option>
-									<option :value="val.id" :data-id="val.schoolName" v-for="val in scroll">{{val.schoolName}}</option>
-								</select>
-							</p>
-							<span class="tips"></span>
-							<p class="fieldset" id="hideGrade" v-if="grade.length!=0">
-								<label class="image-replace" for="signup-school">请选择年级</label>
-								<select class="full-width has-padding has-border" name="grade" id="signup-school" @change="changeScroll2">
-									<option value="" disabled selected>请选择年级</option>
-									<option :value="val.id" :data-id="val.schoolName" v-for="val in grade">{{val.schoolName}}</option>
-								</select>
-							</p>
-							<span class="tips"></span>
-							<p class="fieldset" id="hideClassNo" v-if="className.length!=0">
-								<label class="image-replace" for="signup-grade">请选择班级</label>
-								<select class="full-width has-padding has-border" name="classNo" id="signup-grade">
-									<option value="" disabled selected>请选择班级</option>
-									<option :value="val.id" :data-id="val.schoolName" v-for="val in className">{{val.schoolName}}</option>
-								</select>
-							</p>
-							<span class="tips"></span>
-							<!--电话-->
-							<p class="fieldset">
-								<label class="image-replace cd-username" for="signup-phone">请输入电话号码</label>
-								<input class="full-width has-padding has-border" name="telphone" id="signup-phone" type="text" placeholder="请输入电话号码">
-							</p>
-							<span class="tips reg-tips-tel"></span>
-							<!--邮箱-->
-							<p class="fieldset">
-								<label class="image-replace" for="signup-email">请输入邮箱号码</label>
-								<input class="full-width has-padding has-border" name="email" id="signup-email" type="email" placeholder="请输入邮箱号码">
-							</p>
-							<span class="tips reg-tips-email"></span>
-							<!--QQ-->
-							<p class="fieldset">
-								<label class="image-replace  cd-username" for="signup-qq">请输入QQ号码</label>
-								<input class="full-width has-padding has-border" name="qq" id="signup-qq" type="text" placeholder="请输入QQ号码">
-							</p>
-							<span class="tips reg-tips-qq"></span>
-							<!--微信-->
-							<p class="fieldset">
-								<label class="image-replace  cd-username" for="signup-wechat">请输入微信号码</label>
-								<input class="full-width has-padding has-border" name="wechat" id="signup-wechat" type="text" placeholder="请输入微信号码">
-							</p>
-							<span class="tips reg-tips-wx"></span>
-
-							<p class="fieldset">
-								<input class="full-width2" type="button" value="注册新用户" id="reg" ng-click="regs()">
-							</p>
-							<p id="gologin">已有账号？去登录</p>
-						</form>
-					</div>
+						<p class="fieldset">
+							<input class="full-width2" type="button" value="注册新用户" id="reg" ng-click="regs()">
+						</p>
+						<p id="gologin">已有账号？去登录</p>
+					</form>
 				</div>
 			</div>
 		</div>
+		</div>
+	
+		   		<!--底部导航条-->
+<!-- 		<div ng-include="'footer.html'"></div> -->
+			<c:import url="footer.jsp"></c:import>
+				<!--注册登录-->
+		
+		
 
-		<!--底部导航条-->
-		<c:import url="footer.jsp"></c:import>
-		<!--注册登录-->
+<script type="text/javascript">
 
-	</body>
+if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+	window.location.href="${pageContext.request.contextPath}/queryDetail/${projectId}";
+}
+</script>
 
+				
+</body>
 </html>
 <script src="${pageContext.request.contextPath}/script/vue.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
@@ -885,9 +1022,18 @@
 					}
 	  },
 	  created:function (){
+	  	/*this.query()*/
 		this.commen()
 		this.queryScroll()
-		this.queryLike()
+//		if (!this.up) {
+//			this.isLike = false;	// 是否已经点赞
+//			this.isCollection = false;// 是否已经收藏
+//		}
+		// 在页面加载 前请求接口
+
+			this.queryLike()
+
+
 	  },
 	  mounted:function(){
 		this.browse()
@@ -895,7 +1041,7 @@
 	})
     jQuery('#qrcodeCanvas').qrcode({
     	 render    : "canvas",
-        text    : "http://www.maomi.xn--fiqs8s/queryDetail/${projectId}",
+        text    : "http://www.maomiyibian.com/queryDetail/${projectId}",
         width : "100",               //二维码的宽度
         height : "100",              //二维码的高度
         background : "#ffffff",       //二维码的后景色
@@ -907,10 +1053,10 @@
 <script type="text/javascript">
 $('#serachbox').click(function() {
 	if(!$('#serachbox').val()) {
-		window.location.href = "http://www.maomi.xn--fiqs8s/#/find?q=" + $('#inputbox').val()
+		window.location.href = "http://www.maomiyibian.com/#/find?q=" + $('#inputbox').val()
 
 	} else {
-		window.location.href = "http://www.maomi.xn--fiqs8s/#/find?q=" + $('#inputbox').val()
+		window.location.href = "http://www.maomiyibian.com/#/find?q=" + $('#inputbox').val()
 	}
 })
 	//alert("搜索框"+$('#').val());
@@ -922,7 +1068,7 @@ $('#serachbox').click(function() {
 					url:"${pageContext.request.contextPath}/logout",
 					async:false,
 					success:function (res) {
-						window.location.href="http://www.maomi.xn--fiqs8s/#/home";
+						window.location.href="http://www.maomiyibian.com/#/home";
 					}
 				});
 		    }
@@ -930,3 +1076,4 @@ $('#serachbox').click(function() {
 			})
 </script>
 <script src="${pageContext.request.contextPath}/script/login_res.js" type="text/javascript" charset="utf-8"></script>
+
