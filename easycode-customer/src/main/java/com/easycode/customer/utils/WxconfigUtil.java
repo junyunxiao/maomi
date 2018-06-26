@@ -31,6 +31,13 @@ import net.sf.json.JSONObject;
 public class WxconfigUtil {
 
 
+   @Value("${APPID}")
+    private  String APPID;
+
+    @Value("APPSECRET")
+    private    String APPSECRET;
+
+
     //使用APPID和APPSecret获取access_token；
 
     public static String getAccessToken (String APPID,String APPSECRET) {
@@ -161,8 +168,8 @@ public class WxconfigUtil {
     }
 
 
-    //signature接口
-    public static Map<String,String> getWxInfo(String url1,String APPID,String APPSECRET){
+    //接口
+    public  Map<String,String> getWxInfo(String url1){
 
         //APPID,APPSECRET(这两个参数可以写死),URL是动态的；
         //输出参数：signnature,noncestr
@@ -193,7 +200,7 @@ public class WxconfigUtil {
       
 
         //7.存储到map
-        Map<String,string> map=new HashMap();
+        Map<String,String> map=new HashMap();
         map.put("noncestr",noncestr);
         map.put("timestamp",timestamp);
         map.put("signature",signature);

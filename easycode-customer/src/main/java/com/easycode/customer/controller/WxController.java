@@ -11,16 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Controller
 public class WxController {
     
-	@Value("${APPID}")
-    private String APPID;
 
-   @Value("${APPSECRET}")
-    private String APPSECRET;
-
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
     @RequestMapping(value = "/getWxInfo1")
     @ResponseBody
     public void getWxInfo1(HttpServletRequest request, HttpServletResponse response){
@@ -30,9 +29,9 @@ public class WxController {
 
 
         if (!" ".equals(url1) && url1!=null){
-            Map<String,String> map=WxconfigUtil.getWxInfo(url1,APPID,APPSECRET);
+            Map<String,String> map=WxconfigUtil.getWxInfo(url1);
             JSONObject jsonObject=JSONObject.fromObject(map);
-            System.out.println("map:"+map);
+           
            try {
                printWriter=response.getWriter();
                printWriter.print(jsonObject);
@@ -46,7 +45,7 @@ public class WxController {
            }
         }
         else {
-            
+			logger.info("=========传入的url为空==========");
         }
     }
 
