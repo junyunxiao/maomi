@@ -1,4 +1,4 @@
-package com.test.util;
+package com.easycode.customer.utils;
 
 
 
@@ -162,12 +162,11 @@ public class WxconfigUtil {
 
 
     //signature接口
-    public static Map<String,String> getWxInfo(String url1){
+    public static Map<String,String> getWxInfo(String url1,String APPID,String APPSECRET){
 
         //APPID,APPSECRET(这两个参数可以写死),URL是动态的；
         //输出参数：signnature,noncestr
-        String APPID="wx246bae8548b676c6";
-        String APPSECRET="62dbd3330ad2284b37677da9e6315903";
+        
 
         //1、获取AccessToken，AccessToken有次数限制，这个后面再通过redis缓存处理；
 
@@ -180,7 +179,7 @@ public class WxconfigUtil {
         String noncestr = UUID.randomUUID().toString().replace("-", "").substring(0, 16);//随机字符串
         String timestamp = String.valueOf(System.currentTimeMillis() / 1000);//时间戳
 
-        System.out.println("accessToken:"+accessToken+"\njsapi_ticket:"+jsapi_ticket+"\n时间戳："+timestamp+"\n随机字符串："+noncestr);
+    
 
         //4、获取url
         String url=url1;
@@ -191,10 +190,10 @@ public class WxconfigUtil {
 
         //6、将字符串进行sha1加密
         String signature =SHA1(str);
-        System.out.println("参数："+str+"\n签名："+signature);
+      
 
         //7.存储到map
-        Map map=new HashMap();
+        Map<String,string> map=new HashMap();
         map.put("noncestr",noncestr);
         map.put("timestamp",timestamp);
         map.put("signature",signature);
