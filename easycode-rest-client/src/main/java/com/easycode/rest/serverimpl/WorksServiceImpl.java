@@ -87,6 +87,10 @@ public class WorksServiceImpl implements WorksServer {
 		long hincrBy = 0;
 		try {
 			hincrBy = cacheServeice.hincrBy(UPVOTE_REDIS_KEY, String.valueOf(praiseInfo.getProjectId()), 1);
+			if(hincrBy<=1) {
+				int browse=dataService.getObject("com.easycode.rest.dao.Praise.censusPraise", praiseInfo.getProjectId());
+				hincrBy = cacheServeice.hincrBy(UPVOTE_REDIS_KEY, String.valueOf(praiseInfo.getProjectId()),browse);
+			}
 			// 将点赞数据写入缓存
 			cacheServeice.hset(UPVOTE_REDIS_KEY + String.valueOf(praiseInfo.getProjectId()),String.valueOf(praiseInfo.getUserId()), String.valueOf(praiseInfo.getUserId()));
 			// 将点赞数据插入数据库
@@ -172,6 +176,10 @@ public class WorksServiceImpl implements WorksServer {
 		}else {
 			//记录点赞了多少次
 			long hb = cacheServeice.hincrBy(COLLECTION_REDIS_KEY, String.valueOf(browseInfo.getProjectid()), 1);
+			if(hb<=1) {
+				int browse=dataService.getObject("com.easycode.rest.dao.Browse.censusBrowse", browseInfo.getProjectid());
+				hb = cacheServeice.hincrBy(COLLECTION_REDIS_KEY, String.valueOf(browseInfo.getProjectid()), browse);
+			}
 			//
 			//long hincrBy = cacheServeice.hincrBy(browseInfo.getIpaddress(), String.valueOf(browseInfo.getProjectid()), 1);
 			//存储地址,避免数据重复
