@@ -47,4 +47,14 @@
     </trim>
   </insert>
   
+  <!-- 统计浏览数 -->
+  <select id="censusBrowse" resultType="int" parameterType="java.lang.Long" >
+	  SELECT
+		COUNT( * ) 
+	FROM
+		browseinfo 
+	WHERE
+		projectId = #{projectId,jdbcType=BIGINT}
+  </select>
+  
 </mapper>
