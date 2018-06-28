@@ -39,6 +39,9 @@
 <div id="app"></div>
 
 
+ 
+
+
 <script>
     // 服务器时间
     window.serverTimeDiff = 0;
@@ -55,6 +58,89 @@
 
 <script src="${pageContext.request.contextPath}/js/vue.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/h5_detail.js"></script>
+
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <%--通过config接口注入权限验证配置--%>
+   <script type="text/javascript">
+    $(function(){
+
+    $.ajax({
+    url:"${pageContext.request.contextPath}/getWxInfo1",
+    type:"post",
+    dataType:"json",
+    data:{
+   url1:"http://www.maomiyibian.com/${projectUrl}"
+    /*  opreatopn:"dd"*/
+    },
+    success:function(res){
+    window.noncestr=res.noncestr;
+    window.timestamp1=res.timestamp;
+    window.signature=res.signature;
+   /*console.log("请求成功！"+noncestr+"timestamp"+timestamp+"signature"+signature)*/
+    },
+    error:function() {
+    console.log("数据返回失败！")
+    }
+    });
+    })
+   </script>
+
+
+    <script type="text/javascript">
+        wx.config({
+            debug: false,
+            appId: 'wx246bae8548b676c6',
+            timestamp:window.timestamp1,
+            nonceStr:window.noncestr,
+            signature: window.signature,
+            jsApiList: [
+                'checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage'
+            ]
+        });
+        wx.ready(function () {
+            <%--公共方法--%>
+            var shareData = {
+                title: '这是我做的作品~大家一起来体验一下吧！',
+                desc: '${projectDescription}',
+                link: 'http://www.moamiyibian.com/${projectUrl}',
+                imgUrl: "${pageContext.request.contextPath}/public/img/maomilogo.png",
+                success: function (res) {
+                    //alert('已分享');
+                },
+                cancel: function (res) {
+                }
+            };
+            <%--分享给朋友接口--%>
+            wx.onMenuShareAppMessage({
+                title: '快来maomiyibian和我一起创作吧！',
+                desc: '${projectDescription}',
+                link: 'http://www.moamiyibian.com/${projectUrl}',
+                imgUrl: "${pageContext.request.contextPath}/public/img/maomilogo.png",
+                trigger: function (res) {
+                    //  alert('用户点击发送给朋友');
+                },
+                success: function (res) {
+                    //alert('已分享');
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    alert(JSON.stringify(res));
+                }
+            });
+            <%--分享到朋友圈接口--%>
+            wx.onMenuShareTimeline(shareData);
+        });
+        <%--处理失败验证--%>
+        wx.error(function (res) {
+            alert("error: " + res.errMsg);
+        });
+    </script>
+
 
 </body>
 </html>
