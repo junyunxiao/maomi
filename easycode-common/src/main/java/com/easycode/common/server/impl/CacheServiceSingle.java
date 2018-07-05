@@ -37,6 +37,14 @@ public class CacheServiceSingle implements CacheServeice{
 	}
 
 	@Override
+	public String setex(String key, int timeOurt, String value) throws Exception {
+		Jedis jedis = jedisPool.getResource();
+		String string = jedis.setex(key, timeOurt,value);
+		jedis.close();
+		return string;
+	}
+
+	@Override
 	public long hset(String hkey, String key, String value) {
 		Jedis jedis = jedisPool.getResource();
 		Long result = jedis.hset(hkey, key, value);

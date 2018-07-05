@@ -366,7 +366,7 @@
 					var _this = this;
 					$.ajax({
 						type: "post",
-						url: "http://www.maomi.xn--fiqs8s/querySchoolInfo",
+						url: "http://www.maomiyibian.com/querySchoolInfo",
 						async: false,
 						data: {
 							parentId: _this.parentId
@@ -386,7 +386,7 @@
 					var _this = this;
 					$.ajax({
 						type: "post",
-						url: "http://www.maomi.xn--fiqs8s/querySchoolInfo",
+						url: "http://www.maomiyibian.com/querySchoolInfo",
 						async: false,
 						data: {
 							parentId: this.dataid
@@ -405,7 +405,7 @@
 					var _this = this;
 					$.ajax({
 						type: "post",
-						url: "http://www.maomi.xn--fiqs8s/querySchoolInfo",
+						url: "http://www.maomiyibian.com/querySchoolInfo",
 						async: false,
 						data: {
 							parentId: this.dataid2
@@ -489,6 +489,15 @@
 		    }
 		}
 		
+		function linkToProject(){
+			window.location.href="http://www.maomiyibian.com/#/WorksManagement";
+		}
+		function linkToPersonal(){
+			window.location.href="http://www.maomiyibian.com/#/gr_index";
+		}
+		function linkToSetting(){
+			window.location.href="http://www.maomiyibian.com/#/information";
+		}
 		
 		$('#close').click(function() {
 			$('.cd-user-modal').hide()
@@ -609,7 +618,7 @@
 
 						$.ajax({
 							type: "post",
-							url: "http://www.maomi.xn--fiqs8s/userCheck",
+							url: "http://www.maomiyibian.com/userCheck",
 							data: {
 								userName: $('#regName').val()
 							},
@@ -762,7 +771,7 @@
 
 					$.ajax({
 						type: "post",
-						url: "http://www.maomi.xn--fiqs8s/regist",
+						url: "http://www.maomiyibian.com/regist",
 						data: {
 							userName: $('#regName').val(), //用户名
 							userPwd: $('#signup-password').val(), //密码

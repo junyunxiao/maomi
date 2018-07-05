@@ -58,89 +58,81 @@
 
 <script src="${pageContext.request.contextPath}/js/vue.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/h5_detail.js"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var currurl = decodeURIComponent(location.href.split('#')[0]);
+
+        //ajax注入权限验证
+        $.ajax({
+            url : "${pageContext.request.contextPath}/share",
+            dataType : 'json',
+            data : {
+            	url:"http://www.maomiyibian.com/${projectUrl}"
+            },
+            complete : function(XMLHttpRequest, textStatus) {},
+            error : function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("发生错误：" + errorThrown);
+            },
+            success : function(res) {
+                var appId = res.appId;
+                var nonceStr = res.nonceStr;
+                var jsapi_ticket = res.jsapi_ticket;
+                var timestamp = res.timestamp;
+                var signature = res.signature;
+                // alert(appId +" " + nonceStr +" "+jsapi_ticket+" "+timestamp+" "+signature);
+                wx.config({
+                    debug : false, //开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId : appId, //必填，公众号的唯一标识
+                    timestamp : timestamp, // 必填，生成签名的时间戳
+                    nonceStr : nonceStr, //必填，生成签名的随机串
+                    signature : signature, // 必填，签名，见附录1
+                    jsApiList : [ 'onMenuShareAppMessage', 'onMenuShareTimeline' ] //必填，需要使用的JS接口列表，所有JS接口列表 见附录2
+                }); // end wx.config
 
 
-<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-    <%--通过config接口注入权限验证配置--%>
-   <script type="text/javascript">
-    $(function(){
-
-    $.ajax({
-    url:"${pageContext.request.contextPath}/getWxInfo1",
-    type:"post",
-    dataType:"json",
-    data:{
-   url1:"http://www.maomiyibian.com/${projectUrl}"
-    /*  opreatopn:"dd"*/
-    },
-    success:function(res){
-    window.noncestr=res.noncestr;
-    window.timestamp1=res.timestamp;
-    window.signature=res.signature;
-   /*console.log("请求成功！"+noncestr+"timestamp"+timestamp+"signature"+signature)*/
-    },
-    error:function() {
-    console.log("数据返回失败！")
-    }
-    });
-    })
-   </script>
+                wx.ready(function() {
+                    wx.onMenuShareAppMessage({
+                        title : '分享好友标题', // 分享标题
+                        desc : '分享好友描述', // 分享描述
+                        link : currurl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl : 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505419265109&di=cc30743d364e5ae89172c62a662e1321&imgtype=0&src=http%3A%2F%2Fpic.qqtn.com%2Fup%2F2017-6%2F14973136731543515.jpg', // 分享图标
+                        type : '', // 分享类型,music、video或link，不填默认为link
+                        dataUrl : '', // 如果type是music或video，则要提供数据链接，默认为空
+                        success : function() {
+                            // 用户确认分享后执行的回调函数
+                            // alert('share successful');
+                        },
+                        cancel : function() {
+                            // 用户取消分享后执行的回调函数
+                            // alert('share cancel');
+                        }
+                    }); // end onMenuShareAppMessage
 
 
-    <script type="text/javascript">
-        wx.config({
-            debug: false,
-            appId: 'wx246bae8548b676c6',
-            timestamp:window.timestamp1,
-            nonceStr:window.noncestr,
-            signature: window.signature,
-            jsApiList: [
-                'checkJsApi',
-                'onMenuShareTimeline',
-                'onMenuShareAppMessage'
-            ]
-        });
-        wx.ready(function () {
-            <%--公共方法--%>
-            var shareData = {
-                title: '这是我做的作品~大家一起来体验一下吧！',
-                desc: '${projectDescription}',
-                link: 'http://www.moamiyibian.com/${projectUrl}',
-                imgUrl: "${pageContext.request.contextPath}/public/img/maomilogo.png",
-                success: function (res) {
-                    //alert('已分享');
-                },
-                cancel: function (res) {
-                }
-            };
-            <%--分享给朋友接口--%>
-            wx.onMenuShareAppMessage({
-                title: '快来maomiyibian和我一起创作吧！',
-                desc: '${projectDescription}',
-                link: 'http://www.moamiyibian.com/${projectUrl}',
-                imgUrl: "${pageContext.request.contextPath}/public/img/maomilogo.png",
-                trigger: function (res) {
-                    //  alert('用户点击发送给朋友');
-                },
-                success: function (res) {
-                    //alert('已分享');
-                },
-                cancel: function (res) {
-                    //alert('已取消');
-                },
-                fail: function (res) {
-                    alert(JSON.stringify(res));
-                }
-            });
-            <%--分享到朋友圈接口--%>
-            wx.onMenuShareTimeline(shareData);
-        });
-        <%--处理失败验证--%>
-        wx.error(function (res) {
-            alert("error: " + res.errMsg);
-        });
-    </script>
+                    wx.onMenuShareTimeline({
+                        title : '分享朋友圈标题', // 分享标题
+                        link : currurl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl : 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1505419265109&di=cc30743d364e5ae89172c62a662e1321&imgtype=0&src=http%3A%2F%2Fpic.qqtn.com%2Fup%2F2017-6%2F14973136731543515.jpg', // 分享图标
+                        success : function() {
+                            // 用户确认分享后执行的回调函数
+                        },
+                        cancel : function() {
+                            // 用户取消分享后执行的回调函数
+                        }
+                    }); // end onMenuShareTimeline
+                }); // end ready
 
+                wx.error(function(res) {
+                    // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+                    alert('error');
+                });
+            } // end success
+        }); // end ajax
+
+    });  // end document
+
+</script>
 
 </body>
 </html>

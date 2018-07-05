@@ -1,4 +1,4 @@
-$('#close').click(function() {
+﻿$('#close').click(function() {
 			$('.cd-user-modal').hide()
 		})
 		$(document).on('click', '#add', function() {
@@ -63,7 +63,7 @@ $('#close').click(function() {
 
 					$.ajax({
 						type: "post",
-						url: "http://localhost:8086/easycode-customer/login ",
+						url: "http://www.maomiyibian.com/login ",
 						data: {
 							userName: $('#userName').val(),
 							userPwd: $('#userPwd').val(),
@@ -125,7 +125,7 @@ $('#close').click(function() {
 
 						$.ajax({
 							type: "post",
-							url: "http://www.maomi.xn--fiqs8s/userCheck",
+							url: "http://www.maomiyibian.com/userCheck",
 							data: {
 								userName: $('#regName').val()
 							},
@@ -279,7 +279,7 @@ $('#close').click(function() {
 
 						$.ajax({
 							type: "post",
-							url: "regist",
+							url: "http://www.maomiyibian.com/regist",
 							data: {
 								userName: $('#regName').val(), //用户名
 								userPwd: $('#signup-password').val(), //密码

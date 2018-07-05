@@ -27,6 +27,11 @@ public class CacheServiceCluster implements CacheServeice{
 	}
 
 	@Override
+	public String setex(String key, int timeOurt, String value) throws Exception {
+		return jedisCluster.setex(key,timeOurt,value);
+	}
+
+	@Override
 	public long hset(String hkey, String key, String value) {
 		return jedisCluster.hset(hkey, key, value);
 	}

@@ -11,10 +11,10 @@ angular.module('controllers', [])
 						url: "logout",
 						async: false,
 						success:function (res) {
-							window.location.href="http://www.maomi.xn--fiqs8s/#/home";
+							window.location.href="http://www.maomiyibian.com/#/home";
 						}
 					});
-					/*location.reload();*/
+					location.reload();
 					return true;
 			 }else{ 
 			  return false; 
@@ -120,7 +120,7 @@ angular.module('controllers', [])
 //				$scope.queryScroll = function () {
 //						$.ajax({
 //							type:"post",
-//							url:"http://www.maomi.xn--fiqs8s/querySchoolInfo",
+//							url:"http://www.maomiyibian.com/querySchoolInfo",
 //							async:false,
 //							data:{
 //								parentId:$scope.parentId
@@ -141,7 +141,7 @@ angular.module('controllers', [])
 //					$scope.changeGrade = function(){
 //						$.ajax({
 //							type:"post",
-//							url:"http://www.maomi.xn--fiqs8s/querySchoolInfo",
+//							url:"http://www.maomiyibian.com/querySchoolInfo",
 //							async:false,
 //							data:{
 //								parentId:$scope.dataid
@@ -160,7 +160,7 @@ angular.module('controllers', [])
 //					$scope.changeClass = function() {
 //						$.ajax({
 //							type:"post",
-//							url:"http://www.maomi.xn--fiqs8s/querySchoolInfo",
+//							url:"http://www.maomiyibian.com/querySchoolInfo",
 //							async:false,
 //							data:{
 //								parentId:$scope.dataid2

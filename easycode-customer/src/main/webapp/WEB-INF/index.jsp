@@ -8,6 +8,7 @@
 		<meta name="baidu-site-verification" content="KaR0Uw34mF" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="google" value="notranslate" />
+                <meta name="baidu-site-verification" content="5slzHleMvn" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="Keywords" content="猫咪易编,少儿编程,少儿应用,Scratch,创客,创客教育,创新思维,编程思维创客教育,steam教育,人工智能教育,素质教育,思维锻炼，6至12岁" />
 		<meta name="Description" content="猫咪易编是重庆猫咪科技有限公司旗下的Scratch创作型社区。基于麻省理工媒体实验室终身幼儿园组的图形化在线编程工具Scratch，为所有喜欢Scratch创作的朋友，提供一个自由创作、发表、交流作品的平台，并永久公益，免费开放。" />
@@ -92,7 +93,7 @@
 									<li class="dropdown">
 										<a href="javascript:" class="dropdown-toggle bell">
 											<c:if test="${userData.avatar!=null }">
-												<img src="http://www.maomi.xn--fiqs8s/${userData.avatar}" />
+												<img src="http://www.maomiyibian.com/${userData.avatar}" />
 											</c:if>
 											<c:if test="${userData.avatar==null }">
 												<img src="public/img/ren.png" />
@@ -151,7 +152,7 @@
 									<div class="col-xs-3" id="leftTop" >
 										<a href="javascript:" class="dropdown-toggle bell">
 											<c:if test="${userData.avatar!=null }">
-												<img src="http://www.maomi.xn--fiqs8s/${userData.avatar}" />
+												<img src="http://www.maomiyibian.com/${userData.avatar}" />
 											</c:if>
 											<c:if test="${userData.avatar==null }">
 												<img src="public/img/ren.png?v=20180422" />
@@ -461,7 +462,7 @@
 						var _this = this;
 						$.ajax({
 							type:"post",
-							url:"http://www.maomi.xn--fiqs8s/querySchoolInfo",
+							url:"http://www.maomiyibian.com/querySchoolInfo",
 							async:false,
 							data:{
 								parentId:_this.parentId
@@ -481,7 +482,7 @@
 						var _this = this;
 						$.ajax({
 							type:"post",
-							url:"http://www.maomi.xn--fiqs8s/querySchoolInfo",
+							url:"http://www.maomiyibian.com/querySchoolInfo",
 							async:false,
 							data:{
 								parentId:this.dataid
@@ -500,7 +501,7 @@
 						var _this = this;
 						$.ajax({
 							type:"post",
-							url:"http://www.maomi.xn--fiqs8s/querySchoolInfo",
+							url:"http://www.maomiyibian.com/querySchoolInfo",
 							async:false,
 							data:{
 								parentId:this.dataid2

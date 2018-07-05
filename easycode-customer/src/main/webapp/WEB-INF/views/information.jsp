@@ -104,7 +104,7 @@
 						<div class="big-photo">
 							<div id="preview" title="点击上传头像">
 								<c:if test="${userData.avatar!=null }">
-									<img id="imghead" style="border-radius: 50%;" border="0" src="http://www.maomi.xn--fiqs8s/${userData.avatar}" width="40" height="40" onclick="$('#previewImg').click();">
+									<img id="imghead" style="border-radius: 50%;" border="0" src="http://www.maomiyibian.com/${userData.avatar}" width="40" height="40" onclick="$('#previewImg').click();">
 								</c:if>
 								<c:if test="${userData.avatar==null }">
 									<img id="imghead" style="border-radius: 50%;" border="0" src="public/img/touxiang.png" width="40" height="40" onclick="$('#previewImg').click();">
@@ -217,7 +217,7 @@
 				var _this = this;
 				$.ajax({
 					type: "post",
-					url: "http://www.maomi.xn--fiqs8s/querySchoolInfo",
+					url: "http://www.maomiyibian.com/querySchoolInfo",
 					async: false,
 					data: {
 						parentId: _this.parentId
@@ -238,7 +238,7 @@
 				var _this = this;
 				$.ajax({
 					type: "post",
-					url: "http://www.maomi.xn--fiqs8s/querySchoolInfo",
+					url: "http://www.maomiyibian.com/querySchoolInfo",
 					//1518929017127
 					data: {
 						parentId: this.dataid
@@ -258,7 +258,7 @@
 				var _this = this;
 				$.ajax({
 					type: "post",
-					url: "http://www.maomi.xn--fiqs8s/querySchoolInfo",
+					url: "http://www.maomiyibian.com/querySchoolInfo",
 
 					data: {
 						parentId: this.dataid2
@@ -409,7 +409,7 @@
 
 				$.ajax({
 					type: "post",
-					url: "http://www.maomi.xn--fiqs8s/querySchoolInfo",
+					url: "http://www.maomiyibian.com/querySchoolInfo",
 					data: {
 						parentId: self.test.schoolName //根据学校查询年级
 					},
@@ -437,7 +437,7 @@
 
 				$.ajax({
 					type: "post",
-					url: "http://www.maomi.xn--fiqs8s/querySchoolInfo",
+					url: "http://www.maomiyibian.com/querySchoolInfo",
 					data: {
 						parentId: self.test.gradeName //根据学校查询年级
 					},

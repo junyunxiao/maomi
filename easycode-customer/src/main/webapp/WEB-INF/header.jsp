@@ -45,7 +45,7 @@
 							<li class="dropdown">
 								<a href="javascript:" class="dropdown-toggle bell">
 										<c:if test="${userData.avatar!=null }">
-												<img src="http://www.maomi.xn--fiqs8s/${userData.avatar}" />
+												<img src="http://www.maomiyibian.com/${userData.avatar}" />
 											</c:if>
 											<c:if test="${userData.avatar==null }">
 												<img src="${pageContext.request.contextPath}/public/img/ren.png" />
@@ -146,10 +146,10 @@
 <script type="text/javascript">
 	$('#serachbox').click(function() {
 		if(!$('#serachbox').val()) {
-			window.location.href = "http://www.maomi.xn--fiqs8s/#/find?q=" + $('#inputbox').val()
+			window.location.href = "http://www.maomiyibian.com/#/find?q=" + $('#inputbox').val()
 
 		} else {
-			window.location.href = "http://www.maomi.xn--fiqs8s/#/find?q=" + $('#inputbox').val()
+			window.location.href = "http://www.maomiyibian.com/#/find?q=" + $('#inputbox').val()
 		}
 	})
 /* 	document.onkeydown = function(e) {
@@ -170,7 +170,7 @@
 					url:"${pageContext.request.contextPath}/logout",
 					async:true,
 					success:function (res) {
-						window.location.href="http://www.maomi.xn--fiqs8s/#/home";
+						window.location.href="http://www.maomiyibian.com/#/home";
 					}
 				});
 		    }

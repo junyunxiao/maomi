@@ -114,7 +114,7 @@
 									<div v-else-if="isPublish==0" class="published">未发布的作品:</div>
 									<div class="col-md-12 my_all" v-for="val in resultData">
 											<div class="col-md-2 ones">
-												<img @click="urls(val.projectId)" :src="'http://www.maomi.xn--fiqs8s/'+val.resourcesUrl" class="my_pic"/>
+												<img @click="urls(val.projectId)" :src="'http://www.maomiyibian.com/'+val.resourcesUrl" class="my_pic"/>
 											</div>
 											<div class="col-md-6 text-left my_tit">
 												<h4>{{val.projectName}}</h4>
@@ -220,7 +220,7 @@
 	  	},
 	  	//点击图片跳转页面
 	  	urls:function(id){
-	  		window.location.href = 'http://www.maomi.xn--fiqs8s/getDetails/'+id
+	  		window.location.href = 'http://www.maomiyibian.com/getDetails/'+id
 	  	},
 	  	//查询发布和未发布
 	  	query:function(flag) {

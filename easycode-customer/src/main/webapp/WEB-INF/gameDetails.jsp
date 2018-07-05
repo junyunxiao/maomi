@@ -129,9 +129,6 @@
             // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
             swfobject.createCSS("#flashContent", "display:block;text-align:left;");
         </script>
-		
-		
-		
 		<div class="big" id="projectName">
        	 <!--导航条-->
 <!-- 			<div ng-include="'header.html'"></div> -->

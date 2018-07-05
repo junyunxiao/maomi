@@ -11,6 +11,8 @@ public interface CacheServeice {
 	 public long hset(String key,String field,String value) throws Exception;
 	 
 	 public String hget(String key,String field) throws Exception;
+
+	 public  String setex(String key, int timeOurt, String value) throws  Exception;
 	 
 	 public long incr(String key) throws Exception;
 	 

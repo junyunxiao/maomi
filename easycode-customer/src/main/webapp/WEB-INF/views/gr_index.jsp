@@ -53,7 +53,7 @@
 				<div class="col-md-9 col-sm-9 col-xs-9 clearmp">
 					<div class="gr_top_img col-md-3 col-sm-4 col-xs-4" style="width: 20%;">
 							<c:if test="${userData.avatar!=null }">
-								<img src="http://www.maomi.xn--fiqs8s/${userData.avatar}" class="img_header"/>
+								<img src="http://www.maomiyibian.com/${userData.avatar}" class="img_header"/>
 							</c:if>
 							<c:if test="${userData.avatar==null }">
 								<img src="public/img/ren.png" class="img_header"/>
@@ -84,7 +84,7 @@
 							</div>
 							<div class="col-xs-4 text-center">
 								<c:if test="${userData.avatar!=null }">
-									<img src="http://www.maomi.xn--fiqs8s/${userData.avatar}" class="img_header"/>
+									<img src="http://www.maomiyibian.com/${userData.avatar}" class="img_header"/>
 								</c:if>
 								<c:if test="${userData.avatar==null }">
 									<img src="public/img/touxiang.png" class="img_header"/>
@@ -110,7 +110,7 @@
 							<div class="col-md-3 col-sm-6 col-xs-6 item"v-for="val in resultData" @click="zanguo(val.projectId)">
 									<div class="thumbnail">
 								      <a href="javascript:">
-								      <img :src="'http://www.maomi.xn--fiqs8s/'+val.resourcesUrl" class="my_pic"/>
+								      <img :src="'http://www.maomiyibian.com/'+val.resourcesUrl" class="my_pic"/>
 								      </a>
 								      <div class="caption">
 								        <h5 class="ovhiden"><a href="" class="title-name">{{val.projectName}}</a></h5>

@@ -31,14 +31,15 @@
 						<div class="swiper-slide">
 							<a href=""><img src="public/img/lunbo1.png?v=20180523" class="img-responsive" /></a>
 						</div>
-					<!-- 	<div class="swiper-slide">
-							<a href=""><img src="public/img/lunbo1.png?v=20180523" class="img-responsive" /></a>
-						</div> -->
+						<!--
 						<div class="swiper-slide">
-							<a href=""><img src="public/img/lunbo3.png?v=20180527" class="img-responsive" /></a>
+							<a href=""><img src="public/img/lunbo3.png?v=20180523" class="img-responsive" /></a>
+						</div>-->
+						<div class="swiper-slide">
+							<a href=""><img src="public/img/lunbo2.png?v=20180523" class="img-responsive" /></a>
 						</div>
 						<div class="swiper-slide">
-							<a href=""><img src="public/img/lunbo4.png?v=20180527" class="img-responsive" /></a>
+							<a href=""><img src="public/img/lunbo4.png?v=20180523" class="img-responsive" /></a>
 						</div>
 					</div>
 					<div class="swiper-pagination"></div>
@@ -49,16 +50,17 @@
 				<div class="swiper-container swiper-container2 hidden-lg hidden-md hidden-sm">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<a href=""><img src="public/img/lunbo1.png" class="img-responsive" /></a>
+							<a href=""><img src="public/img/lunbo1.png?v=20180523" class="img-responsive" /></a>
 						</div>
-						<!-- <div class="swiper-slide">
-							<a href=""><img src="public/img/lunbo2.png" class="img-responsive" /></a>
-						</div> -->
+						<!--
 						<div class="swiper-slide">
-							<a href=""><img src="public/img/lunbo3.png?v=20180527" class="img-responsive" /></a>
+							<a href=""><img src="public/img/lunbo3.png?v=20180523" class="img-responsive" /></a>
+						</div>-->
+						<div class="swiper-slide">
+							<a href=""><img src="public/img/lunbo2.png?v=20180523" class="img-responsive" /></a>
 						</div>
 						<div class="swiper-slide">
-							<a href=""><img src="public/img/lunbo4.png?v=20180527" class="img-responsive" /></a>
+							<a href=""><img src="public/img/lunbo4.png?v=20180523" class="img-responsive" /></a>
 						</div>
 					</div>
 					<div class="swiper-pagination"></div>
@@ -86,7 +88,7 @@
 			</div>
 			<div class="col-md-3 hidden-sm hidden-xs text-center" style="position: relative;">
 				<img src="public/img/erweim.png?v=20180527" class="opinion img-rounded" />
-				<a href="editor.html"><img src="public/img/starter.png" class="opinion2" /></a>
+				<a href="editor.html"><img src="public/img/starter.png?v=20180422" class="opinion2" /></a>
 	
 			</div>
 		</div>
@@ -125,7 +127,7 @@
 							<div class="col-md-3 col-sm-6 col-xs-6 item" v-for="val in featured" @click="gameDetails(val)">
 								<div class="thumbnail">
 									<a class="g_detail">
-										<img style=" height: 130px;" :src="'http://www.maomi.xn--fiqs8s/'+val.resourcesUrl"/>
+										<img style=" height: 130px;" :src="'http://www.maomiyibian.com/'+val.resourcesUrl"/>
 									</a>
 									<div class="caption">
 										<h5 class="ovhiden"><a href="" class="title-name">{{val.createUserName}}</a></h5>
@@ -169,7 +171,7 @@
 								<div class="thumbnail">
 									<a class="g_detail">
 
-										<img style=" height: 130px;" :src="'http://www.maomi.xn--fiqs8s/'+val.resourcesUrl"/>
+										<img style=" height: 130px;" :src="'http://www.maomiyibian.com/'+val.resourcesUrl"/>
 									</a>
 									<div class="caption">
 										<h5 class="ovhiden"><a href="" class="title-name">{{val.createUserName}}</a></h5>
@@ -286,7 +288,7 @@
 	  		_this.isLoding = true	//显示loding
 					$.ajax({
 						type:"post",
-						url: "http://www.maomi.xn--fiqs8s/queryFeatured",
+						url: "http://www.maomiyibian.com/queryFeatured",
 						 success:function (res) {
 					 		_this.isLoding = false	//隐藏loding
 							_this.featured = res.bodyData.rows
@@ -294,13 +296,13 @@
 					 }
 					});
 	  	},
-	  	//热门作品http://www.maomi.xn--fiqs8s/queryHot
+	  	//热门作品http://www.maomiyibian.com/queryHot
 	  	queryHot:function() {
 	  		var _this = this;
 	  		_this.isLoding = true	//显示loding
 					$.ajax({
 						type:"post",
-						url: "http://www.maomi.xn--fiqs8s/queryHot",
+						url: "http://www.maomiyibian.com/queryHot",
 						 success:function (res) {
 					 		_this.isLoding = false	//隐藏loding
 								_this.hot = res.bodyData.rows

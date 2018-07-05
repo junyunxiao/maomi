@@ -50,6 +50,11 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<session-config>
+		<session-timeout>130</session-timeout>
+	</session-config>
+
+
 	<!-- springmvc的前端控制器 -->
 	<servlet>
 		<servlet-name>springmvc</servlet-name>

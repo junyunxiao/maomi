@@ -53,10 +53,8 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider){
 			.when('/rele2',{templateUrl:'views/rele2.html',controller:'rele2'})
 			//课程体系
 			.when('/system',{templateUrl:'views/system.html'})
-			//课程报名
+            //课程报名
 			.when('/enroll',{templateUrl:'views/enroll.html'})
-			
-			
 			.otherwise({redirectTo:'/home'});
 
 		}])
@@ -162,7 +160,7 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider){
 						
 						$.ajax({
 							type:"post",
-							url:"http://www.maomi.xn--fiqs8s/userCheck",
+							url:"http://www.maomiyibian.com/userCheck",
 							data:{
 								userName:$('#regName').val()
 							},
@@ -320,7 +318,7 @@ app.config(['$routeProvider','$locationProvider',function($routeProvider){
 			}
 			$.ajax({
 				type:"post",
-				url: "http://www.maomi.xn--fiqs8s/regist",
+				url: "http://www.maomiyibian.com/regist",
 				async:true,
 				data: {
 					userName: $('#regName').val(),//用户名

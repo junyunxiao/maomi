@@ -262,7 +262,7 @@
 						var _this = this;
 						$.ajax({
 							type:"post",
-							url:"http://www.maomi.xn--fiqs8s/querySchoolInfo",
+							url:"http://www.maomiyibian.com/querySchoolInfo",
 							async:false,
 							data:{
 								parentId:_this.parentId
@@ -282,7 +282,7 @@
 						var _this = this;
 						$.ajax({
 							type:"post",
-							url:"http://www.maomi.xn--fiqs8s/querySchoolInfo",
+							url:"http://www.maomiyibian.com/querySchoolInfo",
 							async:false,
 							data:{
 								parentId:this.dataid
@@ -301,7 +301,7 @@
 						var _this = this;
 						$.ajax({
 							type:"post",
-							url:"http://www.maomi.xn--fiqs8s/querySchoolInfo",
+							url:"http://www.maomiyibian.com/querySchoolInfo",
 							async:false,
 							data:{
 								parentId:this.dataid2

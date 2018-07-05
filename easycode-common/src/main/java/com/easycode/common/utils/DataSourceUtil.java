@@ -30,7 +30,7 @@ public class DataSourceUtil {
 	
 	
 	public static void main(String[] args) throws Exception {
-		DataBase dataBase = DataSourceUtil.encrypt("xiaoxiao");
+		DataBase dataBase = DataSourceUtil.encrypt("directxjy921");
 		System.err.println("公匙:"+dataBase.getPublicKey()+"\n");
 		System.err.println("私匙:"+dataBase.getPrivateKey()+"\n");
 		System.err.println("密文:"+dataBase.getCiphertext()+"\n");

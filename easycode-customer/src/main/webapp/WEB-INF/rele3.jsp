@@ -687,7 +687,7 @@
 									<div class="conmment-content clearfix">
 										<div class="item-left">
 											<a href="javascript:">
-												<img width="60px" height="60px" v-if="val.customer.avatar" :src="'http://www.maomi.xn--fiqs8s/'+val.customer.avatar" />
+												<img width="60px" height="60px" v-if="val.customer.avatar" :src="'http://www.maomiyibian.com/'+val.customer.avatar" />
 												<img v-else src="public/img/touxiang.png" />
 												<div class="item-content">
 													<a href="javascript:">{{val.customer.userNick}}</a>
@@ -716,7 +716,7 @@
 										<div class="conmment-content clearfix">
 											<div class="item-left item-left-to" v-for="(item,ind) in val.replyComment">
 												<a href="javascript:" style="margin-right: 20px;">
-													<img width="60px" height="60px" v-if="item.replyCustomer.avatar" :src="'http://www.maomi.xn--fiqs8s/'+item.replyCustomer.avatar" />
+													<img width="60px" height="60px" v-if="item.replyCustomer.avatar" :src="'http://www.maomiyibian.com/'+item.replyCustomer.avatar" />
 													<img v-else src="public/img/touxiang.png" />
 												</a>
 												<div class="item-content">
@@ -1253,7 +1253,7 @@
 
     jQuery('#qrcodeCanvas').qrcode({
     	 render    : "canvas",
-        text    : "http://www.maomi.xn--fiqs8s/queryDetail/${projectId}",
+        text    : "http://www.maomiyibian.com/queryDetail/${projectId}",
         width : "100",               //二维码的宽度
         height : "100",              //二维码的高度
         background : "#ffffff",       //二维码的后景色

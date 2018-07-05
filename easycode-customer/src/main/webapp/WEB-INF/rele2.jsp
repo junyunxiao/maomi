@@ -43,7 +43,7 @@
             var flashvars = {
             	extensionDevMode: 'true',
             	showOnly: 'true',
-            	projectUrl: 'http://www.maomi.xn--fiqs8s/${projectUrl}'
+            	projectUrl: 'http://www.maomiyibian.com/${projectUrl}'
             };
             var params = {};
             params.quality = "high";
@@ -620,7 +620,7 @@
 			  		_this.isLoding = true	//显示loding
 							$.ajax({
 								type:"post",
-								url: "http://www.maomi.xn--fiqs8s/queryCategoryInfo",
+								url: "http://www.maomiyibian.com/queryCategoryInfo",
 							 success:function (res) {
 							 	if (res.resultCode == 1) {
 							 		_this.isLoding = false	//隐藏loding
@@ -644,7 +644,7 @@
 						var _this = this;
 						$.ajax({
 							type:"post",
-							url:"http://www.maomi.xn--fiqs8s/querySchoolInfo",
+							url:"http://www.maomiyibian.com/querySchoolInfo",
 							async:false,
 							data:{
 								parentId:_this.parentId
@@ -664,7 +664,7 @@
 						var _this = this;
 						$.ajax({
 							type:"post",
-							url:"http://www.maomi.xn--fiqs8s/querySchoolInfo",
+							url:"http://www.maomiyibian.com/querySchoolInfo",
 							async:false,
 							data:{
 								parentId:this.dataid
@@ -683,7 +683,7 @@
 						var _this = this;
 						$.ajax({
 							type:"post",
-							url:"http://www.maomi.xn--fiqs8s/querySchoolInfo",
+							url:"http://www.maomiyibian.com/querySchoolInfo",
 							async:false,
 							data:{
 								parentId:this.dataid2
@@ -709,7 +709,7 @@
 					        })
 							$.ajax({
 								type:"post",
-								url: "http://www.maomi.xn--fiqs8s/release",
+								url: "http://www.maomiyibian.com/release",
 								data:{
 									projectName:$('#projectName').val(),
 									projectType:_this.projectType,	//作品类别
